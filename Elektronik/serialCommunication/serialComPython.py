@@ -1,25 +1,26 @@
 import serial
-import time 
+import time
 
-readData = serial.Serial('COMx', 9600, timeout = .1) #COMx is used COM-Port x must be checked on PC
-sendData = serial.Serial('COMx', 9600, timeout = .1) 
+bt = serial.Serial('COM5', 9600, timeout = .1) #COMx is used COM-Port x must be checked on PC
+mod = input('Modus? r(read), s(send)')
 
-while True:
-    data = readData.readline()[:-2]
-    input = input('>> ')
+if mod == 'r':
+    while True:
+        data = bt.readline()[:-2]
+        input = input('>> ')
 
-    if data:
-        print(data)
+        if data:
+            print(data)
 
-    if input == 'exit':
-        sendData.close()
-        exit()
-    else:
-        sendData.write(input + '\r\n')
-        out = ''
-        time.sleep(1)
-        while sendData.inWaiting() > 0:
-            out +=readData.read(1)
-        if out != '':
-            print ('>>' + out)
+        if input == 'exit':
+            bt.close()
+            exit()
+        else:
+            bt.write(input + '\r\n')
+            out = ''
+            time.sleep(1)
+            while bt.inWaiting() > 0:
+                out += bt.read(1)
+                if out != '':
+                    print ('>>' + out)
 
