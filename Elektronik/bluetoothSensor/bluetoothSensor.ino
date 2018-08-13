@@ -53,18 +53,6 @@ void setup() {
 }
 
 void loop() {
-<<<<<<< HEAD
-  for(int i = 0; i<10; i++){
-  value0 = analogRead(input0);
-  value += value0;
-  delay(100);
-  }
-  valueMittel = (value / 10) * (5.0 / 1023.0);
-  bt.print("Value0 = ");
-  bt.println(valueMittel);
-  value = 0;
-  valueMittel = 0;
-=======
   //Read values from mux0 - mux3 and send them via bluetooth to python 
   Wire.requestFrom(mux0, 16);
   bt.print("Value00 = ");
@@ -106,5 +94,4 @@ void loop() {
   bt.print("Value33 = ");
   bt.println(adc33)
   
->>>>>>> abe6c11f4281c5e0e461aa7597f71556b6b7a2c3
 }
