@@ -10,6 +10,10 @@ bt = serial.Serial('COM5', 9600, timeout =.1) #COMx is used COM-Port x must be c
 
 
 while True:
-    data = bt.readline()[:-2]
-    if data:
-        print (data)
+    for i in range(0, 10000):
+        data = bt.readline()[:-2]
+        if data:
+            print (data)
+        i += i
+    bt.close()
+    

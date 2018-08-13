@@ -20,7 +20,7 @@ void loop() {
   value += value0;
   delay(100);
   }
-  valueMittel = value / 10;
+  valueMittel = (value / 10) * (5.0 / 1023.0);
   bt.print("Value0 = ");
   bt.println(valueMittel);
   value = 0;
