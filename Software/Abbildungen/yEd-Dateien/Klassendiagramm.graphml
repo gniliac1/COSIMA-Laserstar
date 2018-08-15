@@ -17,13 +17,16 @@
     <node id="n0">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.process">
-          <y:Geometry height="470.9000000000002" width="829.0" x="290.39999999999986" y="-103.4500000000001"/>
+          <y:Geometry height="490.9000000000002" width="901.5" x="277.225" y="-532.7250000000001"/>
           <y:Fill color="#F7E7E7" color2="#F7E7E7" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="197.41796875" x="4.0" y="4.0">def initModel( fileName )
-def saveModel( fileName )
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="106.908203125" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="208.0703125" x="4.0" y="4.0">--- Class PySide2 ---
+def loadUser( fileName ) 
 def getSensorData( vektor(Sensor) )
-</y:NodeLabel>
+def recordData( array(int) )
+def saveData( fileName, [array, array])
+def setPort( string, string ) 
+def ControlOktoauto( [int, int] )</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -31,7 +34,7 @@ def getSensorData( vektor(Sensor) )
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="143.0" width="145.0" x="696.0" y="42.9500000000001"/>
+          <y:Geometry height="143.0" width="145.0" x="776.0" y="-320.7999999999999"/>
           <y:Fill color="#E8EEF7" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasLineColor="false" height="35.8525390625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="264.80615234375" x="-59.903076171875" y="3.0">                           Sensor                          
@@ -56,7 +59,7 @@ def getSensorData( vektor(Sensor) )
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="74.0" width="131.0" x="921.0" y="-8.549999999999898"/>
+          <y:Geometry height="74.0" width="131.0" x="1001.0" y="-372.2999999999999"/>
           <y:Fill color="#E8EEF7" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasLineColor="false" height="19.92626953125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="266.91357421875" x="-67.956787109375" y="3.0">                           Photodiode                          <y:LabelModel>
@@ -77,7 +80,7 @@ def getSensorData( vektor(Sensor) )
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="74.0" width="131.0" x="921.0" y="83.4500000000001"/>
+          <y:Geometry height="74.0" width="131.0" x="1001.0" y="-280.2999999999999"/>
           <y:Fill color="#E8EEF7" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasLineColor="false" height="19.92626953125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="314.60986328125" x="-91.804931640625" y="3.0">                           Entfernungssensor                          <y:LabelModel>
@@ -98,7 +101,7 @@ def getSensorData( vektor(Sensor) )
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="67.0" width="131.0" x="921.0" y="180.4500000000001"/>
+          <y:Geometry height="67.0" width="131.0" x="1001.0" y="-188.2999999999999"/>
           <y:Fill color="#E8EEF7" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasLineColor="false" height="19.92626953125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="256.10986328125" x="-62.554931640625" y="3.0">                           Gyroskop                          <y:LabelModel>
@@ -119,10 +122,10 @@ def getSensorData( vektor(Sensor) )
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="143.0" width="186.0" x="383.0" y="22.0"/>
+          <y:Geometry height="251.0" width="228.89999999999998" x="481.05" y="-372.2999999999999"/>
           <y:Fill color="#E8EEF7" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasLineColor="false" height="19.92626953125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="277.025390625" x="-45.5126953125" y="3.0">                           NutzerConfig                          
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasLineColor="false" height="19.92626953125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="261.88623046875" x="-16.49311523437501" y="3.0">                           UserModel                          
 <y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -133,18 +136,25 @@ def getSensorData( vektor(Sensor) )
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>- _modelStehend : KerasModel
 - _modelSitzend : KerasModel
-- _gesteZuSteuerung : int</y:AttributeLabel>
-            <y:MethodLabel/>
+- _gestureToCommand : array
++ modus : bool</y:AttributeLabel>
+            <y:MethodLabel>+ getControllCommand( array ) : [int, int]
++ setControlCommand( array ) 
++ getCommandList( ) : array
++ getGestureList( ) : array
++ initModel( fileName )
++ saveModel( fileName )
++ trainModel( fileName = NONE )
++ saveUser( fileName ) </y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
       </data>
     </node>
     <node id="n6">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="28.0" width="100.0" x="426.0" y="253.4000000000002"/>
+          <y:Geometry height="28.0" width="100.0" x="315.0" y="-260.7999999999999"/>
           <y:Fill color="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="77.68994140625" x="11.155029296875" y="3.0">KerasModel<y:LabelModel>
@@ -161,9 +171,30 @@ def getSensorData( vektor(Sensor) )
         </y:UMLClassNode>
       </data>
     </node>
+    <node id="n7">
+      <data key="d4"/>
+      <data key="d5"/>
+      <data key="d6">
+        <y:UMLClassNode>
+          <y:Geometry height="28.0" width="100.0" x="315.0" y="-341.75"/>
+          <y:Fill color="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.92626953125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="39.41357421875" x="30.293212890625" y="3.0">Serial<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+            <y:AttributeLabel/>
+            <y:MethodLabel/>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
     <edge id="e0" source="n2" target="n1">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -175,7 +206,6 @@ def getSensorData( vektor(Sensor) )
     </edge>
     <edge id="e1" source="n3" target="n1">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -187,7 +217,6 @@ def getSensorData( vektor(Sensor) )
     </edge>
     <edge id="e2" source="n4" target="n1">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -199,7 +228,6 @@ def getSensorData( vektor(Sensor) )
     </edge>
     <edge id="e3" source="n5" target="n6">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
