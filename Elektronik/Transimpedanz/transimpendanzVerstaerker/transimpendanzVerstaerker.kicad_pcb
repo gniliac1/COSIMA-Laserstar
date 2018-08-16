@@ -108,7 +108,7 @@
     (add_net "Net-(J1-Pad3)")
   )
 
-  (module LED_THT:LED_D3.0mm_IRBlack (layer F.Cu) (tedit 5A6C9BB8) (tstamp 5B98D994)
+  (module LED_THT:LED_D3.0mm_IRBlack (layer F.Cu) (tedit 5B756558) (tstamp 5B98D994)
     (at 130.81 92.71 90)
     (descr "IR-ED, diameter 3.0mm, 2 pins, color: black")
     (tags "IR infrared LED diameter 3.0mm 2 pins black")
@@ -116,7 +116,7 @@
     (fp_text reference D1 (at 1.27 -2.96 90) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value IR204A (at 1.27 2.96 90) (layer F.Fab)
+    (fp_text value IR204A (at 1.27 2.96 90) (layer F.Fab) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text user %R (at 1.47 0 90) (layer F.Fab)
@@ -146,7 +146,7 @@
     )
   )
 
-  (module Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder (layer F.Cu) (tedit 5B755DD1) (tstamp 5B98D980)
+  (module Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder (layer F.Cu) (tedit 5B75654D) (tstamp 5B98D980)
     (at 127 99.06 270)
     (descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
     (tags "capacitor handsolder")
@@ -155,7 +155,7 @@
     (fp_text reference C1 (at 0 -1.65 270) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value 1pF (at 0 1.65 270) (layer F.Fab)
+    (fp_text value 1pF (at 0 1.65 270) (layer F.Fab) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_line (start -1 0.6) (end -1 -0.6) (layer F.Fab) (width 0.1))
@@ -182,7 +182,7 @@
     )
   )
 
-  (module Connector:FanPinHeader_1x03_P2.54mm_Vertical (layer F.Cu) (tedit 5A19DCDF) (tstamp 5B98D9AE)
+  (module Connector:FanPinHeader_1x03_P2.54mm_Vertical (layer F.Cu) (tedit 5B75655E) (tstamp 5B98D9AE)
     (at 127 82.55)
     (descr "3-pin CPU fan Through hole pin header, see http://www.formfactors.org/developer%5Cspecs%5Crev1_2_public.pdf")
     (tags "pin header 3-pin CPU fan")
@@ -190,7 +190,7 @@
     (fp_text reference J1 (at 2.5 -3.4) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value con1 (at 2.55 4.5) (layer F.Fab)
+    (fp_text value con1 (at 2.55 4.5) (layer F.Fab) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text user %R (at 2.45 1.8) (layer F.Fab)
@@ -227,7 +227,7 @@
     )
   )
 
-  (module Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder (layer F.Cu) (tedit 5B36C52B) (tstamp 5B98D9BF)
+  (module Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder (layer F.Cu) (tedit 5B75654A) (tstamp 5B98D9BF)
     (at 132.08 99.06 270)
     (descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
     (tags "resistor handsolder")
@@ -236,7 +236,7 @@
     (fp_text reference R1 (at 0 -1.65 270) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value 1MOhm (at 0 1.65 270) (layer F.Fab)
+    (fp_text value 1MOhm (at 0 1.65 270) (layer F.Fab) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_line (start -1 0.6) (end -1 -0.6) (layer F.Fab) (width 0.1))
@@ -263,7 +263,7 @@
     )
   )
 
-  (module Package_SO:SOIC-8_3.9x4.9mm_P1.27mm (layer F.Cu) (tedit 5A02F2D3) (tstamp 5B98D9DC)
+  (module Package_SO:SOIC-8_3.9x4.9mm_P1.27mm (layer F.Cu) (tedit 5B756568) (tstamp 5B98D9DC)
     (at 140.97 90.17 90)
     (descr "8-Lead Plastic Small Outline (SN) - Narrow, 3.90 mm Body [SOIC] (see Microchip Packaging Specification 00000049BS.pdf)")
     (tags "SOIC 1.27")
@@ -272,7 +272,7 @@
     (fp_text reference U1 (at 0 -3.5 90) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value LM358 (at 0 3.5 90) (layer F.Fab)
+    (fp_text value LM358 (at 0 3.5 90) (layer F.Fab) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text user %R (at 0 0 90) (layer F.Fab)
