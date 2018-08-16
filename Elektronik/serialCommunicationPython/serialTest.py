@@ -7,12 +7,12 @@ Created on Fri Aug 10 11:17:44 2018
 
 import serial
 bt = serial.Serial('COM5', 9600, timeout =.1) #COMx is used COM-Port x must be checked on PC
+bt.open()
 
-while data:
+while bt:
     data = bt.readline()[:-2]
     if data:
         print (data)
-        
-if !data:
+if !bt:        
     bt.close()
 
