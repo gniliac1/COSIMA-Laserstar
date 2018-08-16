@@ -4,12 +4,10 @@ Created on Tue Aug 14 17:06:09 2018
 
 @author: Cailing
 """
-import numpy as np
+import userModel
 
-def loadUser( fileName ) :
-    userFile = np.genfromtxt( fileName, dtype='str' )
-    return userFile
+def loadUser( fileName='../data/user1.txt' ) :
+    myUser = userModel.UserModel( fileName )
+    return myUser
 
-userFile = loadUser('../data/user1.txt')
-
-    
+def createSensor

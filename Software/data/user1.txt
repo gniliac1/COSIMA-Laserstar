@@ -1,5 +1,4 @@
 testUser
 ../data/firstComponentModel.h5
-NONE
-port1
-port2
+../data/firstComponentModel.h5
+../data/commandMap.txt
