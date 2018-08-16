@@ -13,6 +13,6 @@ while bt:
     data = bt.readline()[:-2]
     if data:
         print (data)
-if !bt:        
-    bt.close()
+    if (data=='exit'):        
+        bt.close()
 
