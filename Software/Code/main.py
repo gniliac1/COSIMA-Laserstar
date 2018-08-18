@@ -10,6 +10,7 @@ import gestiFuncs as gesti
 import sensor
 import numpy as np
 import serial
+from time import sleep
 
 # Variablen initialisieren
 oldCommand = np.array([0,0])
@@ -20,26 +21,38 @@ myUserModel = gesti.loadUser()
 # Erstellen von Sensoren in einem array der Länge nSensoren (darin enthalten 
 # sollten alle nötigen Sensoren sein wie Photodioden und Abstandssensor)
 nSensoren = 10
-sensorArray = np.array([])
+sensorArray = np.array([], dtype = sensor.Sensor)
 for i in range(nSensoren):
-    sensorArray = np.insert(sensorArray, sensorArray.shape[0], sensor.Sensor)
+    sensorArray = np.insert(sensorArray, sensorArray.shape[0], sensor.Sensor(1))
 
 # Öffnen der Ports für die Photoplatte und das Oktoauto
 # COMx is used COM-Port x must be checked on PC
+# TODO: Testen ob öffnen und schießen besser ist
 photoPort = serial.Serial('COM5', 9600, timeout = .1)
 photoPort.open() 
 oktoPort = serial.Serial('COM8', 9600, timeout = .1)
 oktoPort.open()
 
-# TODO: Anfang Loop ---> 
+# Anfang Loop ---> 
+# TODO: Wann wird das ausgeführt?
+    
+while photoPort.in_waiting() <= 2:
+    sleep(0.1)
 
-# TODO: Auslesen von Sensordaten der Photoplatte vom Port, solange es noch Änderungen 
+# Auslesen von Sensordaten der Photoplatte vom Port, solange es noch Änderungen 
 # gibt und Speichern in diejeweilige Klasse Photodiode
+# newData[0] = Sensornummer, newData[1] = Wert
+# TODO: Gucken wie newData aussieht
+while photoPort.in_waiting() >= 2:
+    newData = photoPort.read(2)
+    sensorArray[newData[0]].value = newData[1]
+    sleep(0.1) # Zeit, bis neue Änderungen angekommen sind
+
 
 # Auslesen aller Sensordaten des Photodioden-Arrays
 curData = np.array([])
 for i in range(nSensoren):
-    curData = np.insert(curData, curData.shape[0], sensorArray.getValue())
+    curData = np.insert(curData, curData.shape[0], sensorArray[i].getValue())
 
 # TODO: Bereinigen der Daten, falls nötig. Der Teil muss noch geguckt werden...
 
