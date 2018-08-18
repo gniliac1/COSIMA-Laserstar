@@ -15,7 +15,7 @@ class Sensor :
     
     # Wert zwischen 0 und 1 
     def getValue(self):
-        return self.value / (self.maxValue - self.minValue)
+        return (self.value - self.minValue) / (self.maxValue - self.minValue)
   
 """ Falls nötig
 
