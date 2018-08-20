@@ -9,5 +9,3 @@ import userModel
 def loadUser( fileName='../data/user1.txt' ) :
     myUser = userModel.UserModel( fileName )
     return myUser
-
-def createSensor
