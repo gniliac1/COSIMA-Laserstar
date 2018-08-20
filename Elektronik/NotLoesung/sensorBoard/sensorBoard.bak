@@ -80,435 +80,6 @@ F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 1650 2950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Amplifier_Operational:LM358 U?
-U 1 1 5B781F89
-P 5100 3750
-F 0 "U?" H 5100 4117 50  0000 C CNN
-F 1 "LM358" H 5100 4026 50  0000 C CNN
-F 2 "" H 5100 3750 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5100 3750 50  0001 C CNN
-	1    5100 3750
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 3 1 5B781F90
-P 5100 3750
-F 0 "U?" H 5058 3796 50  0000 L CNN
-F 1 "LM358" H 5058 3705 50  0000 L CNN
-F 2 "" H 5100 3750 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5100 3750 50  0001 C CNN
-	3    5100 3750
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 2 1 5B781F97
-P 5100 4350
-F 0 "U?" H 5100 4717 50  0000 C CNN
-F 1 "LM358" H 5100 4626 50  0000 C CNN
-F 2 "" H 5100 4350 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5100 4350 50  0001 C CNN
-	2    5100 4350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 1 1 5B781FF5
-P 5100 5100
-F 0 "U?" H 5100 5467 50  0000 C CNN
-F 1 "LM358" H 5100 5376 50  0000 C CNN
-F 2 "" H 5100 5100 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5100 5100 50  0001 C CNN
-	1    5100 5100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 3 1 5B781FFC
-P 5100 5100
-F 0 "U?" H 5058 5146 50  0000 L CNN
-F 1 "LM358" H 5058 5055 50  0000 L CNN
-F 2 "" H 5100 5100 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5100 5100 50  0001 C CNN
-	3    5100 5100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 2 1 5B782003
-P 5100 5700
-F 0 "U?" H 5100 6067 50  0000 C CNN
-F 1 "LM358" H 5100 5976 50  0000 C CNN
-F 2 "" H 5100 5700 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5100 5700 50  0001 C CNN
-	2    5100 5700
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 1 1 5B78248A
-P 5100 6400
-F 0 "U?" H 5100 6767 50  0000 C CNN
-F 1 "LM358" H 5100 6676 50  0000 C CNN
-F 2 "" H 5100 6400 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5100 6400 50  0001 C CNN
-	1    5100 6400
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 3 1 5B782491
-P 5100 6400
-F 0 "U?" H 5058 6446 50  0000 L CNN
-F 1 "LM358" H 5058 6355 50  0000 L CNN
-F 2 "" H 5100 6400 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5100 6400 50  0001 C CNN
-	3    5100 6400
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 2 1 5B782498
-P 5100 7000
-F 0 "U?" H 5100 7367 50  0000 C CNN
-F 1 "LM358" H 5100 7276 50  0000 C CNN
-F 2 "" H 5100 7000 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5100 7000 50  0001 C CNN
-	2    5100 7000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 1 1 5B78253E
-P 5100 7700
-F 0 "U?" H 5100 8067 50  0000 C CNN
-F 1 "LM358" H 5100 7976 50  0000 C CNN
-F 2 "" H 5100 7700 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5100 7700 50  0001 C CNN
-	1    5100 7700
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 3 1 5B782545
-P 5100 7700
-F 0 "U?" H 5058 7746 50  0000 L CNN
-F 1 "LM358" H 5058 7655 50  0000 L CNN
-F 2 "" H 5100 7700 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5100 7700 50  0001 C CNN
-	3    5100 7700
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 2 1 5B78254C
-P 5100 8300
-F 0 "U?" H 5100 8667 50  0000 C CNN
-F 1 "LM358" H 5100 8576 50  0000 C CNN
-F 2 "" H 5100 8300 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5100 8300 50  0001 C CNN
-	2    5100 8300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 1 1 5B7825E3
-P 5100 9050
-F 0 "U?" H 5100 9417 50  0000 C CNN
-F 1 "LM358" H 5100 9326 50  0000 C CNN
-F 2 "" H 5100 9050 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5100 9050 50  0001 C CNN
-	1    5100 9050
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 3 1 5B7825EA
-P 5100 9050
-F 0 "U?" H 5058 9096 50  0000 L CNN
-F 1 "LM358" H 5058 9005 50  0000 L CNN
-F 2 "" H 5100 9050 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5100 9050 50  0001 C CNN
-	3    5100 9050
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 2 1 5B7825F1
-P 5100 9650
-F 0 "U?" H 5100 10017 50  0000 C CNN
-F 1 "LM358" H 5100 9926 50  0000 C CNN
-F 2 "" H 5100 9650 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5100 9650 50  0001 C CNN
-	2    5100 9650
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 1 1 5B782A2D
-P 5100 10400
-F 0 "U?" H 5100 10767 50  0000 C CNN
-F 1 "LM358" H 5100 10676 50  0000 C CNN
-F 2 "" H 5100 10400 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5100 10400 50  0001 C CNN
-	1    5100 10400
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 3 1 5B782A34
-P 5100 10400
-F 0 "U?" H 5058 10446 50  0000 L CNN
-F 1 "LM358" H 5058 10355 50  0000 L CNN
-F 2 "" H 5100 10400 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5100 10400 50  0001 C CNN
-	3    5100 10400
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 2 1 5B782A3B
-P 5100 11000
-F 0 "U?" H 5100 11367 50  0000 C CNN
-F 1 "LM358" H 5100 11276 50  0000 C CNN
-F 2 "" H 5100 11000 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5100 11000 50  0001 C CNN
-	2    5100 11000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 1 1 5B782ADE
-P 5050 11750
-F 0 "U?" H 5050 12117 50  0000 C CNN
-F 1 "LM358" H 5050 12026 50  0000 C CNN
-F 2 "" H 5050 11750 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5050 11750 50  0001 C CNN
-	1    5050 11750
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 3 1 5B782AE5
-P 5050 11750
-F 0 "U?" H 5008 11796 50  0000 L CNN
-F 1 "LM358" H 5008 11705 50  0000 L CNN
-F 2 "" H 5050 11750 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5050 11750 50  0001 C CNN
-	3    5050 11750
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 2 1 5B782AEC
-P 5050 12350
-F 0 "U?" H 5050 12717 50  0000 C CNN
-F 1 "LM358" H 5050 12626 50  0000 C CNN
-F 2 "" H 5050 12350 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5050 12350 50  0001 C CNN
-	2    5050 12350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 1 1 5B782D72
-P 5050 13050
-F 0 "U?" H 5050 13417 50  0000 C CNN
-F 1 "LM358" H 5050 13326 50  0000 C CNN
-F 2 "" H 5050 13050 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5050 13050 50  0001 C CNN
-	1    5050 13050
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 3 1 5B782D79
-P 5050 13050
-F 0 "U?" H 5008 13096 50  0000 L CNN
-F 1 "LM358" H 5008 13005 50  0000 L CNN
-F 2 "" H 5050 13050 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5050 13050 50  0001 C CNN
-	3    5050 13050
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 2 1 5B782D80
-P 5050 13650
-F 0 "U?" H 5050 14017 50  0000 C CNN
-F 1 "LM358" H 5050 13926 50  0000 C CNN
-F 2 "" H 5050 13650 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5050 13650 50  0001 C CNN
-	2    5050 13650
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 1 1 5B782E2F
-P 5050 14350
-F 0 "U?" H 5050 14717 50  0000 C CNN
-F 1 "LM358" H 5050 14626 50  0000 C CNN
-F 2 "" H 5050 14350 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5050 14350 50  0001 C CNN
-	1    5050 14350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 3 1 5B782E36
-P 5050 14350
-F 0 "U?" H 5008 14396 50  0000 L CNN
-F 1 "LM358" H 5008 14305 50  0000 L CNN
-F 2 "" H 5050 14350 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5050 14350 50  0001 C CNN
-	3    5050 14350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 2 1 5B782E3D
-P 5050 14950
-F 0 "U?" H 5050 15317 50  0000 C CNN
-F 1 "LM358" H 5050 15226 50  0000 C CNN
-F 2 "" H 5050 14950 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5050 14950 50  0001 C CNN
-	2    5050 14950
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 1 1 5B782EE3
-P 5000 15750
-F 0 "U?" H 5000 16117 50  0000 C CNN
-F 1 "LM358" H 5000 16026 50  0000 C CNN
-F 2 "" H 5000 15750 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5000 15750 50  0001 C CNN
-	1    5000 15750
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 3 1 5B782EEA
-P 5000 15750
-F 0 "U?" H 4958 15796 50  0000 L CNN
-F 1 "LM358" H 4958 15705 50  0000 L CNN
-F 2 "" H 5000 15750 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5000 15750 50  0001 C CNN
-	3    5000 15750
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 2 1 5B782EF1
-P 5000 16350
-F 0 "U?" H 5000 16717 50  0000 C CNN
-F 1 "LM358" H 5000 16626 50  0000 C CNN
-F 2 "" H 5000 16350 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5000 16350 50  0001 C CNN
-	2    5000 16350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 1 1 5B7844D6
-P 5050 17200
-F 0 "U?" H 5050 17567 50  0000 C CNN
-F 1 "LM358" H 5050 17476 50  0000 C CNN
-F 2 "" H 5050 17200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5050 17200 50  0001 C CNN
-	1    5050 17200
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 3 1 5B7844DD
-P 5050 17200
-F 0 "U?" H 5008 17246 50  0000 L CNN
-F 1 "LM358" H 5008 17155 50  0000 L CNN
-F 2 "" H 5050 17200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5050 17200 50  0001 C CNN
-	3    5050 17200
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 2 1 5B7844E4
-P 5050 17800
-F 0 "U?" H 5050 18167 50  0000 C CNN
-F 1 "LM358" H 5050 18076 50  0000 C CNN
-F 2 "" H 5050 17800 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5050 17800 50  0001 C CNN
-	2    5050 17800
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 1 1 5B7845EA
-P 5050 18550
-F 0 "U?" H 5050 18917 50  0000 C CNN
-F 1 "LM358" H 5050 18826 50  0000 C CNN
-F 2 "" H 5050 18550 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5050 18550 50  0001 C CNN
-	1    5050 18550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 3 1 5B7845F1
-P 5050 18550
-F 0 "U?" H 5008 18596 50  0000 L CNN
-F 1 "LM358" H 5008 18505 50  0000 L CNN
-F 2 "" H 5050 18550 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5050 18550 50  0001 C CNN
-	3    5050 18550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 2 1 5B7845F8
-P 5050 19150
-F 0 "U?" H 5050 19517 50  0000 C CNN
-F 1 "LM358" H 5050 19426 50  0000 C CNN
-F 2 "" H 5050 19150 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 5050 19150 50  0001 C CNN
-	2    5050 19150
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 1 1 5B7846A7
-P 7400 16450
-F 0 "U?" H 7400 16817 50  0000 C CNN
-F 1 "LM358" H 7400 16726 50  0000 C CNN
-F 2 "" H 7400 16450 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 7400 16450 50  0001 C CNN
-	1    7400 16450
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 3 1 5B7846AE
-P 7400 16450
-F 0 "U?" H 7358 16496 50  0000 L CNN
-F 1 "LM358" H 7358 16405 50  0000 L CNN
-F 2 "" H 7400 16450 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 7400 16450 50  0001 C CNN
-	3    7400 16450
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:LM358 U?
-U 2 1 5B7846B5
-P 7400 17050
-F 0 "U?" H 7400 17417 50  0000 C CNN
-F 1 "LM358" H 7400 17326 50  0000 C CNN
-F 2 "" H 7400 17050 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 7400 17050 50  0001 C CNN
-	2    7400 17050
-	1    0    0    -1  
-$EndComp
-$Comp
 L LED:IR204A D?
 U 1 1 5B784770
 P 1050 1000
@@ -553,292 +124,6 @@ F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 1000 3050 50  0001
 	-1   0    0    1   
 $EndComp
 $Comp
-L LED:IR204A D?
-U 1 1 5B785E6E
-P 4300 3850
-F 0 "D?" H 4250 3635 50  0000 C CNN
-F 1 "IR204A" H 4250 3726 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4300 4025 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4250 3850 50  0001 C CNN
-	1    4300 3850
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B785ED7
-P 4350 4450
-F 0 "D?" H 4300 4235 50  0000 C CNN
-F 1 "IR204A" H 4300 4326 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4350 4625 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4300 4450 50  0001 C CNN
-	1    4350 4450
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B785F43
-P 4350 5200
-F 0 "D?" H 4300 4985 50  0000 C CNN
-F 1 "IR204A" H 4300 5076 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4350 5375 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4300 5200 50  0001 C CNN
-	1    4350 5200
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B786546
-P 4350 5800
-F 0 "D?" H 4300 5585 50  0000 C CNN
-F 1 "IR204A" H 4300 5676 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4350 5975 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4300 5800 50  0001 C CNN
-	1    4350 5800
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B7865A2
-P 4400 6500
-F 0 "D?" H 4350 6285 50  0000 C CNN
-F 1 "IR204A" H 4350 6376 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4400 6675 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4350 6500 50  0001 C CNN
-	1    4400 6500
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B7865FF
-P 4400 7100
-F 0 "D?" H 4350 6885 50  0000 C CNN
-F 1 "IR204A" H 4350 6976 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4400 7275 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4350 7100 50  0001 C CNN
-	1    4400 7100
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B786C55
-P 4400 7800
-F 0 "D?" H 4350 7585 50  0000 C CNN
-F 1 "IR204A" H 4350 7676 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4400 7975 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4350 7800 50  0001 C CNN
-	1    4400 7800
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B786CB0
-P 4450 8400
-F 0 "D?" H 4400 8185 50  0000 C CNN
-F 1 "IR204A" H 4400 8276 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4450 8575 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4400 8400 50  0001 C CNN
-	1    4450 8400
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B786D22
-P 4300 9150
-F 0 "D?" H 4250 8935 50  0000 C CNN
-F 1 "IR204A" H 4250 9026 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4300 9325 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4250 9150 50  0001 C CNN
-	1    4300 9150
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B787335
-P 4400 9750
-F 0 "D?" H 4350 9535 50  0000 C CNN
-F 1 "IR204A" H 4350 9626 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4400 9925 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4350 9750 50  0001 C CNN
-	1    4400 9750
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B787397
-P 4400 10500
-F 0 "D?" H 4350 10285 50  0000 C CNN
-F 1 "IR204A" H 4350 10376 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4400 10675 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4350 10500 50  0001 C CNN
-	1    4400 10500
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B7873E6
-P 4400 11100
-F 0 "D?" H 4350 10885 50  0000 C CNN
-F 1 "IR204A" H 4350 10976 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4400 11275 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4350 11100 50  0001 C CNN
-	1    4400 11100
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B78743A
-P 4400 11850
-F 0 "D?" H 4350 11635 50  0000 C CNN
-F 1 "IR204A" H 4350 11726 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4400 12025 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4350 11850 50  0001 C CNN
-	1    4400 11850
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B787971
-P 4400 12450
-F 0 "D?" H 4350 12235 50  0000 C CNN
-F 1 "IR204A" H 4350 12326 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4400 12625 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4350 12450 50  0001 C CNN
-	1    4400 12450
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B7879CF
-P 4350 13150
-F 0 "D?" H 4300 12935 50  0000 C CNN
-F 1 "IR204A" H 4300 13026 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4350 13325 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4300 13150 50  0001 C CNN
-	1    4350 13150
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B787A2E
-P 4350 13750
-F 0 "D?" H 4300 13535 50  0000 C CNN
-F 1 "IR204A" H 4300 13626 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4350 13925 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4300 13750 50  0001 C CNN
-	1    4350 13750
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B787A8A
-P 4400 14450
-F 0 "D?" H 4350 14235 50  0000 C CNN
-F 1 "IR204A" H 4350 14326 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4400 14625 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4350 14450 50  0001 C CNN
-	1    4400 14450
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B787DE8
-P 4350 15050
-F 0 "D?" H 4300 14835 50  0000 C CNN
-F 1 "IR204A" H 4300 14926 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4350 15225 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4300 15050 50  0001 C CNN
-	1    4350 15050
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B787E4E
-P 4350 15850
-F 0 "D?" H 4300 15635 50  0000 C CNN
-F 1 "IR204A" H 4300 15726 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4350 16025 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4300 15850 50  0001 C CNN
-	1    4350 15850
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B787EB5
-P 4350 16450
-F 0 "D?" H 4300 16235 50  0000 C CNN
-F 1 "IR204A" H 4300 16326 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4350 16625 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4300 16450 50  0001 C CNN
-	1    4350 16450
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B788157
-P 4300 17300
-F 0 "D?" H 4250 17085 50  0000 C CNN
-F 1 "IR204A" H 4250 17176 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4300 17475 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4250 17300 50  0001 C CNN
-	1    4300 17300
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B7881B8
-P 4400 17900
-F 0 "D?" H 4350 17685 50  0000 C CNN
-F 1 "IR204A" H 4350 17776 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4400 18075 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4350 17900 50  0001 C CNN
-	1    4400 17900
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B78846C
-P 4350 18650
-F 0 "D?" H 4300 18435 50  0000 C CNN
-F 1 "IR204A" H 4300 18526 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4350 18825 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4300 18650 50  0001 C CNN
-	1    4350 18650
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B7884CF
-P 4350 19250
-F 0 "D?" H 4300 19035 50  0000 C CNN
-F 1 "IR204A" H 4300 19126 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 4350 19425 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 4300 19250 50  0001 C CNN
-	1    4350 19250
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B78852D
-P 6750 17150
-F 0 "D?" H 6700 16935 50  0000 C CNN
-F 1 "IR204A" H 6700 17026 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 6750 17325 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 6700 17150 50  0001 C CNN
-	1    6750 17150
-	-1   0    0    1   
-$EndComp
-$Comp
-L LED:IR204A D?
-U 1 1 5B78899C
-P 6750 16550
-F 0 "D?" H 6700 16335 50  0000 C CNN
-F 1 "IR204A" H 6700 16426 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm_IRBlack" H 6750 16725 50  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 6700 16550 50  0001 C CNN
-	1    6750 16550
-	-1   0    0    1   
-$EndComp
-$Comp
 L Analog_ADC:ADS1015IDGS U?
 U 1 1 5B789BCA
 P 3150 1250
@@ -847,61 +132,6 @@ F 1 "ADS1015IDGS" H 3150 1837 50  0000 C CNN
 F 2 "Package_SO:TSSOP-10_3x3mm_P0.5mm" H 3150 750 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/ads1015.pdf" H 3100 350 50  0001 C CNN
 	1    3150 1250
-	1    0    0    -1  
-$EndComp
-$Comp
-L Analog_ADC:ADS1015IDGS U?
-U 1 1 5B78AF23
-P 7150 2650
-F 0 "U?" H 7150 3328 50  0000 C CNN
-F 1 "ADS1015IDGS" H 7150 3237 50  0000 C CNN
-F 2 "Package_SO:TSSOP-10_3x3mm_P0.5mm" H 7150 2150 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/ads1015.pdf" H 7100 1750 50  0001 C CNN
-	1    7150 2650
-	1    0    0    -1  
-$EndComp
-$Comp
-L Analog_ADC:ADS1015IDGS U?
-U 1 1 5B78B3BD
-P 7150 3850
-F 0 "U?" H 7150 4528 50  0000 C CNN
-F 1 "ADS1015IDGS" H 7150 4437 50  0000 C CNN
-F 2 "Package_SO:TSSOP-10_3x3mm_P0.5mm" H 7150 3350 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/ads1015.pdf" H 7100 2950 50  0001 C CNN
-	1    7150 3850
-	1    0    0    -1  
-$EndComp
-$Comp
-L Analog_ADC:ADS1015IDGS U?
-U 1 1 5B78B8BA
-P 7150 5050
-F 0 "U?" H 7150 5728 50  0000 C CNN
-F 1 "ADS1015IDGS" H 7150 5637 50  0000 C CNN
-F 2 "Package_SO:TSSOP-10_3x3mm_P0.5mm" H 7150 4550 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/ads1015.pdf" H 7100 4150 50  0001 C CNN
-	1    7150 5050
-	1    0    0    -1  
-$EndComp
-$Comp
-L Analog_ADC:ADS1015IDGS U?
-U 1 1 5B78BDD1
-P 6450 6250
-F 0 "U?" H 6450 6928 50  0000 C CNN
-F 1 "ADS1015IDGS" H 6450 6837 50  0000 C CNN
-F 2 "Package_SO:TSSOP-10_3x3mm_P0.5mm" H 6450 5750 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/ads1015.pdf" H 6400 5350 50  0001 C CNN
-	1    6450 6250
-	1    0    0    -1  
-$EndComp
-$Comp
-L Analog_ADC:ADS1015IDGS U?
-U 1 1 5B78C298
-P 6500 7550
-F 0 "U?" H 6500 8228 50  0000 C CNN
-F 1 "ADS1015IDGS" H 6500 8137 50  0000 C CNN
-F 2 "Package_SO:TSSOP-10_3x3mm_P0.5mm" H 6500 7050 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/ads1015.pdf" H 6450 6650 50  0001 C CNN
-	1    6500 7550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -1002,4 +232,785 @@ Wire Wire Line
 Connection ~ 550  2850
 Wire Wire Line
 	1950 2950 2250 2950
+$Comp
+L Amplifier_Operational:LM358 U?
+U 1 1 5B79FB07
+P 1700 3750
+F 0 "U?" H 1700 4117 50  0000 C CNN
+F 1 "LM358" H 1700 4026 50  0000 C CNN
+F 2 "" H 1700 3750 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 1700 3750 50  0001 C CNN
+	1    1700 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:LM358 U?
+U 3 1 5B79FB0E
+P 1700 3750
+F 0 "U?" H 1658 3796 50  0000 L CNN
+F 1 "LM358" H 1658 3705 50  0000 L CNN
+F 2 "" H 1700 3750 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 1700 3750 50  0001 C CNN
+	3    1700 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:LM358 U?
+U 2 1 5B79FB15
+P 1700 4450
+F 0 "U?" H 1700 4817 50  0000 C CNN
+F 1 "LM358" H 1700 4726 50  0000 C CNN
+F 2 "" H 1700 4450 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 1700 4450 50  0001 C CNN
+	2    1700 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:LM358 U?
+U 1 1 5B79FB1C
+P 1700 5100
+F 0 "U?" H 1700 5467 50  0000 C CNN
+F 1 "LM358" H 1700 5376 50  0000 C CNN
+F 2 "" H 1700 5100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 1700 5100 50  0001 C CNN
+	1    1700 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:LM358 U?
+U 3 1 5B79FB23
+P 1700 5100
+F 0 "U?" H 1658 5146 50  0000 L CNN
+F 1 "LM358" H 1658 5055 50  0000 L CNN
+F 2 "" H 1700 5100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 1700 5100 50  0001 C CNN
+	3    1700 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:LM358 U?
+U 2 1 5B79FB2A
+P 1700 5800
+F 0 "U?" H 1700 6167 50  0000 C CNN
+F 1 "LM358" H 1700 6076 50  0000 C CNN
+F 2 "" H 1700 5800 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 1700 5800 50  0001 C CNN
+	2    1700 5800
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED:IR204A D?
+U 1 1 5B79FB31
+P 1100 3850
+F 0 "D?" H 1050 3635 50  0000 C CNN
+F 1 "IR204A" H 1050 3726 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm_IRBlack" H 1100 4025 50  0001 C CNN
+F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 1050 3850 50  0001 C CNN
+	1    1100 3850
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED:IR204A D?
+U 1 1 5B79FB38
+P 1100 4550
+F 0 "D?" H 1050 4335 50  0000 C CNN
+F 1 "IR204A" H 1050 4426 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm_IRBlack" H 1100 4725 50  0001 C CNN
+F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 1050 4550 50  0001 C CNN
+	1    1100 4550
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED:IR204A D?
+U 1 1 5B79FB3F
+P 1100 5200
+F 0 "D?" H 1050 4985 50  0000 C CNN
+F 1 "IR204A" H 1050 5076 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm_IRBlack" H 1100 5375 50  0001 C CNN
+F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 1050 5200 50  0001 C CNN
+	1    1100 5200
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED:IR204A D?
+U 1 1 5B79FB46
+P 1100 5900
+F 0 "D?" H 1050 5685 50  0000 C CNN
+F 1 "IR204A" H 1050 5776 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm_IRBlack" H 1100 6075 50  0001 C CNN
+F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 1050 5900 50  0001 C CNN
+	1    1100 5900
+	-1   0    0    1   
+$EndComp
+$Comp
+L Analog_ADC:ADS1015IDGS U?
+U 1 1 5B79FB4D
+P 3200 4100
+F 0 "U?" H 3200 4778 50  0000 C CNN
+F 1 "ADS1015IDGS" H 3200 4687 50  0000 C CNN
+F 2 "Package_SO:TSSOP-10_3x3mm_P0.5mm" H 3200 3600 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/ads1015.pdf" H 3150 3200 50  0001 C CNN
+	1    3200 4100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	600  3650 600  3850
+Wire Wire Line
+	1400 4350 600  4350
+Connection ~ 600  4350
+Wire Wire Line
+	600  4350 600  4550
+Wire Wire Line
+	1000 3850 600  3850
+Connection ~ 600  3850
+Wire Wire Line
+	600  3850 600  4050
+Wire Wire Line
+	1400 4550 1300 4550
+Wire Wire Line
+	1000 4550 600  4550
+Wire Wire Line
+	1300 3850 1400 3850
+Wire Wire Line
+	2000 3750 2700 3750
+Wire Wire Line
+	2700 3750 2700 4000
+Wire Wire Line
+	2700 4000 2800 4000
+Wire Wire Line
+	2000 4450 2000 3850
+Wire Wire Line
+	2000 3850 2550 3850
+Wire Wire Line
+	2550 3850 2550 4100
+Wire Wire Line
+	2550 4100 2800 4100
+Wire Wire Line
+	1600 3450 3200 3450
+Wire Wire Line
+	3200 3600 3200 3450
+Connection ~ 3200 3450
+Wire Wire Line
+	3200 3450 4250 3450
+Wire Wire Line
+	3200 4500 3200 4750
+Wire Wire Line
+	3200 4750 600  4750
+Wire Wire Line
+	600  4750 600  4550
+Connection ~ 600  4550
+Wire Wire Line
+	1600 4050 600  4050
+Connection ~ 600  4050
+Wire Wire Line
+	600  4050 600  4350
+Wire Wire Line
+	1600 4800 4300 4800
+Wire Wire Line
+	4300 3450 4300 4800
+Wire Wire Line
+	600  4750 600  5000
+Wire Wire Line
+	600  5400 1600 5400
+Connection ~ 600  4750
+Wire Wire Line
+	1400 5200 1300 5200
+Wire Wire Line
+	1000 5200 600  5200
+Connection ~ 600  5200
+Wire Wire Line
+	600  5200 600  5400
+Wire Wire Line
+	2000 5100 2150 5100
+Wire Wire Line
+	2150 5100 2150 4200
+Wire Wire Line
+	2150 4200 2800 4200
+Wire Wire Line
+	1400 5000 600  5000
+Connection ~ 600  5000
+Wire Wire Line
+	600  5000 600  5200
+Wire Wire Line
+	2300 5800 2300 4300
+Wire Wire Line
+	2300 4300 2800 4300
+Wire Wire Line
+	1400 5900 1300 5900
+Wire Wire Line
+	1400 5700 600  5700
+Wire Wire Line
+	600  5700 600  5400
+Connection ~ 600  5400
+Wire Wire Line
+	600  5700 600  5900
+Wire Wire Line
+	600  5900 1000 5900
+Connection ~ 600  5700
+Wire Wire Line
+	2000 5800 2300 5800
+$Comp
+L Amplifier_Operational:LM358 U?
+U 1 1 5B7A2321
+P 6950 900
+F 0 "U?" H 6950 1267 50  0000 C CNN
+F 1 "LM358" H 6950 1176 50  0000 C CNN
+F 2 "" H 6950 900 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 6950 900 50  0001 C CNN
+	1    6950 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:LM358 U?
+U 3 1 5B7A2328
+P 6950 900
+F 0 "U?" H 6908 946 50  0000 L CNN
+F 1 "LM358" H 6908 855 50  0000 L CNN
+F 2 "" H 6950 900 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 6950 900 50  0001 C CNN
+	3    6950 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:LM358 U?
+U 2 1 5B7A232F
+P 6950 1600
+F 0 "U?" H 6950 1967 50  0000 C CNN
+F 1 "LM358" H 6950 1876 50  0000 C CNN
+F 2 "" H 6950 1600 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 6950 1600 50  0001 C CNN
+	2    6950 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:LM358 U?
+U 1 1 5B7A2336
+P 6950 2250
+F 0 "U?" H 6950 2617 50  0000 C CNN
+F 1 "LM358" H 6950 2526 50  0000 C CNN
+F 2 "" H 6950 2250 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 6950 2250 50  0001 C CNN
+	1    6950 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:LM358 U?
+U 3 1 5B7A233D
+P 6950 2250
+F 0 "U?" H 6908 2296 50  0000 L CNN
+F 1 "LM358" H 6908 2205 50  0000 L CNN
+F 2 "" H 6950 2250 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 6950 2250 50  0001 C CNN
+	3    6950 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:LM358 U?
+U 2 1 5B7A2344
+P 6950 2950
+F 0 "U?" H 6950 3317 50  0000 C CNN
+F 1 "LM358" H 6950 3226 50  0000 C CNN
+F 2 "" H 6950 2950 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 6950 2950 50  0001 C CNN
+	2    6950 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED:IR204A D?
+U 1 1 5B7A234B
+P 6350 1000
+F 0 "D?" H 6300 785 50  0000 C CNN
+F 1 "IR204A" H 6300 876 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm_IRBlack" H 6350 1175 50  0001 C CNN
+F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 6300 1000 50  0001 C CNN
+	1    6350 1000
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED:IR204A D?
+U 1 1 5B7A2352
+P 6350 1700
+F 0 "D?" H 6300 1485 50  0000 C CNN
+F 1 "IR204A" H 6300 1576 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm_IRBlack" H 6350 1875 50  0001 C CNN
+F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 6300 1700 50  0001 C CNN
+	1    6350 1700
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED:IR204A D?
+U 1 1 5B7A2359
+P 6350 2350
+F 0 "D?" H 6300 2135 50  0000 C CNN
+F 1 "IR204A" H 6300 2226 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm_IRBlack" H 6350 2525 50  0001 C CNN
+F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 6300 2350 50  0001 C CNN
+	1    6350 2350
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED:IR204A D?
+U 1 1 5B7A2360
+P 6350 3050
+F 0 "D?" H 6300 2835 50  0000 C CNN
+F 1 "IR204A" H 6300 2926 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm_IRBlack" H 6350 3225 50  0001 C CNN
+F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 6300 3050 50  0001 C CNN
+	1    6350 3050
+	-1   0    0    1   
+$EndComp
+$Comp
+L Analog_ADC:ADS1015IDGS U?
+U 1 1 5B7A2367
+P 8450 1250
+F 0 "U?" H 8450 1928 50  0000 C CNN
+F 1 "ADS1015IDGS" H 8450 1837 50  0000 C CNN
+F 2 "Package_SO:TSSOP-10_3x3mm_P0.5mm" H 8450 750 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/ads1015.pdf" H 8400 350 50  0001 C CNN
+	1    8450 1250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6650 800  5850 800 
+Wire Wire Line
+	5850 800  5850 1000
+Wire Wire Line
+	6650 1500 5850 1500
+Connection ~ 5850 1500
+Wire Wire Line
+	5850 1500 5850 1700
+Wire Wire Line
+	6250 1000 5850 1000
+Connection ~ 5850 1000
+Wire Wire Line
+	5850 1000 5850 1200
+Wire Wire Line
+	6650 1700 6550 1700
+Wire Wire Line
+	6250 1700 5850 1700
+Wire Wire Line
+	6550 1000 6650 1000
+Wire Wire Line
+	7250 900  7950 900 
+Wire Wire Line
+	7950 900  7950 1150
+Wire Wire Line
+	7950 1150 8050 1150
+Wire Wire Line
+	7250 1600 7250 1000
+Wire Wire Line
+	7250 1000 7800 1000
+Wire Wire Line
+	7800 1000 7800 1250
+Wire Wire Line
+	7800 1250 8050 1250
+Wire Wire Line
+	6850 600  8450 600 
+Wire Wire Line
+	8450 750  8450 600 
+Connection ~ 8450 600 
+Wire Wire Line
+	8450 600  9550 600 
+Wire Wire Line
+	8450 1650 8450 1900
+Wire Wire Line
+	8450 1900 5850 1900
+Wire Wire Line
+	5850 1900 5850 1700
+Connection ~ 5850 1700
+Wire Wire Line
+	6850 1200 5850 1200
+Connection ~ 5850 1200
+Wire Wire Line
+	5850 1200 5850 1500
+Wire Wire Line
+	6850 1950 9550 1950
+Wire Wire Line
+	9550 600  9550 1950
+Wire Wire Line
+	5850 1900 5850 2150
+Wire Wire Line
+	5850 2550 6850 2550
+Connection ~ 5850 1900
+Wire Wire Line
+	6650 2350 6550 2350
+Wire Wire Line
+	6250 2350 5850 2350
+Connection ~ 5850 2350
+Wire Wire Line
+	5850 2350 5850 2550
+Wire Wire Line
+	7250 2250 7400 2250
+Wire Wire Line
+	7400 2250 7400 1350
+Wire Wire Line
+	7400 1350 8050 1350
+Wire Wire Line
+	6650 2150 5850 2150
+Connection ~ 5850 2150
+Wire Wire Line
+	5850 2150 5850 2350
+Wire Wire Line
+	7550 2950 7550 1450
+Wire Wire Line
+	7550 1450 8050 1450
+Wire Wire Line
+	6650 3050 6550 3050
+Wire Wire Line
+	6650 2850 5850 2850
+Wire Wire Line
+	5850 2850 5850 2550
+Connection ~ 5850 2550
+Wire Wire Line
+	5850 2850 5850 3050
+Wire Wire Line
+	5850 3050 6250 3050
+Connection ~ 5850 2850
+Wire Wire Line
+	7250 2950 7550 2950
+$Comp
+L Amplifier_Operational:LM358 U?
+U 1 1 5B7A7061
+P 6950 3750
+F 0 "U?" H 6950 4117 50  0000 C CNN
+F 1 "LM358" H 6950 4026 50  0000 C CNN
+F 2 "" H 6950 3750 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 6950 3750 50  0001 C CNN
+	1    6950 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:LM358 U?
+U 3 1 5B7A7068
+P 6950 3750
+F 0 "U?" H 6908 3796 50  0000 L CNN
+F 1 "LM358" H 6908 3705 50  0000 L CNN
+F 2 "" H 6950 3750 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 6950 3750 50  0001 C CNN
+	3    6950 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:LM358 U?
+U 2 1 5B7A706F
+P 6950 4450
+F 0 "U?" H 6950 4817 50  0000 C CNN
+F 1 "LM358" H 6950 4726 50  0000 C CNN
+F 2 "" H 6950 4450 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 6950 4450 50  0001 C CNN
+	2    6950 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:LM358 U?
+U 1 1 5B7A7076
+P 6950 5100
+F 0 "U?" H 6950 5467 50  0000 C CNN
+F 1 "LM358" H 6950 5376 50  0000 C CNN
+F 2 "" H 6950 5100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 6950 5100 50  0001 C CNN
+	1    6950 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:LM358 U?
+U 3 1 5B7A707D
+P 6950 5100
+F 0 "U?" H 6908 5146 50  0000 L CNN
+F 1 "LM358" H 6908 5055 50  0000 L CNN
+F 2 "" H 6950 5100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 6950 5100 50  0001 C CNN
+	3    6950 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:LM358 U?
+U 2 1 5B7A7084
+P 6950 5800
+F 0 "U?" H 6950 6167 50  0000 C CNN
+F 1 "LM358" H 6950 6076 50  0000 C CNN
+F 2 "" H 6950 5800 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 6950 5800 50  0001 C CNN
+	2    6950 5800
+	1    0    0    -1  
+$EndComp
+$Comp
+L LED:IR204A D?
+U 1 1 5B7A708B
+P 6350 3850
+F 0 "D?" H 6300 3635 50  0000 C CNN
+F 1 "IR204A" H 6300 3726 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm_IRBlack" H 6350 4025 50  0001 C CNN
+F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 6300 3850 50  0001 C CNN
+	1    6350 3850
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED:IR204A D?
+U 1 1 5B7A7092
+P 6350 4550
+F 0 "D?" H 6300 4335 50  0000 C CNN
+F 1 "IR204A" H 6300 4426 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm_IRBlack" H 6350 4725 50  0001 C CNN
+F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 6300 4550 50  0001 C CNN
+	1    6350 4550
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED:IR204A D?
+U 1 1 5B7A7099
+P 6350 5200
+F 0 "D?" H 6300 4985 50  0000 C CNN
+F 1 "IR204A" H 6300 5076 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm_IRBlack" H 6350 5375 50  0001 C CNN
+F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 6300 5200 50  0001 C CNN
+	1    6350 5200
+	-1   0    0    1   
+$EndComp
+$Comp
+L LED:IR204A D?
+U 1 1 5B7A70A0
+P 6350 5900
+F 0 "D?" H 6300 5685 50  0000 C CNN
+F 1 "IR204A" H 6300 5776 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm_IRBlack" H 6350 6075 50  0001 C CNN
+F 3 "http://www.everlight.com/file/ProductFile/IR204-A.pdf" H 6300 5900 50  0001 C CNN
+	1    6350 5900
+	-1   0    0    1   
+$EndComp
+$Comp
+L Analog_ADC:ADS1015IDGS U?
+U 1 1 5B7A70A7
+P 8450 4100
+F 0 "U?" H 8450 4778 50  0000 C CNN
+F 1 "ADS1015IDGS" H 8450 4687 50  0000 C CNN
+F 2 "Package_SO:TSSOP-10_3x3mm_P0.5mm" H 8450 3600 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/ads1015.pdf" H 8400 3200 50  0001 C CNN
+	1    8450 4100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6650 3650 5850 3650
+Wire Wire Line
+	5850 3650 5850 3850
+Wire Wire Line
+	6650 4350 5850 4350
+Connection ~ 5850 4350
+Wire Wire Line
+	5850 4350 5850 4550
+Wire Wire Line
+	6250 3850 5850 3850
+Connection ~ 5850 3850
+Wire Wire Line
+	5850 3850 5850 4050
+Wire Wire Line
+	6650 4550 6550 4550
+Wire Wire Line
+	6250 4550 5850 4550
+Wire Wire Line
+	6550 3850 6650 3850
+Wire Wire Line
+	7250 3750 7950 3750
+Wire Wire Line
+	7950 3750 7950 4000
+Wire Wire Line
+	7950 4000 8050 4000
+Wire Wire Line
+	7250 4450 7250 3850
+Wire Wire Line
+	7250 3850 7800 3850
+Wire Wire Line
+	7800 3850 7800 4100
+Wire Wire Line
+	7800 4100 8050 4100
+Wire Wire Line
+	6850 3450 8450 3450
+Wire Wire Line
+	8450 3600 8450 3450
+Connection ~ 8450 3450
+Wire Wire Line
+	8450 3450 9550 3450
+Wire Wire Line
+	8450 4500 8450 4750
+Wire Wire Line
+	8450 4750 5850 4750
+Wire Wire Line
+	5850 4750 5850 4550
+Connection ~ 5850 4550
+Wire Wire Line
+	6850 4050 5850 4050
+Connection ~ 5850 4050
+Wire Wire Line
+	5850 4050 5850 4350
+Wire Wire Line
+	6850 4800 9550 4800
+Wire Wire Line
+	9550 3450 9550 4800
+Wire Wire Line
+	5850 4750 5850 5000
+Wire Wire Line
+	5850 5400 6850 5400
+Connection ~ 5850 4750
+Wire Wire Line
+	6650 5200 6550 5200
+Wire Wire Line
+	6250 5200 5850 5200
+Connection ~ 5850 5200
+Wire Wire Line
+	5850 5200 5850 5400
+Wire Wire Line
+	7250 5100 7400 5100
+Wire Wire Line
+	7400 5100 7400 4200
+Wire Wire Line
+	7400 4200 8050 4200
+Wire Wire Line
+	6650 5000 5850 5000
+Connection ~ 5850 5000
+Wire Wire Line
+	5850 5000 5850 5200
+Wire Wire Line
+	7550 5800 7550 4300
+Wire Wire Line
+	7550 4300 8050 4300
+Wire Wire Line
+	6650 5900 6550 5900
+Wire Wire Line
+	6650 5700 5850 5700
+Wire Wire Line
+	5850 5700 5850 5400
+Connection ~ 5850 5400
+Wire Wire Line
+	5850 5700 5850 5900
+Wire Wire Line
+	5850 5900 6250 5900
+Connection ~ 5850 5700
+Wire Wire Line
+	7250 5800 7550 5800
+Wire Wire Line
+	3550 1250 4500 1250
+Wire Wire Line
+	4500 1250 4500 4100
+Wire Wire Line
+	3600 4100 4500 4100
+Connection ~ 4500 4100
+Wire Wire Line
+	4500 4100 4500 6400
+Wire Wire Line
+	8850 1250 9800 1250
+Wire Wire Line
+	9800 1250 9800 4100
+Wire Wire Line
+	9800 6400 4500 6400
+Connection ~ 4500 6400
+Wire Wire Line
+	8850 4100 9800 4100
+Connection ~ 9800 4100
+Wire Wire Line
+	9800 4100 9800 6400
+Wire Wire Line
+	8850 1350 9450 1350
+Wire Wire Line
+	9450 1350 9450 4200
+Wire Wire Line
+	9450 6300 4800 6300
+Wire Wire Line
+	8850 4200 9450 4200
+Connection ~ 9450 4200
+Wire Wire Line
+	9450 4200 9450 6300
+Wire Wire Line
+	4800 6300 4800 4200
+Wire Wire Line
+	4800 1350 3550 1350
+Connection ~ 4800 6300
+Wire Wire Line
+	3600 4200 4800 4200
+Connection ~ 4800 4200
+Wire Wire Line
+	4800 4200 4800 1350
+$Comp
+L Connector:Conn_01x02_Male J?
+U 1 1 5B7F0F16
+P 4600 6850
+F 0 "J?" V 4753 6663 50  0000 R CNN
+F 1 "Conn_01x02_Male" V 4662 6663 50  0000 R CNN
+F 2 "" H 4600 6850 50  0001 C CNN
+F 3 "~" H 4600 6850 50  0001 C CNN
+	1    4600 6850
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4600 6650 4500 6650
+Wire Wire Line
+	4500 6400 4500 6650
+Wire Wire Line
+	4700 6650 4800 6650
+Wire Wire Line
+	4800 6300 4800 6650
+Text Notes 4750 7050 1    50   ~ 0
+SCL\nSDA
+$Comp
+L Connector:Conn_01x02_Male J?
+U 1 1 5B803AFA
+P 3850 6850
+F 0 "J?" V 4003 6663 50  0000 R CNN
+F 1 "Conn_01x02_Male" V 3912 6663 50  0000 R CNN
+F 2 "" H 3850 6850 50  0001 C CNN
+F 3 "~" H 3850 6850 50  0001 C CNN
+	1    3850 6850
+	0    -1   -1   0   
+$EndComp
+Text Notes 4000 7100 1    50   ~ 0
+5V\nGND\n
+Wire Wire Line
+	4300 4800 4300 6200
+Wire Wire Line
+	4300 6400 3850 6400
+Wire Wire Line
+	3850 6400 3850 6650
+Connection ~ 4300 4800
+Wire Wire Line
+	4250 1950 4250 3450
+Connection ~ 4250 1950
+Connection ~ 4250 3450
+Wire Wire Line
+	4250 3450 4300 3450
+Wire Wire Line
+	9550 1950 9550 3450
+Connection ~ 9550 1950
+Connection ~ 9550 3450
+Wire Wire Line
+	9550 4800 9550 6200
+Wire Wire Line
+	9550 6200 4300 6200
+Connection ~ 9550 4800
+Connection ~ 4300 6200
+Wire Wire Line
+	4300 6200 4300 6400
+Wire Wire Line
+	5850 3050 5850 3650
+Connection ~ 5850 3050
+Connection ~ 5850 3650
+Wire Wire Line
+	5850 5900 5850 6100
+Wire Wire Line
+	5850 6100 3950 6100
+Wire Wire Line
+	3950 6100 3950 6650
+Connection ~ 5850 5900
+Wire Wire Line
+	600  5900 600  6100
+Wire Wire Line
+	600  6100 3950 6100
+Connection ~ 600  5900
+Connection ~ 3950 6100
+Wire Wire Line
+	550  3050 550  3650
+Wire Wire Line
+	550  3650 600  3650
+Connection ~ 550  3050
+Connection ~ 600  3650
+Wire Wire Line
+	600  3650 1400 3650
 $EndSCHEMATC
