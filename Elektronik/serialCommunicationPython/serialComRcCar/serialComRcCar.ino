@@ -9,35 +9,37 @@ SoftwareSerial bt(7,6); //RX, TX
 
 void setup(){
     pinMode(forward, OUTPUT);
-    pinMode(backwards OUTPUT);
+    pinMode(backwards, OUTPUT);
     pinMode(left, OUTPUT);
     pinMode(right, OUTPUT);
-
-    string direction = '';
     bt.begin(9600);
 }
 
 void loop(){
-    bt.read(direction);
+    char direction = bt.read();
     switch (direction){
         case 'W':
-            forward();
+            analogWrite(forward, 255);
+            bt.println(direction);
             break;
         case 'S':
-            backwards();
+            analogWrite(backwards, 255);
+            bt.println(direction);
             break;
-        case 'A'
-            left();
+        case 'A':
+            analogWrite(left, 255);
+            bt.println(direction);
             break;
         case 'D':
-            right();
+            analogWrite(right, 255);
+            bt.println(direction);
             break;
         default:
             break;
     }
 }
 
-void forward(){
+/*void forward(){
     analogWrite(forward, 255);
     delay(500);
     analogWrite(forward, 0);
@@ -56,3 +58,4 @@ void left(){
 void right(){
     analogWrite(right, 255);
 }
+*/

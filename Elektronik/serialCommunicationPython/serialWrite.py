@@ -1,6 +1,6 @@
 import serial, time
 
-bt = serial.Serial('COMx', 9600, timeout=.1)
+bt = serial.Serial('COM5', 9600, timeout=.1)
 bt.open()
 direction = 'f' #initialize with false value
 
