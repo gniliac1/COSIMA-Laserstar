@@ -1,13 +1,17 @@
 import serial, time
 
 bt = serial.Serial('COM5', 9600, timeout=.1)
-bt.open()
 direction = 'f' #initialize with false value
+bt.close()
+bt.open()
 
 while direction != 'exit':
     direction =input('WASD: ')
-    bt.write(direction)
+    bt.write(str.encode(direction))
+    time.sleep(1)
+    print(bt.readline())
     time.sleep(0.1)
     
 if direction == 'exit':
     bt.close()
+
