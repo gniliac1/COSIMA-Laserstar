@@ -1,54 +1,55 @@
-#import <SoftwareSerial.h>
+#include "BluetoothSerial.h"
 
 #define forward 10 //gelb
 #define backwards 11 //rot
 #define left 5 //schwarz
 #define right 9 // grün
 
-SoftwareSerial bt(7,6); //RX, TX
+BluetoothSerial bt;
+
 String direction;
 
 
 void setup(){
     int freq = 5000;
     int res = 8;
-    forwardSetup(forward, freq, res);
-    backwardsSetup(backwards, freq, res);
-    leftSetup(left, freq, res);
-    rightSetup(right, freq, res);
+    ledcSetup(forward, freq, res);
+    ledcSetup(backwards, freq, res);
+    ledcSetup(left, freq, res);
+    ledcSetup(right, freq, res);
     Serial.begin(9600);
-    bt.begin(9600);
+    bt.begin("ESP32");
 }
 
 void loop(){
     direction = bt.readString();
     if (direction == "w"){
-            analogWrite(forward, 255);
+            ledcWrite(forward, 255);
             Serial.println(direction);
             bt.print("moved forward");
             delay(2000);
-            analogWrite(forward, 0);
+            ledcWrite(forward, 0);
       }
     if (direction == "s"){
-            analogWrite(backwards, 255);
+            ledcWrite(backwards, 255);
             Serial.println(direction);
             bt.print("moved backwards");
             delay(2000);
-            analogWrite(backwards, 0);
+            ledcWrite(backwards, 0);
       }
     if (direction == "a"){
-            analogWrite(left, 255);
+            ledcWrite(left, 255);
             Serial.println(direction);
             bt.print("moved left");
             delay(2000);
-            analogWrite(left, 0);
+            ledcWrite(left, 0);
       }
     if (direction == "d"){
-            analogWrite(right, 255);
+            ledcWrite(right, 255);
             Serial.println(direction);
             bt.print("moved right");
             delay(2000);
-            analogWrite(right, 0);
+            ledcWrite(right, 0);
       }
 }
 
