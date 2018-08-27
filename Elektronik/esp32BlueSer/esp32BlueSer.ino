@@ -41,36 +41,42 @@ void loop() {
   
   drive = SerialBT.read();
   if(drive == "119"){
-    ledcWrite(1, 195);
-    Serial.println(drive);
-    SerialBT.print("moved forward");
-    delay(1000);
-    ledcWrite(1, 0);
-    }
-  if(drive == "97"){
-    ledcWrite(3, 200);
-    ledcWrite(1, 195);
-    Serial.println(drive);
-    SerialBT.print("moved left");
-    delay(2000);
-    ledcWrite(3, 0);
-    ledcWrite(1, 0);
-    }
-  if(drive == "100"){
-    ledcWrite(4, 200);
-    ledcWrite(1, 195);
-    Serial.println(drive);
-    SerialBT.print("moved right");
-    delay(2000);
-    ledcWrite(4, 0);
-    ledcWrite(1, 0);
-    }
-  if(drive == "115"){
-    ledcWrite(2, 195);
-    Serial.println(drive);
-    SerialBT.print("moved backwards");
-    delay(1000);
-    ledcWrite(2, 0);
+    ledcWrite(1, 150);
+    //Serial.println(drive);
+    //SerialBT.print("moved forward");
+    /*delay(1000);
+    ledcWrite(1, 0);*/
     }
 
+  if(drive == "97"){
+    ledcWrite(3, 255);
+    //Serial.println(drive);
+    //SerialBT.print("moved left");
+    /*delay(2000);
+    ledcWrite(3, 0);
+    ledcWrite(1, 0);*/
+    }
+
+  if(drive == "100"){
+    ledcWrite(4, 255);
+    //Serial.println(drive);
+    //SerialBT.print("moved right");
+    /*delay(2000);
+    ledcWrite(4, 0);
+    ledcWrite(1, 0);*/
+  }
+
+  if(drive == "115"){
+    ledcWrite(2, 150);
+    //Serial.println(drive);
+    //SerialBT.print("moved backwards");
+    /*delay(1000);
+    ledcWrite(2, 0);*/
+    }
+  if(drive == "113"){
+    ledcWrite(1, 0);
+    ledcWrite(2, 0);
+    ledcWrite(3, 0);
+    ledcWrite(4, 0);
+    }
 }
