@@ -12,9 +12,7 @@ while direction != 'exit':
     direction =ser.readline()
     print(direction)
     bt.write(direction)
-    #time.sleep(1)
     print(bt.readline())
-    #time.sleep(0.1)
     
 if direction == 'exit':
     bt.close()
