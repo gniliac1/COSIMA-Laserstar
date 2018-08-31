@@ -43,10 +43,10 @@ void Setup(){
                     "bluetoothCOM", /* Name of the task */
                     10000,      /* Stack size in words */
                     NULL,       /* Task input parameter */
-                    0,          /* Priority of the task */
+                    1,          /* Priority of the task */
                     NULL,       /* Task handle. */
-                    &Task,     /* Core where the task should run */
-                    0);         /* Core */
+                    &Task1
+                    1);         /* Core */
  
   SerialBT.println("Task created...");
 
