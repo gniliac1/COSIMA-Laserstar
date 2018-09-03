@@ -32,7 +32,7 @@ void loop(){
     Gyro.read();
     snprintf(report, sizeof(report), "A: %6d %6d %6d    G: %6d %6d %6d",
         Gyro.a.x, Gyro.a.y, Gyro.a.z,
-        Gyro.g.x, Gyro.g.y, iGyromu.g.z);
+        Gyro.g.x, Gyro.g.y, Gyro.g.z);
     Serial.println(report);
 
     //Read Magent data i2c and pritn it
