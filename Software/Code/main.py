@@ -28,11 +28,15 @@ for i in range(nSensoren):
 # Öffnen der Ports für die Photoplatte und das Oktoauto
 # COMx is used COM-Port x must be checked on PC
 # TODO: Testen ob öffnen und schießen besser ist
-photoPort = serial.Serial('COM5', 9600, timeout = .1)
-photoPort.open() 
-oktoPort = serial.Serial('COM8', 9600, timeout = .1)
-oktoPort.open()
 
+photoPort = serial.Serial('COM5', 9600, timeout = .1) # Die COM - Ports sind auf meinem Laptop gemappt. Wenn ein anderer PC genutzt wird -> COM-Ports checkst!
+oktoPort = serial.Serial('COM8', 9600, timeout = .1)
+oktoPort.close()
+photoPort.close() #Es ist immer besser zuerst den port zu schließen (für den Fall das, dass Prog. abgestürzt ist der Port ist dann noch offen und lässt sich nicht benutzen)
+                  #und dann den Port neu zu öffnen.
+
+oktoPort.open()
+photoPort.open()
 # Anfang Loop ---> 
 # TODO: Wann wird das ausgeführt?
     
