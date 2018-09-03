@@ -1,7 +1,9 @@
 #include <Wire.h>
+#include <LSM6.h>
+#include <LIS3MDL.h>
 
-#define Gyro 0x1101011b
-#define Magnet 0x0011110b
+LSM6 Gyro; 
+LIS3MDL Magnet; 
 
 #define daumen A0
 #define zeigefinger A1
@@ -9,7 +11,6 @@
 #define ringfinger A3
 #define kleinerfinger A4
 
-int gyroValue, magnetValue;
 int daumenValue, zeigefingerValue, mittelfingerValue, ringfingerValue, kleinerfingerValue;
 
 void setup(){
@@ -21,23 +22,31 @@ void setup(){
     pinMode(mittelfinger, OUTPUT);
     pinMode(ringfinger, OUTPUT);
     pinMode(kleinerfinger, OUTPUT);
+
+    Magnet.enableDefault();
+    Gyro.enableDefault();
 }
 
 void loop(){
-    gyroValue = Wire.read(Gyro);
-    magnetValue = Wire.read(Magent);
+    //Read Gyro data i2c and print it
+    Gyro.read();
+    snprintf(report, sizeof(report), "A: %6d %6d %6d    G: %6d %6d %6d",
+        Gyro.a.x, Gyro.a.y, Gyro.a.z,
+        Gyro.g.x, Gyro.g.y, iGyromu.g.z);
+    Serial.println(report);
+
+    //Read Magent data i2c and pritn it
+    Magnet.read();
+    snprintf(report, sizeof(report), "M: %6d %6d %6d",
+        Magnet.m.x, Magnet.m.y, Magnet.m.z);
+    Serial.println(report);
     
+    //Read finger data single wire and print it
     daumenValue = analogRead(daumen);
     zeigefingerValue = analogRead(zeigefinger);
     mittelfingerValue = analogRead(mittelfinger);
     ringfingerValue = analogRead(ringfinger);
     kleinerfingerValue = analogRead(kleinerfinger);
-
-    Serial.print("Value Gyro = ");
-    Serial.println(gyroValue);
-
-    Serial.print("Value Magentometer = ");
-    Serial.println(magnetValue);
 
     Serial.print("Value daumen = ");
     Serial.println(daumenValue);
