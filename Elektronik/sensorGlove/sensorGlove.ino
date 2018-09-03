@@ -9,14 +9,23 @@
 #define ringfinger A3
 #define kleinerfinger A4
 
+int gyroValue, magnetValue;
+int daumenValue, zeigefingerValue, mittelfingerValue, ringfingerValue, kleinerfingerValue;
+
 void setup(){
     Wire.begin();
     Serial.begin(9600);
+
+    pinMode(daumen, OUTPUT);
+    pinMode(zeigefinger, OUTPUT);
+    pinMode(mittelfinger, OUTPUT);
+    pinMode(ringfinger, OUTPUT);
+    pinMode(kleinerfinger, OUTPUT);
 }
 
 void loop(){
-    gyroValue = wire.read(Gyro);
-    magnetValue = wire.read(Magent);
+    gyroValue = Wire.read(Gyro);
+    magnetValue = Wire.read(Magent);
     
     daumenValue = analogRead(daumen);
     zeigefingerValue = analogRead(zeigefinger);

@@ -41,7 +41,7 @@ void loop() {
   adc02 = mux0.readADC_SingleEnded(2);
   adc03 = mux0.readADC_SingleEnded(3);
 
-  /*adc10 = mux1.readADC_SingleEnded(0);
+  adc10 = mux1.readADC_SingleEnded(0);
   adc11 = mux1.readADC_SingleEnded(1);
   adc12 = mux1.readADC_SingleEnded(2);
   adc13 = mux1.readADC_SingleEnded(3);
@@ -54,7 +54,7 @@ void loop() {
   adc30 = mux3.readADC_SingleEnded(0);
   adc31 = mux3.readADC_SingleEnded(1);
   adc32 = mux3.readADC_SingleEnded(2);
-  adc33 = mux3.readADC_SingleEnded(3);*/
+  adc33 = mux3.readADC_SingleEnded(3);
 
   //Print sensorvalues to serialport
   Serial.print("AIN00: "); Serial.println(adc00);
@@ -63,7 +63,30 @@ void loop() {
   Serial.print("AIN03: "); Serial.println(adc03);
   Serial.println(" ");
 
-  if(adc00 >= 2.5){
+
+  Serial.print("AIN10: "); Serial.println(adc10);
+  Serial.print("AIN11: "); Serial.println(adc11);
+  Serial.print("AIN12: "); Serial.println(adc12);
+  Serial.print("AIN13: "); Serial.println(adc13);
+  Serial.println(" ");
+
+  Serial.print("AIN20: "); Serial.println(adc20);
+  Serial.print("AIN21: "); Serial.println(adc21);
+  Serial.print("AIN22: "); Serial.println(adc22);
+  Serial.print("AIN23: "); Serial.println(adc23);
+  Serial.println(" ");
+  
+  Serial.print("AIN30: "); Serial.println(adc30);
+  Serial.print("AIN31: "); Serial.println(adc31);
+  Serial.print("AIN32: "); Serial.println(adc32);
+  Serial.print("AIN33: "); Serial.println(adc33);
+  Serial.println(" ");
+  /*We can use bt.println instead to send senordata via bluetooth if wanted */
+  
+  delay(10);
+  
+  //Just for testing the RC-Car
+  /*if(adc00 >= 2.5){
     Serial.println("w");
   }
   if(adc01 >= 2.5){
@@ -74,25 +97,5 @@ void loop() {
   }
   if(adc03 >= 2.5){
     Serial.println("r");
-  }
-  /*Serial.print("AIN10: "); Serial.println(adc10);
-  Serial.print("AIN11: "); Serial.println(adc11);
-  Serial.print("AIN12: "); Serial.println(adc12);
-  Serial.print("AIN13: "); Serial.println(adc13);
-  Serial.println(" ");
-  Serial.print("AIN20: "); Serial.println(adc20);
-  Serial.print("AIN21: "); Serial.println(adc21);
-  Serial.print("AIN22: "); Serial.println(adc22);
-  Serial.print("AIN23: "); Serial.println(adc23);
-  Serial.println(" ");
-  Serial.print("AIN30: "); Serial.println(adc30);
-  Serial.print("AIN31: "); Serial.println(adc31);
-  Serial.print("AIN32: "); Serial.println(adc32);
-  Serial.print("AIN33: "); Serial.println(adc33);
-  Serial.println(" ");*/
-  /*We can use bt.println instead to send senordata via bluetooth if wanted */
-  
-  delay(10);
-  
-
+  }*/
 }
