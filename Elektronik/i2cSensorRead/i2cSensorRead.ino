@@ -63,7 +63,6 @@ void loop() {
   Serial.print("AIN03: "); Serial.println(adc03);
   Serial.println(" ");
 
-  /*
   Serial.print("AIN10: "); Serial.println(adc10);
   Serial.print("AIN11: "); Serial.println(adc11);
   Serial.print("AIN12: "); Serial.println(adc12);
@@ -80,7 +79,7 @@ void loop() {
   Serial.print("AIN31: "); Serial.println(adc31);
   Serial.print("AIN32: "); Serial.println(adc32);
   Serial.print("AIN33: "); Serial.println(adc33);
-  Serial.println(" ");*/
+  Serial.println(" ");
   /*We can use bt.println instead to send senordata via bluetooth if wanted */
   
   delay(1000);

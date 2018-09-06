@@ -1,5 +1,5 @@
 {
     "board": "arduino:avr:micro",
-    "port": "COM10",
-    "sketch": "Elektronik\\sensorGlove\\senorGlove.ino"
+    "port": "COM7",
+    "sketch": "Elektronik\\i2cSensorRead\\i2cSensorRead.ino"
 }
