@@ -1,52 +1,60 @@
 #include <Wire.h>
-#include <LSM6.h>
 #include <LIS3MDL.h>
+#include <LSM6.h>
 
-LSM6 Gyro; 
-LIS3MDL Magnet; 
+#define daumen 0
+#define zeigefinger 1
+#define mittelfinger 2
+#define ringfinger 3
+#define kleinerfinger 4
 
-#define daumen A0
-#define zeigefinger A1
-#define mittelfinger A2
-#define ringfinger A3
-#define kleinerfinger A4
+LIS3MDL mag;
+LSM6 imu;
 
-int daumenValue, zeigefingerValue, mittelfingerValue, ringfingerValue, kleinerfingerValue;
+char report[80];
+char reportI[80];
 
-void setup(){
-    Wire.begin();
-    Serial.begin(9600);
+void setup()
+{
+  Serial.begin(9600);
+  Wire.begin();
 
-    pinMode(daumen, OUTPUT);
-    pinMode(zeigefinger, OUTPUT);
-    pinMode(mittelfinger, OUTPUT);
-    pinMode(ringfinger, OUTPUT);
-    pinMode(kleinerfinger, OUTPUT);
+  if (!mag.init())
+  {
+    Serial.println("Failed to detect and initialize magnetometer!");
+    while (1);
+  }
 
-    Magnet.enableDefault();
-    Gyro.enableDefault();
+  if (!imu.init())
+  {
+    Serial.println("Failed to detect and initialize IMU!");
+    while (1);
+  }
+  
+  imu.enableDefault();
+  mag.enableDefault();
 }
 
-void loop(){
-    //Read Gyro data i2c and print it
-    Gyro.read();
-    snprintf(report, sizeof(report), "A: %6d %6d %6d    G: %6d %6d %6d",
-        Gyro.a.x, Gyro.a.y, Gyro.a.z,
-        Gyro.g.x, Gyro.g.y, Gyro.g.z);
-    Serial.println(report);
+void loop()
+{
+  mag.read();
 
-    //Read Magent data i2c and pritn it
-    Magnet.read();
-    snprintf(report, sizeof(report), "M: %6d %6d %6d",
-        Magnet.m.x, Magnet.m.y, Magnet.m.z);
-    Serial.println(report);
-    
-    //Read finger data single wire and print it
-    daumenValue = analogRead(daumen);
-    zeigefingerValue = analogRead(zeigefinger);
-    mittelfingerValue = analogRead(mittelfinger);
-    ringfingerValue = analogRead(ringfinger);
-    kleinerfingerValue = analogRead(kleinerfinger);
+  snprintf(report, sizeof(report), "M: %6d %6d %6d",
+    mag.m.x, mag.m.y, mag.m.z);
+    imu.read();
+
+  snprintf(reportI, sizeof(reportI), "A: %6d %6d %6d    G: %6d %6d %6d",
+    imu.a.x, imu.a.y, imu.a.z,
+    imu.g.x, imu.g.y, imu.g.z);
+  
+  Serial.println(reportI);
+  Serial.println(report);
+
+    int daumenValue = analogRead(daumen);
+    int zeigefingerValue = analogRead(zeigefinger);
+    int mittelfingerValue = analogRead(mittelfinger);
+    int ringfingerValue = analogRead(ringfinger);
+    int kleinerfingerValue = analogRead(kleinerfinger);
 
     Serial.print("Value daumen = ");
     Serial.println(daumenValue);
@@ -59,4 +67,5 @@ void loop(){
     Serial.print("Value kleinerfinger = ");
     Serial.println(kleinerfingerValue);
 
+  delay(100);
 }
