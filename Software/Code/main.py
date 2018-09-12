@@ -20,7 +20,7 @@ myUserModel = gesti.loadUser()
 
 # Erstellen von Sensoren in einem array der Länge nSensoren (darin enthalten 
 # sollten alle nötigen Sensoren sein wie Photodioden und Abstandssensor)
-nSensoren = 10
+nSensoren = 16
 sensorArray = np.array([], dtype = sensor.Sensor)
 for i in range(nSensoren):
     sensorArray = np.insert(sensorArray, sensorArray.shape[0], sensor.Sensor(1))
