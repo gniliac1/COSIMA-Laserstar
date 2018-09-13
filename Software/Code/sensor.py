@@ -5,6 +5,8 @@ Created on Thu Aug 16 12:57:11 2018
 @author: Cailing
 """
 
+import numpy as np
+
 class Sensor:
     value = -1
     minValue = 0
@@ -39,7 +41,28 @@ class Sensor:
             self.maxValue = self.minValue + 1
         else:
             self.maxValue = newMax
-    
+
+
+class PhotoPlatte:
+	
+	def __init__(self, nSensors = 16):
+		self.nSensors = nSensors
+		self.sensorArray = np.array([], dtype = Sensor)
+		for i in range(nSensors):
+			self.sensorArray = np.insert(self.sensorArray, self.sensorArray.shape[0], Sensor(1))
+
+
+class SensorHandschuh:
+
+	def __init__(self):
+		# 5 Dehnungssensoren
+		self.strainSensors = np.array([], dtype = Sensor)
+		for i in range(5):
+			self.strainSensors = np.insert(self.strainSensors, self.strainSensors.shape[0], Sensor(1))
+		# 1 Gyroskop mit Beschleunigungssensor
+		# TODO: Wie viele Daten bekommen wir aus dem Gyroskop?
+		# self.gyro = np.array([], dtype = Sensor)
+
 """ Falls nötig
 
 class Photodiode(Sensor) :
