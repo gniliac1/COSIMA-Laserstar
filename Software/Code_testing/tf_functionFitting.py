@@ -63,58 +63,15 @@ import random as rand
 # data #
 ########
 
-print('\nCreating data ...')
-print('-----------------\n')
+print('\nLoading data ...')
+print('----------------\n')
 
-# number of points for training and testing
-nTrain = 10000;
-nTest = 1000;
-
-# set ranges for the x, y and z coordinates
-xmin = -5.0;
-xmax = 5.0;
-ymin = -0.5;
-ymax = 6.0;
-zmin = -3.5;
-zmax = 2.0;
-
-# create the training data
-trainingData = np.zeros((nTrain, 3))
-trainingLabels = np.zeros((nTrain, 2))
-for i in range(nTrain):
-	# generate random points
-	currentX = rand.uniform(xmin,xmax)
-	currentY = rand.uniform(ymin,ymax)
-	currentZ = rand.uniform(zmin,zmax)
-	currentData = np.array( [currentX, currentY, currentZ] )
-	trainingData[i,] = currentData
-	# create the corresponding label
-	currentLabel = eval( currentData )
-	trainingLabels[i,] = currentLabel 
-	
-print("shape of training data: ",trainingData.shape)
-print("training data [0,] = ",trainingData[0,])
-print("shape of training labels: ",trainingLabels.shape)
-print("training label [0,] = ",trainingLabels[0,])
-
-# create the test data
-testData = np.zeros((nTest, 3))
-testLabels = np.zeros((nTest, 2))
-for i in range(nTest):
-	# generate random points
-	currentX = rand.uniform(xmin,xmax)
-	currentY = rand.uniform(ymin,ymax)
-	currentZ = rand.uniform(zmin,zmax)
-	currentData = np.array( [currentX, currentY, currentZ] )
-	testData[i,] = currentData
-	# create the corresponding label
-	currentLabel = eval( currentData )
-	testLabels[i,] = currentLabel
-	
-print("shape of test data: ",testData.shape)
-print("test data [0,] = ",testData[0,])
-print("shape of test labels: ",testLabels.shape)
-print("test label [0,] = ",testLabels[0,])
+# load generated data
+trainingData = np.loadtxt("trainingData.out")
+trainingLabels = np.loadtxt("trainingLabels.out")
+testData = np.loadtxt("testData.out")
+testLabels = np.loadtxt("testLabels.out")
+[nTrain,nTest,xmin,xmax,ymin,ymax,zmin,zmax] = np.loadtxt("config.out",dtype='int')
 
 
 #################
