@@ -5,7 +5,7 @@ Created on Wed Sep 12 19:30:23 2018
 @author: Daniel Wolff
 """
 
-#import sensor
+import sensor
 import serial
 from time import sleep
 
@@ -27,15 +27,12 @@ photoPort.open()
 glovePort.open()
 
 # erstelle Objekt für Photoplatte
-#photoSensors = sensor.PhotoPlatte()
+photoSensors = sensor.PhotoPlatte(nSensors = 16)
 
 # erstelle Objekt für Sensorhandschuh
-#sensorGlove = sensor.Sensorhandschuh()
+sensorGlove = sensor.SensorHandschuh()
 
 print("Entering Program Loop")
-
-nPhotoDioden = 16;
-nGloveSensor = 4;
 
 # eigentliche Programm-Schleife
 while 1 < 2:
@@ -54,13 +51,14 @@ while 1 < 2:
 	
 	# Auslesen der Sensordaten der Photoplatte, solange es noch Änderungen gibt
 	# newDataPhoto[0] = Sensornummer, newDataPhoto[1] = Wert
-	for counter in range(nPhotoDioden):
+	for counter in range( photoSensors.nSensors ):
 		while photoPort.in_waiting <= 2:
 			sleep(0.1)
 		# read in data and convert to integer
 		newDataPhoto = photoPort.readline().decode("ascii").split(" ")
 		newDataPhoto = list(map(int, newDataPhoto))
-		# photoSensors.sensorArray[newDataPhoto[0]].value = newDataPhoto[1]
+		# update the value in the data structure
+		#photoSensors.sensorArray[newDataPhoto[0]].value = newDataPhoto[1]
 		print(newDataPhoto)
 		sleep(0.0) # warten bis neue Änderungen angekommen sind
 	
@@ -81,7 +79,7 @@ while 1 < 2:
 	# newDataGlove[0] == 1 -> accelerometer, 3 Werte
 	# newDataGlove[0] == 2 -> gyroscope, 3 Werte
 	# newDataGlove[0] == 3 -> bending sensor, 5 Werte
-	for counter in range(nGloveSensor):
+	for counter in range( sensorGlove.nSensors ):
 		while glovePort.in_waiting <= 2:
 			sleep(0.1)
 		# read in data and convert to integer

@@ -44,6 +44,8 @@ class Sensor:
 
 
 class PhotoPlatte:
+
+	nSensors = 1	# wie viele Sensoren?
 	
 	def __init__(self, nSensors = 16):
 		self.nSensors = nSensors
@@ -54,14 +56,34 @@ class PhotoPlatte:
 
 class SensorHandschuh:
 
+	nSensors = 4 		# wie viele verschiedene Arten von Sensoren -> 4
+	nCompass = 3 		# 3 Werte vom Kompass
+	nAccelerometer = 3	# 3 Werte von Beschleunigungssensoren
+	nGyroscope = 3 		# 3 Werte vom Gyroskop
+	nBendingSensors = 5 # 5 Werte von Biegesensoren
+
 	def __init__(self):
-		# 5 Dehnungssensoren
-		self.strainSensors = np.array([], dtype = Sensor)
-		for i in range(5):
-			self.strainSensors = np.insert(self.strainSensors, self.strainSensors.shape[0], Sensor(1))
-		# 1 Gyroskop mit Beschleunigungssensor
-		# TODO: Wie viele Daten bekommen wir aus dem Gyroskop?
-		# self.gyro = np.array([], dtype = Sensor)
+	
+		# 3 Werte vom Kompass
+		self.compass = np.array([], dtype = Sensor)
+		for i in range(self.nCompass):
+			self.compass = np.insert(self.compass, self.compass.shape[0], Sensor(1))
+			
+		# 3 Werte von Beschleunigungssensoren
+		self.accelerometer = np.array([], dtype = Sensor)
+		for i in range(self.nAccelerometer):
+			self.accelerometer = np.insert(self.accelerometer, self.accelerometer.shape[0], Sensor(1))
+			
+		# 3 Werte vom Gyroskop
+		self.gyroscope = np.array([], dtype = Sensor)
+		for i in range(self.nGyroscope):
+			self.gyroscope = np.insert(self.gyroscope, self.gyroscope.shape[0], Sensor(1))
+			
+		# 5 Werte von Biegesensoren
+		self.bendingSensors = np.array([], dtype = Sensor)
+		for i in range(self.nBendingSensors):
+			self.bendingSensors = np.insert(self.bendingSensors, self.bendingSensors.shape[0], Sensor(1))
+			
 
 """ Falls nötig
 
