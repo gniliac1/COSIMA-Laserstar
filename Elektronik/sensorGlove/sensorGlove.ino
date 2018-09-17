@@ -11,8 +11,10 @@
 LIS3MDL mag;
 LSM6 imu;
 
-char report[80];
-char reportI[80];
+char reportCompass[80];
+char reportAccelerometer[80];
+char reportGyroscope[80];
+char reportBendingSensor[160];
 
 void setup()
 {
@@ -37,35 +39,43 @@ void setup()
 
 void loop()
 {
-  mag.read();
-
-  snprintf(report, sizeof(report), "M: %6d %6d %6d",
-    mag.m.x, mag.m.y, mag.m.z);
-    imu.read();
-
-  snprintf(reportI, sizeof(reportI), "A: %6d %6d %6d    G: %6d %6d %6d",
-    imu.a.x, imu.a.y, imu.a.z,
-    imu.g.x, imu.g.y, imu.g.z);
   
-  Serial.println(reportI);
-  Serial.println(report);
+  // send data only when you receive data:
+  if (Serial.available() > 0) {
+    
+    // read the incoming byte:
+    int incomingByte = Serial.read();
+    
+    // check whether this is the expected byte
+    if (incomingByte == 'a') {
 
-    int daumenValue = analogRead(daumen);
-    int zeigefingerValue = analogRead(zeigefinger);
-    int mittelfingerValue = analogRead(mittelfinger);
-    int ringfingerValue = analogRead(ringfinger);
-    int kleinerfingerValue = analogRead(kleinerfinger);
+      // read compass data
+      mag.read();
+      snprintf(reportCompass, sizeof(reportCompass), "0 %d %d %d", mag.m.x, mag.m.y, mag.m.z);
 
-    Serial.print("Value daumen = ");
-    Serial.println(daumenValue);
-    Serial.print("Value zeigefinger = ");
-    Serial.println(zeigefingerValue);
-    Serial.print("Value mittelfinger = ");
-    Serial.println(mittelfingerValue);
-    Serial.print("Value ringfinger = ");
-    Serial.println(ringfingerValue);
-    Serial.print("Value kleinerfinger = ");
-    Serial.println(kleinerfingerValue);
+      // read accelerometer & gyroscope data
+      imu.read();
+      snprintf(reportAccelerometer, sizeof(reportAccelerometer), "1 %d %d %d", imu.a.x, imu.a.y, imu.a.z);
+      snprintf(reportGyroscope, sizeof(reportGyroscope), "2 %d %d %d", imu.g.x, imu.g.y, imu.g.z);
 
-  delay(100);
+      // read bending sensor data
+      int daumenValue = analogRead(daumen);
+      int zeigefingerValue = analogRead(zeigefinger);
+      int mittelfingerValue = analogRead(mittelfinger);
+      int ringfingerValue = analogRead(ringfinger);
+      int kleinerfingerValue = analogRead(kleinerfinger);
+      snprintf(reportBendingSensor, sizeof(reportBendingSensor), "3 %d %d %d %d %d", 
+                daumenValue, zeigefingerValue, mittelfingerValue, ringfingerValue, kleinerfingerValue);
+      
+      // send data
+      Serial.println(reportCompass);
+      Serial.println(reportAccelerometer);
+      Serial.println(reportGyroscope);
+      Serial.println(reportBendingSensor);
+    
+    } // incomingByte == 'a'
+  
+  } // Serial.available() > 0
+  
+  delay(1000);
 }

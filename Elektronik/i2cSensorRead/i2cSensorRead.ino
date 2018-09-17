@@ -57,29 +57,30 @@ void loop() {
   adc33 = mux3.readADC_SingleEnded(3);
 
   //Print sensorvalues to serialport
-  Serial.print("AIN00: "); Serial.println(adc00);
-  Serial.print("AIN01: "); Serial.println(adc01);
-  Serial.print("AIN02: "); Serial.println(adc02);
-  Serial.print("AIN03: "); Serial.println(adc03);
-  Serial.println(" ");
+  Serial.print("0 "); Serial.println(adc00);
+  Serial.print("1 "); Serial.println(adc01);
+  Serial.print("2 "); Serial.println(adc02);
+  Serial.print("3 "); Serial.println(adc03);
+  //Serial.println(" ");
 
-  Serial.print("AIN10: "); Serial.println(adc10);
-  Serial.print("AIN11: "); Serial.println(adc11);
-  Serial.print("AIN12: "); Serial.println(adc12);
-  Serial.print("AIN13: "); Serial.println(adc13);
-  Serial.println(" ");
+  Serial.print("4 "); Serial.println(adc10);
+  Serial.print("5 "); Serial.println(adc11);
+  Serial.print("6 "); Serial.println(adc12);
+  Serial.print("7 "); Serial.println(adc13);
+  //Serial.println(" ");
 
-  Serial.print("AIN20: "); Serial.println(adc20);
-  Serial.print("AIN21: "); Serial.println(adc21);
-  Serial.print("AIN22: "); Serial.println(adc22);
-  Serial.print("AIN23: "); Serial.println(adc23);
-  Serial.println(" ");
+  Serial.print("8 "); Serial.println(adc20);
+  Serial.print("9 "); Serial.println(adc21);
+  Serial.print("10 "); Serial.println(adc22);
+  Serial.print("11 "); Serial.println(adc23);
+  //Serial.println(" ");
 
-  Serial.print("AIN30: "); Serial.println(adc30);
-  Serial.print("AIN31: "); Serial.println(adc31);
-  Serial.print("AIN32: "); Serial.println(adc32);
-  Serial.print("AIN33: "); Serial.println(adc33);
-  Serial.println(" ");
+  Serial.print("12 "); Serial.println(adc30);
+  Serial.print("13 "); Serial.println(adc31);
+  Serial.print("14 "); Serial.println(adc32);
+  Serial.print("15 "); Serial.println(adc33);
+  //Serial.println(" ");
+  
   /*We can use bt.println instead to send senordata via bluetooth if wanted */
   
   delay(1000);
