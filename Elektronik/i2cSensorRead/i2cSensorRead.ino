@@ -79,7 +79,7 @@ void loop() {
   Serial.print("13 "); Serial.println(adc31);
   Serial.print("14 "); Serial.println(adc32);
   Serial.print("15 "); Serial.println(adc33);
-  //Serial.println(" ");
+  Serial.println(" ");
   
   /*We can use bt.println instead to send senordata via bluetooth if wanted */
   

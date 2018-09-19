@@ -34,63 +34,71 @@ sensorGlove = sensor.SensorHandschuh()
 
 print("Entering Program Loop")
 
-# eigentliche Programm-Schleife
-while 1 < 2:
-	
-	# clear old data
-	photoPort.reset_input_buffer()
-	glovePort.reset_input_buffer()
-	
-	####################################
-	## lese Daten von der Photoplatte ##
-	####################################
-	
-	# # warten, bis sich was geändert hat (Anzahl Bytes im Input Buffer < 2)
-	while photoPort.in_waiting <= 2:
-		sleep(0.1)
-	
-	# Auslesen der Sensordaten der Photoplatte, solange es noch Änderungen gibt
-	# newDataPhoto[0] = Sensornummer, newDataPhoto[1] = Wert
-	for counter in range( photoSensors.nSensors ):
+try:
+	# eigentliche Programm-Schleife
+	while True:
+		
+		# clear old data
+		photoPort.reset_input_buffer()
+		glovePort.reset_input_buffer()
+		
+		####################################
+		## lese Daten von der Photoplatte ##
+		####################################
+		
+		# # warten, bis sich was geändert hat (Anzahl Bytes im Input Buffer < 2)
 		while photoPort.in_waiting <= 2:
 			sleep(0.1)
-		# read in data and convert to integer
-		newDataPhoto = photoPort.readline().decode("ascii").split(" ")
-		newDataPhoto = list(map(int, newDataPhoto))
-		# update the value in the data structure
-		#photoSensors.sensorArray[newDataPhoto[0]].value = newDataPhoto[1]
-		print(newDataPhoto)
-		sleep(0.0) # warten bis neue Änderungen angekommen sind
-	
-	####################################
-	## lese Daten vom Sensorhandschuh ##
-	####################################
-	
-	# schicke Anfrage 
-	glovePort.write('a'.encode('utf-8'))
-	
-	# warten, bis sich was geändert hat (Anzahl Bytes im Input Buffer < 2)
-	while glovePort.in_waiting <= 2:
-		sleep(0.1)
 		
-	# Auslesen der Sensordaten der Photoplatte, solange es noch Änderungen gibt
-	# newDataGlove[0] = Sensornummer, newDataGlove[1:3/5] = Wert
-	# newDataGlove[0] == 0 -> compass, 3 Werte
-	# newDataGlove[0] == 1 -> accelerometer, 3 Werte
-	# newDataGlove[0] == 2 -> gyroscope, 3 Werte
-	# newDataGlove[0] == 3 -> bending sensor, 5 Werte
-	for counter in range( sensorGlove.nSensors ):
+		# Auslesen der Sensordaten der Photoplatte, solange es noch Änderungen gibt
+		# newDataPhoto[0] = Sensornummer, newDataPhoto[1] = Wert
+		for counter in range( photoSensors.nSensors ):
+			while photoPort.in_waiting <= 2:
+				sleep(0.1)
+			# read in data and convert to integer
+			newDataPhoto = photoPort.readline().decode("ascii").split(" ")
+			newDataPhoto = list(map(int, newDataPhoto))
+			# update the value in the data structure
+			#photoSensors.sensorArray[newDataPhoto[0]].value = newDataPhoto[1]
+			print(newDataPhoto)
+			sleep(0.0) # warten bis neue Änderungen angekommen sind
+		
+		####################################
+		## lese Daten vom Sensorhandschuh ##
+		####################################
+		
+		# schicke Anfrage 
+		glovePort.write('a'.encode('utf-8'))
+		
+		# warten, bis sich was geändert hat (Anzahl Bytes im Input Buffer < 2)
 		while glovePort.in_waiting <= 2:
 			sleep(0.1)
-		# read in data and convert to integer
-		newDataGlove = glovePort.readline().decode("ascii").split(" ")
-		newDataGlove = list(map(int, newDataGlove))
-		print(newDataGlove)
-		sleep(0.0) # warten bis neue Änderungen angekommen sind
-	
-	# schreibe Daten in die gewünschte Datei
-	# todo ...
-	
-	# zum testen, etwas warten
-	print("\n\n")
-	sleep(1)
+			
+		# Auslesen der Sensordaten der Photoplatte, solange es noch Änderungen gibt
+		# newDataGlove[0] = Sensornummer, newDataGlove[1:3/5] = Wert
+		# newDataGlove[0] == 0 -> compass, 3 Werte
+		# newDataGlove[0] == 1 -> accelerometer, 3 Werte
+		# newDataGlove[0] == 2 -> gyroscope, 3 Werte
+		# newDataGlove[0] == 3 -> bending sensor, 5 Werte
+		for counter in range( sensorGlove.nSensors ):
+			while glovePort.in_waiting <= 2:
+				sleep(0.1)
+			# read in data and convert to integer
+			newDataGlove = glovePort.readline().decode("ascii").split(" ")
+			newDataGlove = list(map(int, newDataGlove))
+			print(newDataGlove)
+			sleep(0.0) # warten bis neue Änderungen angekommen sind
+		
+		# schreibe Daten in die gewünschte Datei
+		# todo ...
+		
+		# zum testen, etwas warten
+		print("\n\n")
+		sleep(1)
+		
+except KeyboardInterrupt:
+
+	print("Closing Ports")
+	photoPort.close()
+	glovePort.close()
+	print("Done")
