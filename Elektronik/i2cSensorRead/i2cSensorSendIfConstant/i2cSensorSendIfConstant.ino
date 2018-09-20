@@ -20,13 +20,17 @@ int16_t counter = 0;              // contains the current iteration of the loop
 
 void setup() {
   
-  //Set Gain level for OPA
-  //mux0.setGain(GAIN_TWOTHIRDS);  // 2/3x gain +/- 6.144V  1 bit = 3mV (default)
-  //mux0.setGain(GAIN_ONE);     // 1x gain   +/- 4.096V  1 bit = 2mV
-  //mux0.setGain(GAIN_TWO);     // 2x gain   +/- 2.048V  1 bit = 1mV
-  mux0.setGain(GAIN_FOUR);    // 4x gain   +/- 1.024V  1 bit = 0.5mV
-  //mux0.setGain(GAIN_EIGHT);   // 8x gain   +/- 0.512V  1 bit = 0.25mV
-  //mux0.setGain(GAIN_SIXTEEN); // 16x gain  +/- 0.256V  1 bit = 0.125mV*/
+  // Set Gain level for OPA
+  // GAIN_TWOTHIRDS - 2/3x gain +/- 6.144V  1 bit = 3mV (default)
+  // GAIN_ONE       - 1x gain   +/- 4.096V  1 bit = 2mV
+  // GAIN_TWO       - 2x gain   +/- 2.048V  1 bit = 1mV
+  // GAIN_FOUR      - 4x gain   +/- 1.024V  1 bit = 0.5mV
+  // GAIN_EIGHT     - 8x gain   +/- 0.512V  1 bit = 0.25mV
+  // GAIN_SIXTEEN   - 16x gain  +/- 0.256V  1 bit = 0.125mV
+  mux0.setGain(GAIN_FOUR);
+  mux1.setGain(GAIN_FOUR);    
+  mux2.setGain(GAIN_FOUR);    
+  mux3.setGain(GAIN_FOUR);    
   
   Serial.begin(9600);
   mux0.begin();
@@ -43,41 +47,36 @@ void loop() {
   // no value has changed yet
   valueChanged = false;
 
-  // check for changes in mux0
+  // iterate over all diodes and check for changes in the photo current
   for(int16_t iDiode=0; iDiode < 4; ++iDiode) {
+    // check for changes in mux0 (LED 1-4)
     temp = mux0.readADC_SingleEnded(iDiode);
     if( abs(temp - adc[iDiode]) >= threshold ) {
       valueChanged = true;
       adc[iDiode] = temp;
     }
-  }
-
-  /*// check for changes in mux1
-  for(int16_t iDiode=0; iDiode < 4; ++iDiode) {
+    
+    // check for changes in mux1 (LED 5-8)
     temp = mux1.readADC_SingleEnded(iDiode);
-    if( temp != adc[iDiode+4] ) {
+    if( abs(temp - adc[iDiode+4]) >= threshold ) {
       valueChanged = true;
       adc[iDiode+4] = temp;
     }
-  }
-
-  // check for changes in mux0
-  for(int16_t iDiode=0; iDiode < 4; ++iDiode) {
+    
+    // check for changes in mux2 (LED 9-12)
     temp = mux2.readADC_SingleEnded(iDiode);
-    if( temp != adc[iDiode+8] ) {
+    if( abs(temp - adc[iDiode+8]) >= threshold ) {
       valueChanged = true;
       adc[iDiode+8] = temp;
     }
-  }
 
-  // check for changes in mux0
-  for(int16_t iDiode=0; iDiode < 4; ++iDiode) {
+    // check for changes in mux3 (LED 13-16)
     temp = mux3.readADC_SingleEnded(iDiode);
-    if( temp != adc[iDiode+12] ) {
+    if( abs(temp - adc[iDiode+12]) >= threshold ) {
       valueChanged = true;
       adc[iDiode+12] = temp;
     }
-  }*/
+  }
 
   // only send data, if no value has changed and if the values have not yet been written to the stream
   if(!valueChanged && !changesWritten) {
@@ -87,7 +86,7 @@ void loop() {
     Serial.println("-----");
 
     // send data to the serial port
-    for(int16_t iDiode=0; iDiode<4; ++iDiode) {
+    for(int16_t iDiode=0; iDiode<nPhotodiodes; ++iDiode) {
       Serial.print(iDiode); Serial.print(" "); Serial.println(adc[iDiode]);
     }
     Serial.println(" ");
