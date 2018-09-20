@@ -14,26 +14,23 @@ from time import sleep
 print("Opening Serial Port COM4 ...")
 photoPort = serial.Serial('COM4', 9600, timeout = .1)
 print("... done")
-#print("Opening Serial Port COM6 ...")
-#glovePort = serial.Serial('COM6', 9600, timeout = .1)
-#print("... done")
+print("Opening Serial Port COM6 ...")
+glovePort = serial.Serial('COM6', 9600, timeout = .1)
+print("... done")
 
 # Ports schließen, für den Fall, dass das Programm abstürtzt
 photoPort.close()
-#glovePort.close()
+glovePort.close()
 
 # und dann neu öffnen, um damit arbeiten zu können
 photoPort.open()
-#glovePort.open()
+glovePort.open()
 
 # erstelle Objekt für Photoplatte
 photoSensors = sensor.PhotoPlatte(nSensors = 16)
 
 # erstelle Objekt für Sensorhandschuh
-#sensorGlove = sensor.SensorHandschuh()
-
-# erstelle Datei zum Speichern der Datensätze
-dataFile = open("photoData.csv","a")
+sensorGlove = sensor.SensorHandschuh()
 
 print("Entering Program Loop")
 
@@ -43,7 +40,7 @@ try:
 		
 		# clear old data
 		photoPort.reset_input_buffer()
-		#glovePort.reset_input_buffer()
+		glovePort.reset_input_buffer()
 		
 		####################################
 		## lese Daten von der Photoplatte ##
@@ -62,7 +59,7 @@ try:
 			newDataPhoto = photoPort.readline().decode("ascii").split(" ")
 			newDataPhoto = list(map(int, newDataPhoto))
 			# update the value in the data structure
-			photoSensors.sensorArray[newDataPhoto[0]].value = newDataPhoto[1]
+			#photoSensors.sensorArray[newDataPhoto[0]].value = newDataPhoto[1]
 			print(newDataPhoto)
 			sleep(0.0) # warten bis neue Änderungen angekommen sind
 		
@@ -70,17 +67,12 @@ try:
 		## lese Daten vom Sensorhandschuh ##
 		####################################
 		
-		# write sensor array to the specified file
-		photoSensors.writeSensorData(dataFile)
-		# write the imaginary target value 
-		dataFile.write("1")
-		
 		# schicke Anfrage 
-		#glovePort.write('a'.encode('utf-8'))
+		glovePort.write('a'.encode('utf-8'))
 		
 		# warten, bis sich was geändert hat (Anzahl Bytes im Input Buffer < 2)
-		#while glovePort.in_waiting <= 2:
-		#	sleep(0.1)
+		while glovePort.in_waiting <= 2:
+			sleep(0.1)
 			
 		# Auslesen der Sensordaten der Photoplatte, solange es noch Änderungen gibt
 		# newDataGlove[0] = Sensornummer, newDataGlove[1:3/5] = Wert
@@ -88,14 +80,14 @@ try:
 		# newDataGlove[0] == 1 -> accelerometer, 3 Werte
 		# newDataGlove[0] == 2 -> gyroscope, 3 Werte
 		# newDataGlove[0] == 3 -> bending sensor, 5 Werte
-		#for counter in range( sensorGlove.nSensors ):
-		#	while glovePort.in_waiting <= 2:
-		#		sleep(0.1)
-		#	# read in data and convert to integer
-		#	newDataGlove = glovePort.readline().decode("ascii").split(" ")
-		#	newDataGlove = list(map(int, newDataGlove))
-		#	print(newDataGlove)
-		#	sleep(0.0) # warten bis neue Änderungen angekommen sind
+		for counter in range( sensorGlove.nSensors ):
+			while glovePort.in_waiting <= 2:
+				sleep(0.1)
+			# read in data and convert to integer
+			newDataGlove = glovePort.readline().decode("ascii").split(" ")
+			newDataGlove = list(map(int, newDataGlove))
+			print(newDataGlove)
+			sleep(0.0) # warten bis neue Änderungen angekommen sind
 		
 		# schreibe Daten in die gewünschte Datei
 		# todo ...
@@ -106,8 +98,7 @@ try:
 		
 except KeyboardInterrupt:
 
-	dataFile.close()
 	print("Closing Ports")
 	photoPort.close()
-	#glovePort.close()
+	glovePort.close()
 	print("Done")

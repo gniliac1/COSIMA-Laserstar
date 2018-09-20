@@ -52,6 +52,14 @@ class PhotoPlatte:
 		self.sensorArray = np.array([], dtype = Sensor)
 		for i in range(nSensors):
 			self.sensorArray = np.insert(self.sensorArray, self.sensorArray.shape[0], Sensor(1))
+			
+	def writeSensorData(self, file):
+		# iterate over all sensors and write their current values to a string
+		arrayString = ""
+		for i in range(self.nSensors):
+			arrayString = arrayString + str(self.sensorArray[i].value) + ","
+		# write the arrayString to the file
+		file.write(arrayString)
 
 
 class SensorHandschuh:
