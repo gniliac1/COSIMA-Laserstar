@@ -12,12 +12,12 @@ SoftwareSerial bt(7,6); //RX, TX
 
 void setup() {
   //Set Gain level for OPA
-  /*mux0.setGain(GAIN_TWOTHIRDS);  // 2/3x gain +/- 6.144V  1 bit = 3mV (default)
-  ads1015.setGain(GAIN_ONE);     // 1x gain   +/- 4.096V  1 bit = 2mV
-  ads1015.setGain(GAIN_TWO);     // 2x gain   +/- 2.048V  1 bit = 1mV
-  ads1015.setGain(GAIN_FOUR);    // 4x gain   +/- 1.024V  1 bit = 0.5mV
-  ads1015.setGain(GAIN_EIGHT);   // 8x gain   +/- 0.512V  1 bit = 0.25mV
-  ads1015.setGain(GAIN_SIXTEEN); // 16x gain  +/- 0.256V  1 bit = 0.125mV*/
+  //mux0.setGain(GAIN_TWOTHIRDS);  // 2/3x gain +/- 6.144V  1 bit = 3mV (default)
+  //mux0.setGain(GAIN_ONE);     // 1x gain   +/- 4.096V  1 bit = 2mV
+  //mux0.setGain(GAIN_TWO);     // 2x gain   +/- 2.048V  1 bit = 1mV
+  mux0.setGain(GAIN_FOUR);    // 4x gain   +/- 1.024V  1 bit = 0.5mV
+  /*mux0.setGain(GAIN_EIGHT);   // 8x gain   +/- 0.512V  1 bit = 0.25mV
+  mux0.setGain(GAIN_SIXTEEN); // 16x gain  +/- 0.256V  1 bit = 0.125mV*/
   
   Serial.begin(9600);
   mux0.begin();
