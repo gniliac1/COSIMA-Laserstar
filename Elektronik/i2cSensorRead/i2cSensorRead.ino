@@ -11,13 +11,18 @@ Adafruit_ADS1015 mux3(0x4B);
 SoftwareSerial bt(7,6); //RX, TX
 
 void setup() {
-  //Set Gain level for OPA
-  //mux0.setGain(GAIN_TWOTHIRDS);  // 2/3x gain +/- 6.144V  1 bit = 3mV (default)
-  //mux0.setGain(GAIN_ONE);     // 1x gain   +/- 4.096V  1 bit = 2mV
-  //mux0.setGain(GAIN_TWO);     // 2x gain   +/- 2.048V  1 bit = 1mV
-  mux0.setGain(GAIN_FOUR);    // 4x gain   +/- 1.024V  1 bit = 0.5mV
-  /*mux0.setGain(GAIN_EIGHT);   // 8x gain   +/- 0.512V  1 bit = 0.25mV
-  mux0.setGain(GAIN_SIXTEEN); // 16x gain  +/- 0.256V  1 bit = 0.125mV*/
+  
+  // Set Gain level for OPA
+  // GAIN_TWOTHIRDS - 2/3x gain +/- 6.144V  1 bit = 3mV (default)
+  // GAIN_ONE       - 1x gain   +/- 4.096V  1 bit = 2mV
+  // GAIN_TWO       - 2x gain   +/- 2.048V  1 bit = 1mV
+  // GAIN_FOUR      - 4x gain   +/- 1.024V  1 bit = 0.5mV
+  // GAIN_EIGHT     - 8x gain   +/- 0.512V  1 bit = 0.25mV
+  // GAIN_SIXTEEN   - 16x gain  +/- 0.256V  1 bit = 0.125mV
+  mux0.setGain(GAIN_EIGHT);
+  mux1.setGain(GAIN_EIGHT);    
+  mux2.setGain(GAIN_EIGHT);    
+  mux3.setGain(GAIN_EIGHT);    
   
   Serial.begin(9600);
   mux0.begin();
