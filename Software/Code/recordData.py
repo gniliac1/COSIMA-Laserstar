@@ -33,7 +33,7 @@ photoSensors = sensor.PhotoPlatte(nSensors = 16)
 #sensorGlove = sensor.SensorHandschuh()
 
 # erstelle Datei zum Speichern der Datensätze
-dataFile = open("photoData.csv","a")
+dataFile = open("photoData_rechts.csv","a")
 
 print("Entering Program Loop")
 
@@ -75,7 +75,7 @@ try:
 		# write sensor array to the specified file
 		photoSensors.writeSensorData(dataFile)
 		# write the imaginary target value 
-		dataFile.write("1\n")
+		dataFile.write("3\n")
 		
 		# schicke Anfrage 
 		#glovePort.write('a'.encode('utf-8'))

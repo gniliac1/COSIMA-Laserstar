@@ -50,20 +50,15 @@ def build_model(shape):
 	# - tf.nn.relu
 	# - tf.sigmoid
 	model = keras.Sequential([
-		keras.layers.Dense(128, activation=tf.nn.relu, input_shape=(shape,)),
+		keras.layers.Flatten(input_shape=(shape,)),
 		keras.layers.Dense(128, activation=tf.nn.relu),
-		keras.layers.Dense(64, activation=tf.nn.relu),
-		keras.layers.Dense(64, activation=tf.nn.relu),
-		keras.layers.Dense(2)
-		])
+		keras.layers.Dense(2, activation=tf.nn.softmax)
+	])
 
-	
-	optimizer = tf.train.RMSPropOptimizer(0.001)
-
-	# loss function is 'mean square error'
-	# metrics is 'mae' ('mean absolute error')
-	# metrics is 'mape' ('mean absolute percentage error')
-	model.compile(loss='mse', optimizer=optimizer, metrics=['mape'])
+	# compile the model
+	model.compile(optimizer=tf.train.AdamOptimizer(), 
+				  loss='sparse_categorical_crossentropy',
+				  metrics=['accuracy'])
 	
 	model.summary()
 				
@@ -112,3 +107,37 @@ trainingLabels = np.array(trainingLabels)
 trainingData, trainingLabels = unison_shuffled_copies(trainingData, trainingLabels)
 print(trainingData.shape)
 print(trainingLabels.shape)
+
+
+#################
+# preprocessing #
+#################
+
+print('\nPreprocessing data ...')
+print('----------------------\n')
+
+trainingData = trainingData / 1300.0
+trainingLabels = trainingLabels / 1300.0
+
+
+###################
+# build the model #
+###################
+
+print('\nBuilding up the model...')
+print('------------------------\n')
+model = build_model(trainingData.shape[1])
+
+
+###################
+# train the model #
+###################
+
+nEpochs = 5;
+
+print('\nTraining the model...')
+print('---------------------\n')
+model.fit(trainingData, trainingLabels, epochs=nEpochs)
+print('\nSaving the model...')
+print('-------------------\n')
+model.save('model.h5')
