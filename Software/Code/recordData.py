@@ -49,22 +49,24 @@ try:
 		## lese Daten von der Photoplatte ##
 		####################################
 		
-		# # warten, bis sich was geändert hat (Anzahl Bytes im Input Buffer < 2)
-		while photoPort.in_waiting <= 2:
-			sleep(0.1)
-		
 		# Auslesen der Sensordaten der Photoplatte, solange es noch Änderungen gibt
 		# newDataPhoto[0] = Sensornummer, newDataPhoto[1] = Wert
 		for counter in range( photoSensors.nSensors ):
-			while photoPort.in_waiting <= 2:
-				sleep(0.1)
+			# auf gültige Daten warten
+			while True:
+				# try to read data
+				newDataPhoto = photoPort.readline()
+				if newDataPhoto:
+					newDataPhoto = newDataPhoto.decode("ascii").split(" ")
+					print(newDataPhoto)
+					if len(newDataPhoto) == 2:
+						break
+			
 			# read in data and convert to integer
-			newDataPhoto = photoPort.readline().decode("ascii").split(" ")
 			newDataPhoto = list(map(int, newDataPhoto))
+			print(newDataPhoto)
 			# update the value in the data structure
 			photoSensors.sensorArray[newDataPhoto[0]].value = newDataPhoto[1]
-			print(newDataPhoto)
-			sleep(0.0) # warten bis neue Änderungen angekommen sind
 		
 		####################################
 		## lese Daten vom Sensorhandschuh ##
@@ -73,7 +75,7 @@ try:
 		# write sensor array to the specified file
 		photoSensors.writeSensorData(dataFile)
 		# write the imaginary target value 
-		dataFile.write("1")
+		dataFile.write("1\n")
 		
 		# schicke Anfrage 
 		#glovePort.write('a'.encode('utf-8'))
@@ -102,7 +104,6 @@ try:
 		
 		# zum testen, etwas warten
 		print("\n\n")
-		sleep(1)
 		
 except KeyboardInterrupt:
 

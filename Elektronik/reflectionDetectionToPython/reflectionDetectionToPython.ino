@@ -15,6 +15,7 @@ int16_t adc[nPhotodiodes];        // global array for photo current
 bool valueChanged;                // indicates whether the photo current has changed compared to the previous iteration
 bool changesWritten;              // ndcates whether the photo currents have already been written to the serial port
 const int16_t threshold = 3;      // threshold by which the values have to be changed before they are communicated
+char photoReport[64];             // variable for communicating changes to python
 int16_t temp;                     // temporary variable for storing the photo current
 int16_t counter = 0;              // contains the current iteration of the loop
 
@@ -43,7 +44,7 @@ void setup() {
 }
 
 void loop() {
-  
+
   // no value has changed yet
   valueChanged = false;
 
@@ -83,7 +84,8 @@ void loop() {
 
     // send data to the serial port
     for(int16_t iDiode=0; iDiode<nPhotodiodes; ++iDiode) {
-      Serial.print(iDiode); Serial.print(" "); Serial.println(adc[iDiode]);
+      sprintf(photoReport,"%d %d",iDiode,adc[iDiode]);
+      Serial.println(photoReport);
     }
 
     // values have been written

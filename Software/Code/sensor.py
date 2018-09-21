@@ -57,9 +57,12 @@ class PhotoPlatte:
 		# iterate over all sensors and write their current values to a string
 		arrayString = ""
 		for i in range(self.nSensors):
-			arrayString = arrayString + str(self.sensorArray[i].value) + ","
+			arrayString = arrayString + str(self.sensorArray[i].value)
+			if i != self.nSensors-1:
+				arrayString = arrayString + ","
 		# write the arrayString to the file
 		file.write(arrayString)
+		file.write("\n")
 
 
 class SensorHandschuh:
