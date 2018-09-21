@@ -34,15 +34,7 @@ def unison_shuffled_copies(a, b):
 	p = np.random.permutation(len(a))
 	return a[p], b[p]
 
-def transform( vector, ranges ):
-	"This function takes a 3 dimensional vector as input and scales it such that each component only ranges from 0 to 1"
-	"ranges contains the ranges of the x,y and z coordinates: ranges = [xmin, xmax, ymin, ymax, zmin, zmax]"
-	assert vector.size == 3
-	for i in range(3):
-		vector[i] = 1.0 / (ranges[2*i+1] - ranges[2*i]) * ( vector[i] - ranges[2*i] )
-	return vector
-
-def build_model(shape):
+def build_model():
 	"Creates a sequential model with two densely connected hidden layers"
 	"and an output layer that returns two continuous values"
 
@@ -50,9 +42,9 @@ def build_model(shape):
 	# - tf.nn.relu
 	# - tf.sigmoid
 	model = keras.Sequential([
-		keras.layers.Flatten(input_shape=(shape,)),
-		keras.layers.Dense(128, activation=tf.nn.relu),
-		keras.layers.Dense(2, activation=tf.nn.softmax)
+		keras.layers.Flatten(input_shape=(16,)),
+		keras.layers.Dense(16, activation=tf.nn.relu),
+		keras.layers.Dense(3, activation=tf.nn.softmax)
 	])
 
 	# compile the model
@@ -78,9 +70,9 @@ from tensorflow import keras
 # library for using numpy arrays
 import numpy as np
 # library for creating plots
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 # library for random numbers
-import random as rand
+#import random as rand
 
 
 ########
@@ -91,22 +83,62 @@ print('\nLoading data ...')
 print('----------------\n')
 
 # load generated data
-trainingData, trainingLabels = readData("photoData_flach.csv")
+trainingDataFlach, trainingLabelsFlach = readData("photoData_flach.csv",[],[])
 # print so that the user can see, whether everything has worked properly
-print(np.shape(trainingData))
-print(np.shape(trainingLabels))
+print(np.shape(trainingDataFlach))
+print(np.shape(trainingLabelsFlach))
 # load generated data
-trainingData, trainingLabels = readData("photoData_links.csv",trainingData,trainingLabels)
+trainingDataLinks, trainingLabelsLinks = readData("photoData_links.csv",[],[])
 # print so that the user can see, whether everything has worked properly
-print(np.shape(trainingData))
-print(np.shape(trainingLabels))
-# convert the read-in data structures into numy arrays
-trainingData = np.array(trainingData)
-trainingLabels = np.array(trainingLabels)
+print(np.shape(trainingDataLinks))
+print(np.shape(trainingLabelsLinks))
+# load generated data
+trainingDataRechts, trainingLabelsRechts = readData("photoData_rechts.csv",[],[])
+# print so that the user can see, whether everything has worked properly
+print(np.shape(trainingDataRechts))
+print(np.shape(trainingLabelsRechts))
+
+# all data sets have different lengths, determine the minimum
+minLen = min( [len(trainingDataFlach) , len(trainingDataLinks) , len(trainingDataRechts)] )
+print(minLen)
+# compute the number of trainings data points
+numTrainData = round( 0.9 * 3 * minLen )
+print(numTrainData)
+# compute the number of test data points
+numTestData = 3 * minLen - numTrainData
+print(numTestData)
+
+# combine the data set into numpy arrays
+combinedData = np.array( trainingDataFlach[0:minLen][:] )
+print(combinedData.shape)
+combinedData = np.vstack( ( combinedData , np.array(trainingDataLinks[0:minLen][:]) ) )
+print(combinedData.shape)
+combinedData = np.vstack( ( combinedData , np.array(trainingDataRechts[0:minLen][:]) ) )
+print(combinedData.shape)
+# combine the labels
+combinedLabels = np.array( trainingLabelsFlach[0:minLen] )
+print(combinedLabels.shape)
+combinedLabels = np.vstack( ( combinedLabels , np.array(trainingLabelsLinks[0:minLen]) ) )
+print(combinedLabels.shape)
+combinedLabels = np.vstack( ( combinedLabels , np.array(trainingLabelsRechts[0:minLen]) ) )
+print(combinedLabels.shape)
+
 # shuffle both arrays in unison
-trainingData, trainingLabels = unison_shuffled_copies(trainingData, trainingLabels)
+combinedData, combinedLabels = unison_shuffled_copies(combinedData, combinedLabels)
+
+print(combinedData.shape)
+print(combinedLabels.shape)
+
+# split the combined data set into trainings data and test data
+trainingData = combinedData[0:numTrainData][:]
+trainingLabels = combinedLabels[0:numTrainData]
+testData = combinedData[(numTrainData+1):3*minLen][:]
+testLabels = combinedLabels[(numTrainData+1):3*minLen]
+
 print(trainingData.shape)
 print(trainingLabels.shape)
+print(testData.shape)
+print(testLabels.shape)
 
 
 #################
@@ -117,7 +149,9 @@ print('\nPreprocessing data ...')
 print('----------------------\n')
 
 trainingData = trainingData / 1300.0
-trainingLabels = trainingLabels / 1300.0
+trainingLabels = trainingLabels - 1
+testData = testData / 1300.0
+testLabels = testLabels - 1
 
 
 ###################
@@ -126,7 +160,7 @@ trainingLabels = trainingLabels / 1300.0
 
 print('\nBuilding up the model...')
 print('------------------------\n')
-model = build_model(trainingData.shape[1])
+model = build_model()
 
 
 ###################
@@ -138,6 +172,19 @@ nEpochs = 5;
 print('\nTraining the model...')
 print('---------------------\n')
 model.fit(trainingData, trainingLabels, epochs=nEpochs)
+
 print('\nSaving the model...')
 print('-------------------\n')
 model.save('model.h5')
+
+#################################
+# evaluate the model's accuracy #
+#################################
+
+print('\nEvaluating the model...')
+print('-----------------------\n')
+
+test_loss, test_acc = model.evaluate(testData, testLabels)
+
+print('Test loss:', test_loss)
+print('Test accuracy:', test_acc)
