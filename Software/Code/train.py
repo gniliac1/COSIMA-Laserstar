@@ -43,6 +43,7 @@ def build_model():
 	# - tf.sigmoid
 	model = keras.Sequential([
 		keras.layers.Flatten(input_shape=(16,)),
+		keras.layers.Dense(32, activation=tf.nn.relu),
 		keras.layers.Dense(16, activation=tf.nn.relu),
 		keras.layers.Dense(3, activation=tf.nn.softmax)
 	])
@@ -69,10 +70,6 @@ from tensorflow import keras
 
 # library for using numpy arrays
 import numpy as np
-# library for creating plots
-#import matplotlib.pyplot as plt
-# library for random numbers
-#import random as rand
 
 
 ########
@@ -101,42 +98,50 @@ print(np.shape(trainingLabelsRechts))
 # all data sets have different lengths, determine the minimum
 minLen = min( [len(trainingDataFlach) , len(trainingDataLinks) , len(trainingDataRechts)] )
 print(minLen)
-# compute the number of trainings data points
-numTrainData = round( 0.9 * 3 * minLen )
+# compute the number of trainings data points per data set
+numTrainData = round( 0.9 * minLen )
 print(numTrainData)
-# compute the number of test data points
-numTestData = 3 * minLen - numTrainData
-print(numTestData)
 
-# combine the data set into numpy arrays
-combinedData = np.array( trainingDataFlach[0:minLen][:] )
-print(combinedData.shape)
-combinedData = np.vstack( ( combinedData , np.array(trainingDataLinks[0:minLen][:]) ) )
-print(combinedData.shape)
-combinedData = np.vstack( ( combinedData , np.array(trainingDataRechts[0:minLen][:]) ) )
-print(combinedData.shape)
-# combine the labels
-combinedLabels = np.array( trainingLabelsFlach[0:minLen] )
-print(combinedLabels.shape)
-combinedLabels = np.vstack( ( combinedLabels , np.array(trainingLabelsLinks[0:minLen]) ) )
-print(combinedLabels.shape)
-combinedLabels = np.vstack( ( combinedLabels , np.array(trainingLabelsRechts[0:minLen]) ) )
-print(combinedLabels.shape)
+# combine the training data set into numpy arrays
+trainingData = np.array( trainingDataFlach[0:numTrainData][:] )
+print(trainingData.shape)
+trainingData = np.vstack( ( trainingData , np.array(trainingDataLinks[0:numTrainData][:]) ) )
+print(trainingData.shape)
+trainingData = np.vstack( ( trainingData , np.array(trainingDataRechts[0:numTrainData][:]) ) )
+print(trainingData.shape)
+# combine the training labels
+trainingLabels = np.array( trainingLabelsFlach[0:numTrainData] )
+print(trainingLabels.shape)
+trainingLabels = np.vstack( ( trainingLabels , np.array(trainingLabelsLinks[0:numTrainData]) ) )
+print(trainingLabels.shape)
+trainingLabels = np.vstack( ( trainingLabels , np.array(trainingLabelsRechts[0:numTrainData]) ) )
+print(trainingLabels.shape)
 
-# shuffle both arrays in unison
-combinedData, combinedLabels = unison_shuffled_copies(combinedData, combinedLabels)
-
-print(combinedData.shape)
-print(combinedLabels.shape)
-
-# split the combined data set into trainings data and test data
-trainingData = combinedData[0:numTrainData][:]
-trainingLabels = combinedLabels[0:numTrainData]
-testData = combinedData[(numTrainData+1):3*minLen][:]
-testLabels = combinedLabels[(numTrainData+1):3*minLen]
+# shuffle both arrays in unison (this could maybe change something...?)
+trainingData, trainingLabels = unison_shuffled_copies(trainingData, trainingLabels)
 
 print(trainingData.shape)
 print(trainingLabels.shape)
+
+
+# combine the test data set into numpy arrays
+testData = np.array( trainingDataFlach[numTrainData:minLen][:] )
+print(testData.shape)
+testData = np.vstack( ( testData , np.array(trainingDataLinks[numTrainData:minLen][:]) ) )
+print(testData.shape)
+testData = np.vstack( ( testData , np.array(trainingDataRechts[numTrainData:minLen][:]) ) )
+print(testData.shape)
+# combine the test labels
+testLabels = np.array( trainingLabelsFlach[numTrainData:minLen] )
+print(testLabels.shape)
+testLabels = np.vstack( ( testLabels , np.array(trainingLabelsLinks[numTrainData:minLen]) ) )
+print(testLabels.shape)
+testLabels = np.vstack( ( testLabels , np.array(trainingLabelsRechts[numTrainData:minLen]) ) )
+print(testLabels.shape)
+
+# shuffle both arrays in unison (this should actually change nothing...!)
+testData, testLabels = unison_shuffled_copies(testData, testLabels)
+
 print(testData.shape)
 print(testLabels.shape)
 
