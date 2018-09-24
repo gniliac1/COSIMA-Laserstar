@@ -176,7 +176,7 @@ nEpochs = 25;
 
 print('\nTraining the model...')
 print('---------------------\n')
-model.fit(trainingData, trainingLabels, epochs=nEpochs)
+model.fit(trainingData, trainingLabels, batch_size=5, epochs=nEpochs, validation_split=0.1)
 
 print('\nSaving the model...')
 print('-------------------\n')

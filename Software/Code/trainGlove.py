@@ -43,8 +43,8 @@ def build_model():
 	# - tf.sigmoid
 	model = keras.Sequential([
 		keras.layers.Flatten(input_shape=(16,)),
-		keras.layers.Dense(8, activation=tf.nn.relu),
-		keras.layers.Dense(8, activation=tf.nn.relu),
+		keras.layers.Dense(32, activation=tf.nn.relu),
+		keras.layers.Dense(16, activation=tf.nn.relu),
 		keras.layers.Dense(3, activation=tf.nn.softmax)
 	])
 
@@ -172,7 +172,7 @@ model = build_model()
 # train the model #
 ###################
 
-nEpochs = 25;
+nEpochs = 5;
 
 print('\nTraining the model...')
 print('---------------------\n')

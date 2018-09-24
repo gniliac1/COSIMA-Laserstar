@@ -40,7 +40,7 @@ photoPort.open()
 photoSensors = sensor.PhotoPlatte(nSensors = 16)
 
 # erstelle Datei zum Speichern der Datensätze
-dataFile = open("test.csv","a")
+dataFile = open("photoData_rechts.csv","a")
 
 print("Entering Program Loop")
 
@@ -69,6 +69,9 @@ try:
 		# write sensor array to the specified file
 		photoSensors.writeSensorData(dataFile)
 		# write the target value corresponding to the current gesture
+		# 1 -> flach
+		# 2 -> links
+		# 3 -> rechts
 		dataFile.write("3\n")
 		
 		# zum testen, etwas warten
