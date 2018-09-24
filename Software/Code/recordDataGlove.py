@@ -5,6 +5,21 @@ Created on Wed Sep 12 19:30:23 2018
 @author: Daniel Wolff
 """
 
+def readIntgersFromSerialPort(port,nIntegers):
+	# wait for valid data
+	while True:
+		# try to read data
+		newData = port.readline()
+		# if data has been received
+		if newData:
+			# try to decode the string
+			newData = newData.decode("ascii").split(" ")
+			# check whether the data is valid and consists of nIntegers integers
+			if len(newData) == nIntegers:
+				# received data is valid, so leave the loop and process the data
+				break
+	return newData
+
 import sensor
 import serial
 from time import sleep
@@ -32,6 +47,9 @@ photoSensors = sensor.PhotoPlatte(nSensors = 16)
 # erstelle Objekt für Sensorhandschuh
 sensorGlove = sensor.SensorHandschuh()
 
+# erstelle Datei zum Speichern der Datensätze
+dataFile = open("test.csv","a")
+
 print("Entering Program Loop")
 
 try:
@@ -46,22 +64,16 @@ try:
 		## lese Daten von der Photoplatte ##
 		####################################
 		
-		# # warten, bis sich was geändert hat (Anzahl Bytes im Input Buffer < 2)
-		while photoPort.in_waiting <= 2:
-			sleep(0.1)
-		
 		# Auslesen der Sensordaten der Photoplatte, solange es noch Änderungen gibt
 		# newDataPhoto[0] = Sensornummer, newDataPhoto[1] = Wert
 		for counter in range( photoSensors.nSensors ):
-			while photoPort.in_waiting <= 2:
-				sleep(0.1)
-			# read in data and convert to integer
-			newDataPhoto = photoPort.readline().decode("ascii").split(" ")
+			# read two integers from serial port
+			newDataPhoto = readIntgersFromSerialPort(photoPort,2)
+			# convert data from string to integer
 			newDataPhoto = list(map(int, newDataPhoto))
-			# update the value in the data structure
-			#photoSensors.sensorArray[newDataPhoto[0]].value = newDataPhoto[1]
 			print(newDataPhoto)
-			sleep(0.0) # warten bis neue Änderungen angekommen sind
+			# update the value in the data structure
+			photoSensors.sensorArray[newDataPhoto[0]].value = newDataPhoto[1]
 		
 		####################################
 		## lese Daten vom Sensorhandschuh ##
@@ -69,10 +81,6 @@ try:
 		
 		# schicke Anfrage 
 		glovePort.write('a'.encode('utf-8'))
-		
-		# warten, bis sich was geändert hat (Anzahl Bytes im Input Buffer < 2)
-		while glovePort.in_waiting <= 2:
-			sleep(0.1)
 			
 		# Auslesen der Sensordaten der Photoplatte, solange es noch Änderungen gibt
 		# newDataGlove[0] = Sensornummer, newDataGlove[1:3/5] = Wert
@@ -81,23 +89,32 @@ try:
 		# newDataGlove[0] == 2 -> gyroscope, 3 Werte
 		# newDataGlove[0] == 3 -> bending sensor, 5 Werte
 		for counter in range( sensorGlove.nSensors ):
-			while glovePort.in_waiting <= 2:
-				sleep(0.1)
-			# read in data and convert to integer
-			newDataGlove = glovePort.readline().decode("ascii").split(" ")
+			# read integers from serial port
+			if counter == sensorGlove.nSensors-1:
+				newDataGlove = readIntgersFromSerialPort(glovePort,6)
+			else:
+				newDataGlove = readIntgersFromSerialPort(glovePort,4)
+			# convert data from string to integer
 			newDataGlove = list(map(int, newDataGlove))
 			print(newDataGlove)
-			sleep(0.0) # warten bis neue Änderungen angekommen sind
+			# update the value in the data structure
+			sensorGlove.setSensorData(newDataGlove)
 		
-		# schreibe Daten in die gewünschte Datei
-		# todo ...
+		#############################
+		## schreibe Daten in Datei ##
+		#############################
+		
+		# write sensor array to the specified file
+		photoSensors.writeSensorData(dataFile)
+		# write the values corresponding to the current gesture
+		sensorGlove.writeSensorData(dataFile)
 		
 		# zum testen, etwas warten
 		print("\n\n")
-		sleep(1)
 		
 except KeyboardInterrupt:
 
+	dataFile.close()
 	print("Closing Ports")
 	photoPort.close()
 	glovePort.close()

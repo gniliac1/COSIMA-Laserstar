@@ -61,8 +61,7 @@ class PhotoPlatte:
 			if i != self.nSensors-1:
 				arrayString = arrayString + ","
 		# write the arrayString to the file
-		file.write(arrayString)
-		file.write("\n")
+		file.write(arrayString + "\n")
 
 
 class SensorHandschuh:
@@ -74,26 +73,79 @@ class SensorHandschuh:
 	nBendingSensors = 5 # 5 Werte von Biegesensoren
 
 	def __init__(self):
-	
 		# 3 Werte vom Kompass
 		self.compass = np.array([], dtype = Sensor)
 		for i in range(self.nCompass):
 			self.compass = np.insert(self.compass, self.compass.shape[0], Sensor(1))
-			
 		# 3 Werte von Beschleunigungssensoren
 		self.accelerometer = np.array([], dtype = Sensor)
 		for i in range(self.nAccelerometer):
 			self.accelerometer = np.insert(self.accelerometer, self.accelerometer.shape[0], Sensor(1))
-			
 		# 3 Werte vom Gyroskop
 		self.gyroscope = np.array([], dtype = Sensor)
 		for i in range(self.nGyroscope):
 			self.gyroscope = np.insert(self.gyroscope, self.gyroscope.shape[0], Sensor(1))
-			
 		# 5 Werte von Biegesensoren
 		self.bendingSensors = np.array([], dtype = Sensor)
 		for i in range(self.nBendingSensors):
 			self.bendingSensors = np.insert(self.bendingSensors, self.bendingSensors.shape[0], Sensor(1))
+	
+	def writeSensorData(self, file):
+		# write compass data
+		arrayString = ""
+		for i in range(self.nCompass):
+			arrayString = arrayString + str(self.compass[i].value)
+			if i != self.nCompass-1:
+				arrayString = arrayString + ","
+		# write the arrayString to the file
+		file.write(arrayString + "\n")
+		# write accelerometer data
+		arrayString = ""
+		for i in range(self.nAccelerometer):
+			arrayString = arrayString + str(self.accelerometer[i].value)
+			if i != self.nAccelerometer-1:
+				arrayString = arrayString + ","
+		# write the arrayString to the file
+		file.write(arrayString + "\n")
+		# write gyroscope data
+		arrayString = ""
+		for i in range(self.nGyroscope):
+			arrayString = arrayString + str(self.gyroscope[i].value)
+			if i != self.nGyroscope-1:
+				arrayString = arrayString + ","
+		# write the arrayString to the file
+		file.write(arrayString + "\n")
+		# write bending sensor data
+		arrayString = ""
+		for i in range(self.nBendingSensors):
+			arrayString = arrayString + str(self.bendingSensors[i].value)
+			if i != self.nBendingSensors-1:
+				arrayString = arrayString + ","
+		# write the arrayString to the file
+		file.write(arrayString + "\n")
+		
+	def setSensorData(self,data):
+		# first entry of the data array corresponds to the sensor type
+		# data[0] == 0 -> compass, 3 values
+		# data[0] == 1 -> accelerometer, 3 values
+		# data[0] == 2 -> gyroscope, 3 values
+		# data[0] == 3 -> bending sensor, 5 values
+		if data[0] == 0:
+			# set compass data
+			for i in range(self.nCompass):
+				self.compass[i].value = data[i+1]
+		elif data[0] == 1:
+			# set accelerometer data
+			for i in range(self.nAccelerometer):
+				self.accelerometer[i].value = data[i+1]
+		elif data[0] == 2:
+			# set gyroscope data
+			for i in range(self.nGyroscope):
+				self.gyroscope[i].value = data[i+1]
+		elif data[0] == 3:
+			# set bending sensor data
+			for i in range(self.nBendingSensors):
+				self.bendingSensors[i].value = data[i+1]
 			
 
 """ Falls nötig

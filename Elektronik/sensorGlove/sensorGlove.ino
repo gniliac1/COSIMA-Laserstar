@@ -76,6 +76,7 @@ void loop()
     } // incomingByte == 'a'
   
   } // Serial.available() > 0
+
+  delay(100);
   
-  delay(1000);
 }
