@@ -1,4 +1,2 @@
 Lampignon
-./firstModel.h5
-sparse_categorical_crossentropy
-accuracy
+data/myWeights

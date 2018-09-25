@@ -28,34 +28,6 @@ def readData( filename, trainingData = [], trainingLabels = [] ):
 	# return the read in data
 	return trainingData, trainingLabels
 	
-def unison_shuffled_copies(a, b):
-	"This functions permutes the rows of the numpy arrays a and b in the same order"
-	assert len(a) == len(b)
-	p = np.random.permutation(len(a))
-	return a[p], b[p]
-
-def build_model():
-	"Creates a sequential model with two densely connected hidden layers"
-	"and an output layer that returns two continuous values"
-
-	# activation functions
-	# - tf.nn.relu
-	# - tf.sigmoid
-	model = keras.Sequential([
-		keras.layers.Flatten(input_shape=(16,)),
-		keras.layers.Dense(8, activation=tf.nn.relu),
-		keras.layers.Dense(8, activation=tf.nn.relu),
-		keras.layers.Dense(3, activation=tf.nn.softmax)
-	])
-
-	# compile the model
-	model.compile(optimizer=tf.train.AdamOptimizer(), 
-				  loss='sparse_categorical_crossentropy',
-				  metrics=['accuracy'])
-	
-	model.summary()
-				
-	return model
 
 #################
 # configuration #
@@ -63,10 +35,9 @@ def build_model():
 
 print('\nLoading libraries ...')
 print('---------------------\n')
-# import the TensorFlow library
-import tensorflow as tf
-# import the Keras API, which is a high-level API to build and train deep learning models
-from tensorflow import keras
+
+# import custom functions
+import gestiFuncs as funcs
 
 # library for using numpy arrays
 import numpy as np
@@ -80,17 +51,17 @@ print('\nLoading data ...')
 print('----------------\n')
 
 # load generated data
-trainingDataFlach, trainingLabelsFlach = readData("photoData_flach.csv",[],[])
+trainingDataFlach, trainingLabelsFlach = readData("data/photoData_flach.csv",[],[])
 # print so that the user can see, whether everything has worked properly
 print(np.shape(trainingDataFlach))
 print(np.shape(trainingLabelsFlach))
 # load generated data
-trainingDataLinks, trainingLabelsLinks = readData("photoData_links.csv",[],[])
+trainingDataLinks, trainingLabelsLinks = readData("data/photoData_links.csv",[],[])
 # print so that the user can see, whether everything has worked properly
 print(np.shape(trainingDataLinks))
 print(np.shape(trainingLabelsLinks))
 # load generated data
-trainingDataRechts, trainingLabelsRechts = readData("photoData_rechts.csv",[],[])
+trainingDataRechts, trainingLabelsRechts = readData("data/photoData_rechts.csv",[],[])
 # print so that the user can see, whether everything has worked properly
 print(np.shape(trainingDataRechts))
 print(np.shape(trainingLabelsRechts))
@@ -118,7 +89,7 @@ trainingLabels = np.vstack( ( trainingLabels , np.array(trainingLabelsRechts[0:n
 print(trainingLabels.shape)
 
 # shuffle both arrays in unison (this could maybe change something...?)
-trainingData, trainingLabels = unison_shuffled_copies(trainingData, trainingLabels)
+trainingData, trainingLabels = funcs.unison_shuffled_copies(trainingData, trainingLabels)
 
 print(trainingData.shape)
 print(trainingLabels.shape)
@@ -140,7 +111,7 @@ testLabels = np.vstack( ( testLabels , np.array(trainingLabelsRechts[numTrainDat
 print(testLabels.shape)
 
 # shuffle both arrays in unison (this should actually change nothing...!)
-testData, testLabels = unison_shuffled_copies(testData, testLabels)
+testData, testLabels = funcs.unison_shuffled_copies(testData, testLabels)
 
 print(testData.shape)
 print(testLabels.shape)
@@ -165,7 +136,7 @@ testLabels = testLabels - 1
 
 print('\nBuilding up the model...')
 print('------------------------\n')
-model = build_model()
+model = funcs.create_model()
 
 
 ###################
@@ -176,7 +147,7 @@ nEpochs = 25;
 
 print('\nTraining the model...')
 print('---------------------\n')
-model.fit(trainingData, trainingLabels, epochs=nEpochs)
+model.fit(trainingData, trainingLabels, batch_size=5, epochs=nEpochs, validation_split=0.1)
 
 print('\nSaving the model...')
 print('-------------------\n')
@@ -193,3 +164,43 @@ test_loss, test_acc = model.evaluate(testData, testLabels)
 
 print('Test loss:', test_loss)
 print('Test accuracy:', test_acc)
+
+#############
+
+print("\n\n")
+#print(trainingData[234])
+bla = model.predict(np.reshape(trainingData[234],[1,16]))
+print(bla)
+print(trainingLabels[234])
+print("\n\n")
+#print(testData[25])
+bla = model.predict(np.reshape(testData[25],[1,16]))
+print(bla)
+print(testLabels[25])
+print("\n\n")
+
+model.save_weights("data/testWeights")
+
+model = funcs.create_model()
+#print(trainingData[234])
+bla = model.predict(np.reshape(trainingData[234],[1,16]))
+print(bla)
+print(trainingLabels[234])
+print("\n\n")
+#print(testData[25])
+bla = model.predict(np.reshape(testData[25],[1,16]))
+print(bla)
+print(testLabels[25])
+print("\n\n")
+
+model.load_weights("data/testWeights")
+#print(trainingData[234])
+bla = model.predict(np.reshape(trainingData[234],[1,16]))
+print(bla)
+print(trainingLabels[234])
+print("\n\n")
+#print(testData[25])
+bla = model.predict(np.reshape(testData[25],[1,16]))
+print(bla)
+print(testLabels[25])
+print("\n\n")

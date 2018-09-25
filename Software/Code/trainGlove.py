@@ -27,35 +27,7 @@ def readData( filename, trainingData = [], trainingLabels = [] ):
 	file.close()
 	# return the read in data
 	return trainingData, trainingLabels
-	
-def unison_shuffled_copies(a, b):
-	"This functions permutes the rows of the numpy arrays a and b in the same order"
-	assert len(a) == len(b)
-	p = np.random.permutation(len(a))
-	return a[p], b[p]
 
-def build_model():
-	"Creates a sequential model with two densely connected hidden layers"
-	"and an output layer that returns two continuous values"
-
-	# activation functions
-	# - tf.nn.relu
-	# - tf.sigmoid
-	model = keras.Sequential([
-		keras.layers.Flatten(input_shape=(16,)),
-		keras.layers.Dense(32, activation=tf.nn.relu),
-		keras.layers.Dense(16, activation=tf.nn.relu),
-		keras.layers.Dense(3, activation=tf.nn.softmax)
-	])
-
-	# compile the model
-	model.compile(optimizer=tf.train.AdamOptimizer(), 
-				  loss='sparse_categorical_crossentropy',
-				  metrics=['accuracy'])
-	
-	model.summary()
-				
-	return model
 
 #################
 # configuration #
@@ -80,17 +52,17 @@ print('\nLoading data ...')
 print('----------------\n')
 
 # load generated data
-trainingDataFlach, trainingLabelsFlach = readData("photoData_flach.csv",[],[])
+trainingDataFlach, trainingLabelsFlach = readData("data/photoData_flach.csv",[],[])
 # print so that the user can see, whether everything has worked properly
 print(np.shape(trainingDataFlach))
 print(np.shape(trainingLabelsFlach))
 # load generated data
-trainingDataLinks, trainingLabelsLinks = readData("photoData_links.csv",[],[])
+trainingDataLinks, trainingLabelsLinks = readData("data/photoData_links.csv",[],[])
 # print so that the user can see, whether everything has worked properly
 print(np.shape(trainingDataLinks))
 print(np.shape(trainingLabelsLinks))
 # load generated data
-trainingDataRechts, trainingLabelsRechts = readData("photoData_rechts.csv",[],[])
+trainingDataRechts, trainingLabelsRechts = readData("data/photoData_rechts.csv",[],[])
 # print so that the user can see, whether everything has worked properly
 print(np.shape(trainingDataRechts))
 print(np.shape(trainingLabelsRechts))
@@ -165,7 +137,7 @@ testLabels = testLabels - 1
 
 print('\nBuilding up the model...')
 print('------------------------\n')
-model = build_model()
+model = funcs.create_model()
 
 
 ###################
@@ -180,7 +152,7 @@ model.fit(trainingData, trainingLabels, epochs=nEpochs)
 
 print('\nSaving the model...')
 print('-------------------\n')
-model.save('train/model.h5')
+model.save('data/model.h5')
 
 #################################
 # evaluate the model's accuracy #
