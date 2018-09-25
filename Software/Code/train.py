@@ -51,17 +51,17 @@ print('\nLoading data ...')
 print('----------------\n')
 
 # load generated data
-trainingDataFlach, trainingLabelsFlach = readData("data/photoData_flach.csv",[],[])
+trainingDataFlach, trainingLabelsFlach = readData("data/flach_neu.csv",[],[])
 # print so that the user can see, whether everything has worked properly
 print(np.shape(trainingDataFlach))
 print(np.shape(trainingLabelsFlach))
 # load generated data
-trainingDataLinks, trainingLabelsLinks = readData("data/photoData_links.csv",[],[])
+trainingDataLinks, trainingLabelsLinks = readData("data/links_neu.csv",[],[])
 # print so that the user can see, whether everything has worked properly
 print(np.shape(trainingDataLinks))
 print(np.shape(trainingLabelsLinks))
 # load generated data
-trainingDataRechts, trainingLabelsRechts = readData("data/photoData_rechts.csv",[],[])
+trainingDataRechts, trainingLabelsRechts = readData("data/rechts_neu.csv",[],[])
 # print so that the user can see, whether everything has worked properly
 print(np.shape(trainingDataRechts))
 print(np.shape(trainingLabelsRechts))

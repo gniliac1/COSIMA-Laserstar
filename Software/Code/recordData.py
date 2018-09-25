@@ -26,13 +26,20 @@ photoPort.open()
 photoSensors = sensor.PhotoPlatte(nSensors = 16)
 
 # erstelle Datei zum Speichern der Datensätze
-dataFile = open("data/test.csv","a")
+dataFile = open("data/rechts_neu.csv","a")
 
 print("Entering Program Loop")
 
 try:
+
+	iteration = 0;
+	
 	# eigentliche Programm-Schleife
 	while True:
+	
+		iteration = iteration + 1
+		print(iteration)
+		print("-----\n")
 		
 		# clear old data
 		photoPort.reset_input_buffer()

@@ -30,7 +30,7 @@ class UserModel :
 		#				   metrics=[userData[3]])
 		#self.model.summary()
 		self.model = funcs.create_model()
-		self.model.load_weights("data/myWeights")
+		self.model.load_weights("data/testWeights")
 		print("Done")
 		#if userData[4] != 'NONE':
 		#	self.gestureToCommand = np.genfromtxt( userData[4], delimiter=';', dtype='int')
