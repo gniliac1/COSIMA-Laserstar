@@ -180,7 +180,7 @@ model.fit(trainingData, trainingLabels, batch_size=5, epochs=nEpochs, validation
 
 print('\nSaving the model...')
 print('-------------------\n')
-model.save('model.h5')
+model.save('train/model.h5')
 
 #################################
 # evaluate the model's accuracy #

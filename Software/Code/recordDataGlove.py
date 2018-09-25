@@ -5,21 +5,7 @@ Created on Wed Sep 12 19:30:23 2018
 @author: Daniel Wolff
 """
 
-def readIntgersFromSerialPort(port,nIntegers):
-	# wait for valid data
-	while True:
-		# try to read data
-		newData = port.readline()
-		# if data has been received
-		if newData:
-			# try to decode the string
-			newData = newData.decode("ascii").split(" ")
-			# check whether the data is valid and consists of nIntegers integers
-			if len(newData) == nIntegers:
-				# received data is valid, so leave the loop and process the data
-				break
-	return newData
-
+import gestiFuncs as funcs
 import sensor
 import serial
 from time import sleep
@@ -48,7 +34,7 @@ photoSensors = sensor.PhotoPlatte(nSensors = 16)
 sensorGlove = sensor.SensorHandschuh()
 
 # erstelle Datei zum Speichern der Datensätze
-dataFile = open("test.csv","a")
+dataFile = open("data/test.csv","a")
 
 print("Entering Program Loop")
 
@@ -68,12 +54,12 @@ try:
 		# newDataPhoto[0] = Sensornummer, newDataPhoto[1] = Wert
 		for counter in range( photoSensors.nSensors ):
 			# read two integers from serial port
-			newDataPhoto = readIntgersFromSerialPort(photoPort,2)
+			newDataPhoto = funcs.readIntgersFromSerialPort(photoPort,2)
 			# convert data from string to integer
 			newDataPhoto = list(map(int, newDataPhoto))
 			print(newDataPhoto)
 			# update the value in the data structure
-			photoSensors.sensorArray[newDataPhoto[0]].value = newDataPhoto[1]
+			photoSensors.setSensorData(newDataPhoto)
 		
 		####################################
 		## lese Daten vom Sensorhandschuh ##
@@ -91,9 +77,9 @@ try:
 		for counter in range( sensorGlove.nSensors ):
 			# read integers from serial port
 			if counter == sensorGlove.nSensors-1:
-				newDataGlove = readIntgersFromSerialPort(glovePort,6)
+				newDataGlove = funcs.readIntgersFromSerialPort(glovePort,6)
 			else:
-				newDataGlove = readIntgersFromSerialPort(glovePort,4)
+				newDataGlove = funcs.readIntgersFromSerialPort(glovePort,4)
 			# convert data from string to integer
 			newDataGlove = list(map(int, newDataGlove))
 			print(newDataGlove)
