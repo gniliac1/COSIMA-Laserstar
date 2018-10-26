@@ -11,19 +11,55 @@
 \usepackage{enumitem}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{gauss}
 \usepackage{color}
 \usepackage{mdframed}
+\usepackage{chngcntr}
 \usepackage{titling}
+\usepackage{mathtools}
 \usepackage[figure]{hypcap}
 \usepackage{subcaption}
 \allowdisplaybreaks
 
 % ------------Definitionsbereich------------ %
 
+\newtheoremstyle{custom}
+  {}{}
+	{}{}
+	{\bfseries}{.}
+	{.5em}
+	{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+	
+\theoremstyle{custom}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{theorem}[definition]{Satz}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{remark}[definition]{Bemerkung}
+\newtheorem{example}[definition]{Beispiel}
+% Beweise mit \begin{proof} \end{proof}
+
+% für Abbildungen
+\counterwithin{figure}{chapter}
+\newcommand {\abb} [4] [10] {  %USE: breite label dateipfad bildunterschrift 
+	\begin{figure}[hp]
+		\caption{#4}
+		\label{#2}
+		\centering
+		\makebox[\textwidth]{
+			\includegraphics[width =#1cm]{#3}
+		}
+	\end{figure}
+}
+
 % zum Referenzieren
 \newcommand{\refchapter}[1]{Kapitel~\ref{#1}}
 \newcommand{\refsec}[1]{Abschnitt~\ref{#1}}
+\newcommand{\refeqn}[1]{Gleichung~(\ref{#1})}
 \newcommand{\reffig}[1]{Abbildung~\ref{#1}}
+\newcommand{\refrm}[1]{Bemerkung~\ref{#1}}
+\newcommand{\refthm}[1]{Satz~\ref{#1}}
+\newcommand{\refdef}[1]{Definition~\ref{#1}}
+\newcommand{\refex}[1]{Beispiel~\ref{#1}}
 \newcommand{\reftab}[1]{Tabelle~\ref{#1}}
 
 
