@@ -1,6 +1,6 @@
 #include <SoftwareSerial.h>
 #include <Wire.h>
-#include <Adafruit_ADS1015.h>                                                
+#include <Adafruit_ADS1015.h>
 
 //Initialize I2C addresses of multiplexers
 Adafruit_ADS1015 mux0(0x48);

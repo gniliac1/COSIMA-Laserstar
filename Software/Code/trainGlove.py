@@ -27,7 +27,7 @@ def readData( filename, trainingData = [], trainingLabels = [] ):
 	file.close()
 	# return the read in data
 	return trainingData, trainingLabels
-	
+
 
 #################
 # configuration #
@@ -35,9 +35,10 @@ def readData( filename, trainingData = [], trainingLabels = [] ):
 
 print('\nLoading libraries ...')
 print('---------------------\n')
-
-# import custom functions
-import gestiFuncs as funcs
+# import the TensorFlow library
+import tensorflow as tf
+# import the Keras API, which is a high-level API to build and train deep learning models
+from tensorflow import keras
 
 # library for using numpy arrays
 import numpy as np
@@ -51,17 +52,17 @@ print('\nLoading data ...')
 print('----------------\n')
 
 # load generated data
-trainingDataFlach, trainingLabelsFlach = readData("data/flach_neu.csv",[],[])
+trainingDataFlach, trainingLabelsFlach = readData("data/photoData_flach.csv",[],[])
 # print so that the user can see, whether everything has worked properly
 print(np.shape(trainingDataFlach))
 print(np.shape(trainingLabelsFlach))
 # load generated data
-trainingDataLinks, trainingLabelsLinks = readData("data/links_neu.csv",[],[])
+trainingDataLinks, trainingLabelsLinks = readData("data/photoData_links.csv",[],[])
 # print so that the user can see, whether everything has worked properly
 print(np.shape(trainingDataLinks))
 print(np.shape(trainingLabelsLinks))
 # load generated data
-trainingDataRechts, trainingLabelsRechts = readData("data/rechts_neu.csv",[],[])
+trainingDataRechts, trainingLabelsRechts = readData("data/photoData_rechts.csv",[],[])
 # print so that the user can see, whether everything has worked properly
 print(np.shape(trainingDataRechts))
 print(np.shape(trainingLabelsRechts))
@@ -89,7 +90,7 @@ trainingLabels = np.vstack( ( trainingLabels , np.array(trainingLabelsRechts[0:n
 print(trainingLabels.shape)
 
 # shuffle both arrays in unison (this could maybe change something...?)
-trainingData, trainingLabels = funcs.unison_shuffled_copies(trainingData, trainingLabels)
+trainingData, trainingLabels = unison_shuffled_copies(trainingData, trainingLabels)
 
 print(trainingData.shape)
 print(trainingLabels.shape)
@@ -111,7 +112,7 @@ testLabels = np.vstack( ( testLabels , np.array(trainingLabelsRechts[numTrainDat
 print(testLabels.shape)
 
 # shuffle both arrays in unison (this should actually change nothing...!)
-testData, testLabels = funcs.unison_shuffled_copies(testData, testLabels)
+testData, testLabels = unison_shuffled_copies(testData, testLabels)
 
 print(testData.shape)
 print(testLabels.shape)
@@ -143,11 +144,11 @@ model = funcs.create_model()
 # train the model #
 ###################
 
-nEpochs = 25;
+nEpochs = 5;
 
 print('\nTraining the model...')
 print('---------------------\n')
-model.fit(trainingData, trainingLabels, batch_size=5, epochs=nEpochs, validation_split=0.1)
+model.fit(trainingData, trainingLabels, epochs=nEpochs)
 
 print('\nSaving the model...')
 print('-------------------\n')
@@ -164,43 +165,3 @@ test_loss, test_acc = model.evaluate(testData, testLabels)
 
 print('Test loss:', test_loss)
 print('Test accuracy:', test_acc)
-
-#############
-
-print("\n\n")
-#print(trainingData[234])
-bla = model.predict(np.reshape(trainingData[234],[1,16]))
-print(bla)
-print(trainingLabels[234])
-print("\n\n")
-#print(testData[25])
-bla = model.predict(np.reshape(testData[25],[1,16]))
-print(bla)
-print(testLabels[25])
-print("\n\n")
-
-model.save_weights("data/testWeights")
-
-model = funcs.create_model()
-#print(trainingData[234])
-bla = model.predict(np.reshape(trainingData[234],[1,16]))
-print(bla)
-print(trainingLabels[234])
-print("\n\n")
-#print(testData[25])
-bla = model.predict(np.reshape(testData[25],[1,16]))
-print(bla)
-print(testLabels[25])
-print("\n\n")
-
-model.load_weights("data/testWeights")
-#print(trainingData[234])
-bla = model.predict(np.reshape(trainingData[234],[1,16]))
-print(bla)
-print(trainingLabels[234])
-print("\n\n")
-#print(testData[25])
-bla = model.predict(np.reshape(testData[25],[1,16]))
-print(bla)
-print(testLabels[25])
-print("\n\n")

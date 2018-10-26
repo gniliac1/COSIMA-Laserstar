@@ -49,20 +49,20 @@ class PhotoPlatte:
 	
 	def __init__(self, nSensors = 16):
 		self.nSensors = nSensors
-		self.sensorArray = np.array([], dtype = Sensor)
-		for i in range(nSensors):
-			self.sensorArray = np.insert(self.sensorArray, self.sensorArray.shape[0], Sensor(1))
+		self.sensorArray = np.zeros([1,nSensors], dtype = "int")
 			
 	def writeSensorData(self, file):
 		# iterate over all sensors and write their current values to a string
 		arrayString = ""
 		for i in range(self.nSensors):
-			arrayString = arrayString + str(self.sensorArray[i].value)
+			arrayString = arrayString + str(self.sensorArray[0,i])
 			if i != self.nSensors-1:
 				arrayString = arrayString + ","
 		# write the arrayString to the file
-		file.write(arrayString)
-		file.write("\n")
+		file.write(arrayString + "\n")
+		
+	def setSensorData(self, data):
+		self.sensorArray[0,data[0]] = data[1]
 
 
 class SensorHandschuh:
@@ -74,26 +74,71 @@ class SensorHandschuh:
 	nBendingSensors = 5 # 5 Werte von Biegesensoren
 
 	def __init__(self):
-	
 		# 3 Werte vom Kompass
-		self.compass = np.array([], dtype = Sensor)
-		for i in range(self.nCompass):
-			self.compass = np.insert(self.compass, self.compass.shape[0], Sensor(1))
-			
+		self.compass = np.zeros([1,self.nCompass], dtype = "int")
 		# 3 Werte von Beschleunigungssensoren
-		self.accelerometer = np.array([], dtype = Sensor)
-		for i in range(self.nAccelerometer):
-			self.accelerometer = np.insert(self.accelerometer, self.accelerometer.shape[0], Sensor(1))
-			
+		self.accelerometer = np.zeros([1,self.nAccelerometer], dtype = "int")
 		# 3 Werte vom Gyroskop
-		self.gyroscope = np.array([], dtype = Sensor)
-		for i in range(self.nGyroscope):
-			self.gyroscope = np.insert(self.gyroscope, self.gyroscope.shape[0], Sensor(1))
-			
+		self.gyroscope = np.zeros([1,self.nGyroscope], dtype = "int")
 		# 5 Werte von Biegesensoren
-		self.bendingSensors = np.array([], dtype = Sensor)
+		self.bendingSensors = np.zeros([1,self.nBendingSensors], dtype = "int")
+	
+	def writeSensorData(self, file):
+		# write compass data
+		arrayString = ""
+		for i in range(self.nCompass):
+			arrayString = arrayString + str(self.compass[0,i])
+			if i != self.nCompass-1:
+				arrayString = arrayString + ","
+		# write the arrayString to the file
+		file.write(arrayString + "\n")
+		# write accelerometer data
+		arrayString = ""
+		for i in range(self.nAccelerometer):
+			arrayString = arrayString + str(self.accelerometer[0,i])
+			if i != self.nAccelerometer-1:
+				arrayString = arrayString + ","
+		# write the arrayString to the file
+		file.write(arrayString + "\n")
+		# write gyroscope data
+		arrayString = ""
+		for i in range(self.nGyroscope):
+			arrayString = arrayString + str(self.gyroscope[0,i])
+			if i != self.nGyroscope-1:
+				arrayString = arrayString + ","
+		# write the arrayString to the file
+		file.write(arrayString + "\n")
+		# write bending sensor data
+		arrayString = ""
 		for i in range(self.nBendingSensors):
-			self.bendingSensors = np.insert(self.bendingSensors, self.bendingSensors.shape[0], Sensor(1))
+			arrayString = arrayString + str(self.bendingSensors[0,i])
+			if i != self.nBendingSensors-1:
+				arrayString = arrayString + ","
+		# write the arrayString to the file
+		file.write(arrayString + "\n")
+		
+	def setSensorData(self,data):
+		# first entry of the data array corresponds to the sensor type
+		# data[0] == 0 -> compass, 3 values
+		# data[0] == 1 -> accelerometer, 3 values
+		# data[0] == 2 -> gyroscope, 3 values
+		# data[0] == 3 -> bending sensor, 5 values
+		if data[0] == 0:
+			# set compass data
+			for i in range(self.nCompass):
+				self.compass[0,i] = data[i+1]
+		elif data[0] == 1:
+			# set accelerometer data
+			for i in range(self.nAccelerometer):
+				self.accelerometer[0,i] = data[i+1]
+		elif data[0] == 2:
+			# set gyroscope data
+			for i in range(self.nGyroscope):
+				self.gyroscope[0,i] = data[i+1]
+		elif data[0] == 3:
+			# set bending sensor data
+			for i in range(self.nBendingSensors):
+				self.bendingSensors[0,i] = data[i+1]
 			
 
 """ Falls nötig

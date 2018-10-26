@@ -62,7 +62,7 @@ void loop() {
   adc33 = mux3.readADC_SingleEnded(3);
 
   //Print sensorvalues to serialport
-  Serial.print("0 "); Serial.println(adc00);
+  zSerial.print("0 "); Serial.println(adc00);
   Serial.print("1 "); Serial.println(adc01);
   Serial.print("2 "); Serial.println(adc02);
   Serial.print("3 "); Serial.println(adc03);
