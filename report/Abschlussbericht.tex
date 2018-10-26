@@ -1,4 +1,4 @@
-\documentclass{scrreprt}
+\documentclass[fontsize=12pt]{scrreprt}
 
 \usepackage{ucs}
 \usepackage[utf8x]{inputenc}
@@ -16,6 +16,8 @@
 \usepackage{titling}
 \usepackage[figure]{hypcap}
 \usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{eso-pic} % for aligning the title page figures
 \allowdisplaybreaks
 
 % ------------Definitionsbereich------------ %
@@ -26,6 +28,12 @@
 \newcommand{\reffig}[1]{Abbildung~\ref{#1}}
 \newcommand{\reftab}[1]{Tabelle~\ref{#1}}
 
+% --------------Dokumenteinstellungen------------- %
+
+% Schriftart: 
+% - https://en.wikibooks.org/wiki/LaTeX/Fonts#Font_styles
+% - https://de.overleaf.com/learn/latex/Font_typefaces#Reference_guide
+\usepackage{helvet}
 
 % --------------Dokumentanfang------------- %
 

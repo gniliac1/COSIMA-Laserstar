@@ -1,13 +1,15 @@
 \newdateformat{mydate}{\monthname[\THEMONTH] \THEYEAR}
 
 \begin{titlepage}
-	\small
-	%\vspace*{4mm}%
-	\parindent0pt%
-	\includegraphics[width=7.5cm]{figures/COSIMALogo.png}
-	\includegraphics[width=7.5cm]{figures/TOSLogo.png}
+
+    \AddToShipoutPictureBG*{\AtPageUpperLeft{\raisebox{-\height}{\includegraphics[width=7.5cm]{figures/COSIMALogo.png}}}}
+    \AddToShipoutPictureBG*{\AtPageLowerLeft{\makebox[\paperwidth][r]{\includegraphics[width=7.5cm]{figures/TOSLogo.png}}}}
+    
+    \small
+	\parindent0pt
+	
 	\begin{center}
-		\bfseries Diese Projektmappe wurde erstellt für den COSIMA-Wettbewerb 2018
+		\bfseries Projektmappe für den COSIMA-Wettbewerb 2018
 	\end{center}
 	\vspace*{15mm}
 	\normalsize	
@@ -25,7 +27,7 @@
 	\includegraphics[width=15cm,height=9cm]{figures/GestikulaserLogo.png}
 	\vfill
 	\begin{center}
-		Vorgelegt von \\[3ex]
+		Verfasst von \\[3ex]
 		Christoph Behr \\
 		Cailing Fu \\
 		Nicole Grubert \\
