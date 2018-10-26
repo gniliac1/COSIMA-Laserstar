@@ -1,0 +1,6 @@
+"ID";"Bezeichner";"Gehäuse";"Stückzahl";"Bezeichnung";"Anbieter und Referenz";
+1;"C1,C2,C3,C4";"C_Axial_L3.8mm_D2.6mm_P7.50mm_Horizontal";4;"C";;;
+2;"D1,D2,D3,D4";"LED_D3.0mm_Clear";4;"LED";;;
+3;"J1";"USB3_A_Plug_Wuerth_692112030100_Horizontal";1;"USB3_A";;;
+4;"R1,R2,R3,R4";"R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal";4;"R";;;
+5;"U1,U2";"DIP-8_W7.62mm_Socket";2;"LM358";;;

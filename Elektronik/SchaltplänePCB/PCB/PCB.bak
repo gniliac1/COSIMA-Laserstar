@@ -145,34 +145,6 @@ Wire Wire Line
 	1300 3200 1350 3200
 Wire Wire Line
 	3600 3200 3500 3200
-$Comp
-L Connector:USB_C_Plug P1
-U 1 1 5BC45408
-P 5650 2250
-F 0 "P1" H 5220 2098 50  0000 R CNN
-F 1 "USB_C_Plug" H 5220 2189 50  0000 R CNN
-F 2 "Connector_USB:USB_C_Plug_Molex_105444" H 5800 2250 50  0001 C CNN
-F 3 "http://www.usb.org/developers/docs/usb_31_033017.zip" H 5800 2250 50  0001 C CNN
-	1    5650 2250
-	-1   0    0    1   
-$EndComp
-NoConn ~ 5950 650 
-NoConn ~ 5850 650 
-NoConn ~ 5750 650 
-NoConn ~ 5650 650 
-NoConn ~ 5050 950 
-NoConn ~ 5050 1050
-NoConn ~ 5050 1250
-NoConn ~ 5050 1350
-NoConn ~ 5050 1550
-NoConn ~ 5050 1650
-NoConn ~ 5050 1850
-NoConn ~ 5050 1950
-NoConn ~ 5050 2150
-NoConn ~ 5050 2250
-NoConn ~ 5050 2550
-NoConn ~ 5050 2750
-NoConn ~ 5050 3050
 Wire Wire Line
 	1300 3900 1300 3950
 Wire Wire Line
@@ -251,7 +223,7 @@ U 1 1 5BC73BBF
 P 2000 3400
 F 0 "R1" V 1793 3400 50  0000 C CNN
 F 1 "R" V 1884 3400 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical" V 1930 3400 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal" V 1930 3400 50  0001 C CNN
 F 3 "~" H 2000 3400 50  0001 C CNN
 	1    2000 3400
 	0    1    1    0   
@@ -420,8 +392,6 @@ Wire Wire Line
 Wire Wire Line
 	3400 1750 1900 1750
 Wire Wire Line
-	5050 2950 4900 2950
-Wire Wire Line
 	4900 2950 4900 1700
 Wire Wire Line
 	4900 1700 4050 1700
@@ -432,8 +402,6 @@ Wire Wire Line
 	4750 2350 4750 550 
 Wire Wire Line
 	4750 550  5550 550 
-Wire Wire Line
-	5550 550  5550 650 
 Connection ~ 4050 2350
 Wire Wire Line
 	2400 1000 2500 1000
@@ -443,8 +411,6 @@ Wire Wire Line
 	2500 600  4800 600 
 Wire Wire Line
 	4800 600  4800 3250
-Wire Wire Line
-	4800 3250 5050 3250
 Connection ~ 2400 1000
 Wire Wire Line
 	5050 3350 4750 3350
@@ -461,8 +427,6 @@ Wire Wire Line
 	4450 3100 4700 3100
 Wire Wire Line
 	4700 3100 4700 3450
-Wire Wire Line
-	4700 3450 5050 3450
 Connection ~ 4450 3100
 Wire Wire Line
 	2300 3100 2550 3100
@@ -473,4 +437,53 @@ Wire Wire Line
 Wire Wire Line
 	5050 4100 5050 3550
 Connection ~ 2300 3100
+$Comp
+L Connector:USB3_A J1
+U 1 1 5BCC2E3E
+P 5950 1950
+F 0 "J1" H 5520 1823 50  0000 R CNN
+F 1 "USB3_A" H 5520 1914 50  0000 R CNN
+F 2 "Connector_USB:USB3_A_Plug_Wuerth_692112030100_Horizontal" H 6100 2050 50  0001 C CNN
+F 3 "~" H 6100 2050 50  0001 C CNN
+	1    5950 1950
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5550 1050 5950 1050
+Wire Wire Line
+	5950 1050 5950 1250
+Wire Wire Line
+	5550 550  5550 1050
+Wire Wire Line
+	5400 2950 5400 2350
+Wire Wire Line
+	5400 2350 5450 2350
+Wire Wire Line
+	4900 2950 5400 2950
+Wire Wire Line
+	5200 3250 5200 2150
+Wire Wire Line
+	5200 2150 5450 2150
+Wire Wire Line
+	4800 3250 5200 3250
+Wire Wire Line
+	5050 3350 5050 2050
+Wire Wire Line
+	5050 2050 5450 2050
+Wire Wire Line
+	5300 3450 5300 1850
+Wire Wire Line
+	5300 1850 5450 1850
+Wire Wire Line
+	4700 3450 5300 3450
+Wire Wire Line
+	5050 3550 4950 3550
+Wire Wire Line
+	4950 3550 4950 1750
+Wire Wire Line
+	4950 1750 5450 1750
+NoConn ~ 6050 1250
+NoConn ~ 6150 1250
+NoConn ~ 5450 1450
+NoConn ~ 5450 1550
 $EndSCHEMATC
