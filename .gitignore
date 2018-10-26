@@ -1,1 +1,9 @@
 CAD/lockfile.lck
+*.out
+*.aux
+*.log
+*.blg
+*.bbl
+*.toc
+*.tps
+*.gz
