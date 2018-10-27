@@ -1,3 +1,5 @@
+% template taken from https://www.dickimaw-books.com/latex/admin/html/leafletcls.shtml
+
 \documentclass[a4paper,12pt,notumble]{leaflet}
 
 \usepackage[utf8]{inputenc}
@@ -7,45 +9,69 @@
 \usepackage{wasysym}
 \usepackage{xcolor}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc}
 
 \renewcommand*{\sectfont}{\scshape}
 \renewcommand*{\descfont}{\bfseries\scshape}
 
-%\AddToBackground*{1}{%
-% \put (0,0) 
-%  {\rotatebox{33}{\resizebox{30cm}{!}{\color{lightgray}CLASSIFIED}}}%
-%}
+\definecolor{rwth-blue}{HTML}{00549F}
+\definecolor{rwth-lblue}{HTML}{8EBAE5}
+\definecolor{rwth-llblue}{HTML}{C7DDF2}
 
 \AddToBackground{1}{%
- \put
- (\LenToUnit{0.5\paperwidth},\LenToUnit{0.5\paperheight}) 
- {\oval(\LenToUnit{0.95\paperwidth},\LenToUnit{0.95\paperheight})}%
+	\put (0,0) {
+		\begin{tikzpicture}
+			%\path[fill=Thistle1,draw=Thistle4,double=Orchid1,line width=2pt] (0,0) rectangle ($(\paperwidth, \paperheight)-(4pt,4pt)$);
+			\shadedraw[inner color=white,outer color=gray!20!white,draw=blue!45!black] (0,0) rectangle ($(\paperwidth, \paperheight)-(4pt,4pt)$);
+		\end{tikzpicture}
+	}
 }
+
+
 
 \CutLine{6}
 
+%%% Document start -------------------------------------------------------------------------
 \begin{document}
-\begin{center}\bfseries\Huge
-Gestikulaser
+
+%%%%%%%%%%%%%%%%%%
+%%% Title page %%%
+%%%%%%%%%%%%%%%%%%
+\begin{center}
+
+\includegraphics[height=2cm]{../Logos/Cosima18.png}
+
+\bfseries\Huge
+Der Gestikulaser
 
 \vfill
 
 \normalsize
+
 \begin{tabular}{c}
-Secret Lab of Experimental Stuff\\
-University of Somewhere
+	Ein Projekt im Rahmen des \\
+	COSIMA-Wettbewerbs 2018
 \end{tabular}
 
 \vfill
 
+\includegraphics[scale=0.25]{../Logos/gestikulaser.png}
+
+\vfill
+
 \begin{tabular}{c}
-Department of Stripy Confectioners\\
-College of Somewhere Else
+	entwickelt von \\ \\
+	Christoph Behr \\
+	Cailing Fu \\
+	Nicole Grubert \\
+	Daniel Wolff
 \end{tabular}
 
 \vfill
 
-\includegraphics[height=2cm]{Logos/TOS.png}
+\includegraphics[height=2cm]{../Logos/TOS.png}
+
 \end{center}
 
 \newpage
@@ -67,7 +93,7 @@ a pleasant recollection of spending the day feeding the ducks in the
 nearby pond.
 
 \begin{flushright}
-\includegraphics[scale=0.2]{Logos/gestikulaser.png}
+\includegraphics[scale=0.2]{../Logos/gestikulaser.png}
 \end{flushright}
 
 \section{Department of Stripy Confectioners}
