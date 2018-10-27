@@ -1,0 +1,23 @@
+Cailing:
+--------
+- Marketing und Kosten
+- Korrektur lesen
+
+Christoph:
+----------
+- Prinzipskizze Oktokommander (wenn Marcel die Platine hinbekommen hat)
+- Text für Hardware
+- Korrektur lesen
+
+Daniel:
+-------
+- Layout
+- Beschreibung Software
+- Prinzipskizzen mit Fritzing (falls Marcel die Platine nicht hinbekommt)
+- Korrektur lesen
+
+Nicole:
+-------
+- Bilder von den kostruierten Elementen (Oktokommander und Detektormodul)
+- Logo für Titelseite
+- Korrektur lesen
