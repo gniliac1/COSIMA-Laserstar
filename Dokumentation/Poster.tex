@@ -8,12 +8,13 @@
 \usepackage{textpos}   
 \usepackage[utf8]{inputenc}
 \usepackage{xcolor}
+\usepackage{tabularx}
 \newtheorem{Def}{Definition}
 
 
 
 \title{
-\leavevmode{\includegraphics[width=0.5\textwidth]{Logos/gestikulaser.png}}\\
+\leavevmode{\includegraphics[width=0.3\textwidth]{Logos/gestikulaser.png}}\\
 Gestikulaser}
 %Título do projeto
 
@@ -59,33 +60,92 @@ Mit Gestikulaser wollen wir ein neues System entwickeln, um die Handgesten eines
 
 \section{Der Gestikulaser}
 Der Gestikulaser besteht aus zwei Teilen, einer Photoplatte sowie einer Machine Learning Software. \\
-Die Photoplatte ist ausgestattet mit mehreren infrarot LED Quellen, sowie einer Vielzahl von Photodioden, welche ausschließlich infrarotes Licht detektiert. Durch die Lichtreflexion der Hand oberhalb der Photoplatte können verschiedene Intensitäten an den Photodioden gemessen werden. Durch diese Intensitäten soll dann mit Hilfe der Machine Learning Software eine eindeutige Geste erkannt werden. Diese Geste kann dazu genutzt werden verschiedene Dinge wie ein Auto oder eine Smart Home Einrichtung zu steuern.
+Die Photoplatte ist ausgestattet mit mehreren infrarot LED Quellen, sowie einer Vielzahl von Photodioden, welche ausschließlich infrarotes Licht detektiert. Durch die Lichtreflexion der Hand oberhalb der Photoplatte können verschiedene Intensitäten an den Photodioden gemessen werden. Durch diese Intensitäten soll dann mit Hilfe der Machine Learning Software eine eindeutige Geste erkannt werden. Diese Geste kann dazu genutzt werden verschiedene Dinge wie ein Auto oder eine Smart Home Einrichtung zu steuern.\\
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=1.3]{figures/AblaufGestikulaser.png}
+	\caption{Schematischer Ablauf von einer Handgeste zu einer Objektsteuerung}
+	\label{fig:Sensorhandschuh}
+\end{figure}
 
 \section{Die Beta-Version}
-Foto von alter Photoplatte wo alles noch drauf geklebt ist etc.
+Während unserer Konstruktion des Gestikulasers erstellten wir eine vorläufige Photoplatte, welche fix angebrachte Photodioden auf der Oberseite der Photoplatte hatte. Damit konnte gezeigt werden: unsere Idee funktioniert. Verschiedene Gesten konnten erkannt werden!
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.35]{figures/PhotoplatteBeta.jpeg}
+	\caption{Beta-Verion der Photoplatte. Schwer zu transportieren und nicht modular!}
+	\label{fig:Sensorhandschuh}
+\end{figure}
+
+Nun machten wir uns daran die Photoplatte transportabel und modularer zu gestalten. Dafür führten wir verschiedene Steckmodule ein, welche zu einer Photoplatte zusammengesteckt werden kann. 
 
 %%% Introduction
 \section{Photoplatte}
-Beschreibung zur Photoplatte \\
+Die neue Photoplatte besteht aus zwei verschiedenen Teilen, einem Oktokommander als Herzstück der Photoplatte und passend dazu sieben Detektormodule. Die Detektormodule werden durch einen USB-Anschluss an den Oktokommander abgeschlossen. Ein freier Platz an den Oktokommander ist für die Verbindung zu der Software.
 
-% Einfügen eines Bildes
-%\begin{figure}[h]
-%\begin{center}
-%\includegraphics[width=10cm]{TOSLogo.png}
-%\end{center}
-%\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.8]{figures/Photoplatte.png}
+	\caption{Oktokommander und Detektormodule zusammen ergeben die neue modulare Photoplatte.}
+	\label{fig:Sensorhandschuh}
+\end{figure}
 
 \section{Oktokommander}
-Hier kommt ein Text mit Bildern zum Oktokommander und wie dieser funktioniert.
+Der Oktokommander ist das Steuersystem der gesamten Photoplatte. Sie besteht aus:
+\begin{itemize}
+\item Einem Arduino Micro
+\item Einen i2c Expander
+\item Einen i2c Multiplexer inklusive Verstärkerschaltung
+\item Vier Photodioden
+\item Vier infrarot LED Quellen
+\item Sieben USB-Anschlüsse für die Detektormodule
+\end{itemize}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=1.3]{figures/OktokommanderOffen.png}
+	\caption{Oktokommander mit Blick auf alle Innenteile.}
+	\label{fig:Sensorhandschuh}
+\end{figure}
 
 \section{Detektormodul}
-Hier werden die Detektormodule genau beschrieben.
+Die Detektormodule bestehen aus jeweils vier Photodioden zur detektion der Lichtreflexionen der Hand. Sie werden durch den USB-Eingang an den Oktokommander angeschlossen. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=1.3]{figures/DetektormodulOffen.png}
+	\caption{Oktokommander mit Blick auf alle Innenteile.}
+	\label{fig:Sensorhandschuh}
+\end{figure}
+
+\section{Software}
+\textcolor{red}{Hier kommt noch der Software Teil}
 
 \section{Ausblick}
-Der Handschuh und das ganze modulare Zeug beschreiben.
+Als Ausblick unseres Gestikulaser wäre eine Verfeinerung der aktuell durchführbaren Gestenerkennung
+denkbar, die nicht nur die Stellung der Hand, sondern auch die Krümmung der
+einzelnen Finger berücksichtigt. Zu diesem Zweck wurde bereits ein Prototyp für einen
+Sensorhandschuh entwickelt.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=1.4]{figures/Sensorhandschuh}
+	\caption{Aktueller Prototyp des Sensorhandschuhs. Es sind Biegesensoren für alle Finger, ein Gyroskop und ein Beschleunigungssensor im Einsatz. Bei der  
+	Verarbeitung der Sensordaten kommt ein Arduino Micro zum Einsatz.}
+	\label{fig:Sensorhandschuh}
+\end{figure}
 
 \section{Sponsoren}
+Einen besonderen Dank gilt unseren Sponsoren: \\
+\begin{tabularx}{\textwidth}{p{10cm} c}
+	Aconity3D GmbH & \noindent\parbox[c]{\hsize}{\includegraphics[scale=1]{Logos/aconity.png}} \\
+	& \\
+	Fraunhofer ILT & \noindent\parbox[c]{\hsize}{\includegraphics[scale=1.2]{Logos/ILT.png}} \\
+	& \\
+	Würth Electronik GmbH \& Co. KG & \noindent\parbox[c]{\hsize}{\includegraphics[scale=0.1]{Logos/Wuerth.png}}
+\end{tabularx} \\
 
 \end{multicols}
 
