@@ -1,6 +1,6 @@
 \chapter{Aufbau}
 \label{ch:Funktionsweise und Aufbau}
-Die Funktionsweise des Gestikulasers besteht aus der Detektion und Weiterverarbeitung von Lichtsignalen, welche mit einer Geste erzeugt werden. Dabei wird infrarotes Licht von einer LED Quelle durch die Hand reflektiert und mit Hilfe von verschiedenen Photodioden detektiert. Die durch die Photodioden erhaltenen Daten werden dann in einer Software weiterverarbeitet, welche mit Hilfe von Machine Learning die tatsächliche Handgeste erkennt. Von dort aus kann dann jedes beliebige Endgerät angesteuert werden.
+Die Funktionsweise des Gestikulasers besteht aus der Detektion und Weiterverarbeitung von Lichtsignalen, welche mit einer Geste erzeugt werden. Dabei wird infrarotes Licht von einer LED Quelle durch die Hand reflektiert und mit Hilfe von mehreren Photodioden detektiert. Die durch die Photodioden erhaltenen Daten werden dann in einer Software weiterverarbeitet, welche mit Hilfe von Machine Learning die tatsächliche Handgeste erkennt. Von dort aus kann dann jedes beliebige Endgerät angesteuert werden.
 
 \begin{figure}[h]
 	\centering
@@ -23,7 +23,7 @@ Der Gestikulaser selbst besteht aus einer Platte, der Photoplatte, welche aus ve
 \section{Oktokommander}
 \label{sec:Oktokommander}
 
-Der Oktokommander ist das Steuersystem der gesamten Photoplatte. In ihr befinden sich ein Arduino Micro, welcher die Signale aller Photodioden bearbeitet sowie einen i2c Expander. Durch den i2c Expander ist es möglich, jedes der Photodioden eine eigene Adresse zu zu weisen. Dies ist nötig, um die voneinander unabhängigen Signale der Photodioden richtig zuordnen zu können. Zusätzlich dazu befinden sich auf dem Oktokommander vier Infrarot LEDs sowie vier infrarot Photodioden. Um die vier infrarot Photodioden an zu steuern wird zusätzlich zum i2c Expander noch ein i2c Multiplexer sowie die dazu gehörende Verstärkerschaltung benötigt. 
+Der Oktokommander ist das Steuersystem der gesamten Photoplatte. In ihr befinden sich ein Arduino Micro, welcher die Signale aller Photodioden bearbeitet sowie einen i2c Expander. Durch den i2c Expander ist es möglich, jedes der Photodioden eine eigene Adresse zu zu weisen. Dies ist nötig, um die voneinander unabhängigen Signale der Photodioden richtig zuordnen zu können. Zusätzlich dazu befinden sich auf dem Oktokommander vier Infrarot LEDs sowie vier infrarot Photodioden. Um die vier infrarot Photodioden an zu steuern wird zusätzlich zum i2c Expander noch ein i2c Multiplexer sowie die dazu gehörende Verstärkerschaltung (siehe auch \refsec{sec:Transimpedanzverstärker}) benötigt. 
 \textcolor{red}{Erklärung der Komponenten an Hand des Bildes}
 
 \begin{figure}[h]
@@ -41,6 +41,27 @@ Um den Oktokommander mit den Detektormodulen erweitern zu können wurden USB-2A 
 	\includegraphics[scale=0.8]{../figures/PrinzipskizzeOktokommander.png} 
 	\caption{\textcolor{red}{Erklärung!}}
 	\label{fig:PrinzipskizzeOktokommander}
+\end{figure}
+
+% -------------------------------------------------------------------------------------- %
+
+\subsection{Transimpedanzverstärker}
+\label{subsec:Transimpedanzverstärker}
+
+Die Verstärkerschaltung besteht aus zwei sogenannten Transimpedanz Verstärkern. Die Photodiode fungiert in ihm als Konstantstromquelle, die einen kleinen Strom an das System abgibt. Mit Hilfe des Widerstandes $R_1$ und des Kondensators $C_1$ kann der Operationsverstärker (LM358) eine vom Mikrocontroller verarbeitbare hohe Spannung ausgeben. Wichtig ist hier die möglichst genaue Wahl der Kapazität $C_1$ ohne die das System anfangen würde zu Schwingen. Es ergibt sich:
+\begin{align*}
+	C_1 = \sqrt{\frac{C_I}{R_1 \cdot GBP}}
+\end{align*}
+Hierbei steht $GBP$ für \textit{Gain Bandwidth Product}. Für den Operationsverstärker LM358 ist das $GBP$ mit $\unit[1]{MHz}$ im Datenblatt angegeben. $C_I$ ist die Summe der beiden Sperrschichtkapazitäten der Photodiode und des Operationsverstärkers. Typische Anwendungsgrößen für $R_1$ liegen bei etwa $\unit[1]{M\Omega}$. Daraus lässt sich die Bandbreite des Systems berechnen:
+\begin{align*}
+	f_{\unit[3]{dB}} = \sqrt{\frac{GBP}{2\pi \cdot R_1 \cdot C_I}}
+\end{align*}
+Für unser System liegt die Bandbreite bei etwa $\unit[73]{kHz}$. 
+\begin{figure}[h]
+	\centering
+	%\includegraphics[scale=0.8]{../figures/Transimpedanz.png}
+	\caption{\textcolor{black}{Schematische Darstellung des Transimpedanzverstärkersystems}}
+	\label{fig:Transimpedanz}
 \end{figure}
 
 % -------------------------------------------------------------------------------------- %
