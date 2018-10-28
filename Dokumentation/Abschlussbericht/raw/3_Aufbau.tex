@@ -2,53 +2,40 @@
 \label{ch:Funktionsweise und Aufbau}
 Die Funktionsweise des Gestikulasers besteht aus der Detektion und Weiterverarbeitung von Lichtsignalen, welche mit einer Geste erzeugt werden. Dabei wird infrarotes Licht von einer LED Quelle durch die Hand reflektiert und mit Hilfe von mehreren Photodioden detektiert. Die durch die Photodioden erhaltenen Daten werden dann in einer Software weiterverarbeitet, welche mit Hilfe von Machine Learning die tatsächliche Handgeste erkennt. Von dort aus kann dann jedes beliebige Endgerät angesteuert werden.
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.8]{../figures/AblaufGestikulaser.png}
-	\caption{\textcolor{red}{Erklärung!}}
-	\label{fig:AblaufGestikulaser}
-\end{figure}
-
 Der Gestikulaser selbst besteht aus einer Platte, der Photoplatte, welche aus verschiedenen Steckmodulen zusammen gesteckt werden kann. Die Steckmodule bestehen aus einzelnen kleinen Boxen, in welche die Elektronik integriert ist. In der Mitte befindet sich der Oktokommander, welcher durch weitere Detektormodule erweitert werden kann. Auf jedes der Module befinden sich vier Photodioden um das reflektierte Licht zu messen. 
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.5]{../figures/Photoplatte.png}
-	\caption{\textcolor{red}{Erklärung!}}
-	\label{fig:Fotoplatte}
-\end{figure}
 
 % -------------------------------------------------------------------------------------- %
 
 \section{Oktokommander}
 \label{sec:Oktokommander}
 
-Der Oktokommander ist das Steuersystem der gesamten Photoplatte. In ihr befinden sich ein Arduino Micro, welcher die Signale aller Photodioden bearbeitet sowie einen i2c Expander. Durch den i2c Expander ist es möglich, jedes der Photodioden eine eigene Adresse zu zu weisen. Dies ist nötig, um die voneinander unabhängigen Signale der Photodioden richtig zuordnen zu können. Zusätzlich dazu befinden sich auf dem Oktokommander vier Infrarot LEDs sowie vier infrarot Photodioden. Um die vier infrarot Photodioden an zu steuern wird zusätzlich zum i2c Expander noch ein i2c Multiplexer sowie die dazu gehörende Verstärkerschaltung (siehe auch \refsec{sec:Transimpedanzverstärker}) benötigt. 
-\textcolor{red}{Erklärung der Komponenten an Hand des Bildes}
-
+Ein arduino Micro steuert den oktokommander mittels eines i2c Bus an. Dieser hat den Vorteil dass für mehrere Sensoren o.ä. je nur zwei Pins des arduinos genutzt werden müssen. SDA als Datenleitungen und SCL als die Takt Leitung.
+Der oktokommander erzeugt mittels eines i2c Expander s je 4 i2c Adressen die für die Zuordnung und Ansteuerung der einzelenen Verstärker benötigt werden.
+Der i2c multiplexer erhöht die Anzahl der verwendbaren i2c Expandermodulen, da diese intern nax. 4 unterschiedliche i2c Adressen erziehen können. Es können so bis zu 1024 Verstärker angesteuert werden.\newline
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.8]{../figures/OktokommanderOffen.png}
-	\caption{\textcolor{red}{Erklärung!}}
-	\label{fig:OktokommanderOffen}
+	\includegraphics[scale=0.5]{../figures/oktokommander.png}
+	\caption{Schematischer Aufbau des Oktokommanders bestehend aus einem Arduino einem I2C Multiplexer, einem I2C Expander und einem Detektormodul}
+	\label{fig:oktokommander}
 \end{figure}
-
 Um den Oktokommander mit den Detektormodulen erweitern zu können wurden USB-2A Schnittstellen verwendet. Durch diese Schnittstellen können bis zu 7 Detektormodule, jeweils eines pro Seite  eingekoppelt werden. Um eine größere Platte zu konstruieren können noch weitere Detektormodule an den bereits vorhandenen Detektormodule angeschlossen werden.
-\textcolor{red}{Erklärung der Komponenten an Hand des Bildes}
+\newpage
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.8]{../figures/PrinzipskizzeOktokommander.png} 
-	\caption{\textcolor{red}{Erklärung!}}
-	\label{fig:PrinzipskizzeOktokommander}
-\end{figure}
 
 % -------------------------------------------------------------------------------------- %
 
-\subsection{Transimpedanzverstärker}
-\label{subsec:Transimpedanzverstärker}
+\section{Transimpedanzverstärker}
+\label{sec:Transimpedanzverstärker}
 
-Die Verstärkerschaltung besteht aus zwei sogenannten Transimpedanz Verstärkern. Die Photodiode fungiert in ihm als Konstantstromquelle, die einen kleinen Strom an das System abgibt. Mit Hilfe des Widerstandes $R_1$ und des Kondensators $C_1$ kann der Operationsverstärker (LM358) eine vom Mikrocontroller verarbeitbare hohe Spannung ausgeben. Wichtig ist hier die möglichst genaue Wahl der Kapazität $C_1$ ohne die das System anfangen würde zu Schwingen. Es ergibt sich:
+Die Verstärkerschaltung besteht aus zwei sogenannten Transimpedanz Verstärkern.Der Aufbau besteht aus einem Operationsverstärker vom Typ lm358 und je zwei Widerständen und Kondensatoren sowie zweier Infrarot Photodioden.  
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.5]{../figures/Transimpedanz.png}
+	\caption{Schematische Darstellung des Transimpedanzverstärkersystems im Detektormodul}
+	\label{fig:Transimpedanz}
+\end{figure}
+Die Photodiode fungiert in ihm als Konstantstromquelle, die einen kleinen Strom an das System abgibt. Mit Hilfe des Widerstandes $R_1$ und des Kondensators $C_1$ kann der Operationsverstärker (LM358) eine vom Mikrocontroller verarbeitbare hohe Spannung ausgeben. Wichtig ist hier die möglichst genaue Wahl der Kapazität $C_1$ ohne die das System anfangen würde zu Schwingen. Es ergibt sich:
 \begin{align*}
 	C_1 = \sqrt{\frac{C_I}{R_1 \cdot GBP}}
 \end{align*}
@@ -58,12 +45,7 @@ Hierbei steht $GBP$ für \textit{Gain Bandwidth Product}. Für den Operationsver
 \end{align*}
 Für unser System liegt die Bandbreite bei etwa $\unit[73]{kHz}$. 
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=1]{../figures/Transimpedanz.png}
-	\caption{\textcolor{black}{Schematische Darstellung des Transimpedanzverstärkersystems}}
-	\label{fig:Transimpedanz}
-\end{figure}
+
 
 % -------------------------------------------------------------------------------------- %
 
@@ -71,21 +53,9 @@ Für unser System liegt die Bandbreite bei etwa $\unit[73]{kHz}$.
 \label{sec:Detektormodul}
 
 Das Detektormodul besteht lediglich aus vier Photodioden und einem USB-2A Eingang. Dadurch kann das Detektormodul an den Oktokommander angeschlossen werden. Zur Ansteuerung der Photodioden wurde auch hier ein i2c Expander verwendet. 
-\textcolor{red}{Erklärung der Komponenten der Bilder}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.7]{../figures/DetektormodulOffen.png}
-	\caption{\textcolor{red}{Erklärung!}}
-	\label{fig:DetektormodulOffen}
-\end{figure}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.5]{../figures/PrinzipskizzeDetektormodul.png}
-	\caption{\textcolor{red}{Erklärung!}}
-	\label{fig:PrinzipskizzeDetektormodul}
-\end{figure}
+
 
 % -------------------------------------------------------------------------------------- %
 
