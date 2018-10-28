@@ -12,7 +12,7 @@ Der Gestikulaser selbst besteht aus einer Platte, der Photoplatte, welche aus ve
 
 Ein arduino Micro steuert den oktokommander mittels eines i2c Bus an. Dieser hat den Vorteil dass für mehrere Sensoren o.ä. je nur zwei Pins des arduinos genutzt werden müssen. SDA als Datenleitungen und SCL als die Takt Leitung.
 Der oktokommander erzeugt mittels eines i2c Expander s je 4 i2c Adressen die für die Zuordnung und Ansteuerung der einzelenen Verstärker benötigt werden.
-Der i2c multiplexer erhöht die Anzahl der verwendbaren i2c Expandermodulen, da diese intern nax. 4 unterschiedliche i2c Adressen erziehen können. Es können so bis zu 1024 Verstärker angesteuert werden.\newline
+Der i2c multiplexer erhöht die Anzahl der verwendbaren i2c Expandermodulen, da diese intern nax. 4 unterschiedliche i2c Adressen erziehen können. Es können so bis zu 1024 Verstärker angesteuert werden.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.5]{../figures/oktokommander.png}
@@ -31,7 +31,7 @@ Um den Oktokommander mit den Detektormodulen erweitern zu können wurden USB-2A 
 Die Verstärkerschaltung besteht aus zwei sogenannten Transimpedanz Verstärkern.Der Aufbau besteht aus einem Operationsverstärker vom Typ lm358 und je zwei Widerständen und Kondensatoren sowie zweier Infrarot Photodioden.  
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.5]{../figures/Transimpedanz.png}
+	\includegraphics[scale=0.75]{../figures/Transimpedanz.png}
 	\caption{Schematische Darstellung des Transimpedanzverstärkersystems im Detektormodul}
 	\label{fig:Transimpedanz}
 \end{figure}
