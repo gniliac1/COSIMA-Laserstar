@@ -5,9 +5,9 @@ Cailing:
 
 Christoph:
 ----------
-- Prinzipskizze Oktokommander (wenn Marcel die Platine hinbekommen hat)
-- Text für Hardware
-- Korrektur lesen
+- Prinzipskizze Oktokommander (wenn Marcel die Platine hinbekommen hat) check
+- Text für Hardware check
+- Korrektur lesen check
 
 Daniel:
 -------
