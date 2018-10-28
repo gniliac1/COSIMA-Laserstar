@@ -29,6 +29,17 @@
 	}
 }
 
+\AddToBackground{3}{%  Background of a small page
+	\put(0,0){
+		\textcolor{rwth-llblue}{\rule{\paperwidth}{\paperheight}}
+	}
+}
+\AddToBackground{4}{%  Background of a small page
+	\put(0,0){
+		\textcolor{rwth-llblue}{\rule{\paperwidth}{\paperheight}}
+	}
+}
+
 %\CutLine{6}
 
 %%% Document start -------------------------------------------------------------------------
@@ -54,9 +65,7 @@ Der Gestikulaser
 \end{tabular}
 
 \vfill
-
 \includegraphics[scale=0.25]{../Logos/gestikulaser.png}
-
 \vfill
 
 \begin{tabular}{c}
@@ -77,21 +86,48 @@ Der Gestikulaser
 \newpage
 \raggedright
 
-\section{Der Gestikulaser}
 
-Der Gestikulaser ist ein intelligentes System zur Gestenerkennung. Sie basiert auf Lichtreflextionen der Hand, wodurch benutzerdefinierte Gesten gelernt und erkannt werden sollen. 
+%%%%%%%%%%%%%%%%%%%
+%%% Second page %%%
+%%%%%%%%%%%%%%%%%%%
 
-\begin{flushright}
-\includegraphics[scale=0.2]{../Logos/gestikulaser.png}
-\end{flushright}
+\noindent
+\begin{minipage}[c][0.45\textheight][t]{\textwidth}
+	\section{Der Gestikulaser}
+
+	Der Gestikulaser ist ein intelligentes System zur Gestenerkennung. Sie basiert auf Lichtreflextionen der Hand, wodurch benutzerdefinierte Gesten gelernt und
+	erkannt werden sollen. 
+
+	\begin{flushright}
+		\includegraphics[scale=0.2]{../Logos/gestikulaser.png}
+	\end{flushright}
+\end{minipage}
+
+\textcolor{rwth-lblue}{\noindent\rule{\textwidth}{4pt}}
+
+\noindent
+\begin{minipage}[c][0.45\textheight][t]{\textwidth}
+	\begin{itemize}
+		\item Intelligenzes System zur Gestensteuerung
+		\item Tag und Nacht verwendbar
+		\item Individuell auf die Geste des Nutzers abgestimmt
+		\item Portabel durch innovatives Stecksystem
+		\item Schnittstelle für jedes Bluetooth Endgerät
+	\end{itemize}
+\end{minipage}
 
 \newpage
 
+
+%%%%%%%%%%%%%%%%%%
+%%% Third page %%%
+%%%%%%%%%%%%%%%%%%
+
 % Macht eine Doppelseite
 \makebox[\linewidth][l]{\begin{minipage}[c][\textheight][s]{2.2\linewidth}
+
 \section{Funktionsweise} 
 \textcolor{red}{Wie benutzt man den Gestikulaser? Was wird derzeit damit gesteuert?}
-
 
 \end{minipage}}
 
@@ -101,38 +137,68 @@ Der Gestikulaser ist ein intelligentes System zur Gestenerkennung. Sie basiert a
 \quad 
 \newpage
 
-\section{Unsere Zukunftsvision}
-\textcolor{red}{Was kann noch verbessert werden und was ist unsere Vorstellung?}
 
-\newpage
+%%%%%%%%%%%%%%%%%%
+%%% Fifth page %%%
+%%%%%%%%%%%%%%%%%%
 
-\section{Das Team}
-\begin{description}
-\item[Projektleitung] Cailing Fu
-\item[Teammitglieder] Christoph Behr, Nicole Grubert, Daniel Wolff
-
-\end{description}
-
-\section{Kontakt}
-\begin{description}
-\item[Kontaktperson] Cailing Fu 
-\item[Adresse] Steinbachstraße 15, 52074 Aachen
-\item[Telefon] +49 176 43404702
-\item[E-Mail] cailing.fu@rwth-aachen.de
-\end{description}
+\noindent
+\begin{minipage}[c][0.45\textheight][t]{\textwidth}
+	\section{Unsere Zukunftsvision}
+	\textcolor{red}{Was kann noch verbessert werden und was ist unsere Vorstellung?}
+\end{minipage}
 
 \textcolor{rwth-lblue}{\noindent\rule{\textwidth}{4pt}}
 
-\begin{center}
-\section{Sponsoren und Unterstützer}
-\includegraphics[height= 1cm]{../Logos/ILT.png} \\ \vspace{0.3cm}
-\includegraphics[height= 1.5cm]{../Logos/Wuerth.png} \\ \vspace{0.3cm}
-\includegraphics[height= 1cm]{../Logos/aconity.png} \\ \vspace{0.3cm}
-\includegraphics[height= 1.5cm]{../Logos/BMBF.jpg} \\ \vspace{0.3cm}
-%\includegraphics[height= 0.5cm]{../Logos/Faulhaber.png} \\ \vspace{0.3cm}
-%\includegraphics[height= 1.5cm]{../Logos/micronit.jpg} \\ \vspace{0.3cm}
-\includegraphics[height= 1cm]{../Logos/electronica.png} \\ \vspace{0.3cm}
-\includegraphics[height= 0.8cm]{../Logos/VDE.jpg}
-\end{center}
+\noindent
+\begin{minipage}[c][0.45\textheight][t]{\textwidth}
+	\begin{itemize}
+		\item Automatisches Lernen dank eines Sensorhandschuhs
+		\item Auf beliebige Größe erweiterbar
+		\item Individuelles Muster dank beliebig kombinierbares Stecksystem
+	\end{itemize}
+\end{minipage}
+
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%
+%%% Sixth page %%%
+%%%%%%%%%%%%%%%%%%
+
+\noindent
+\begin{minipage}[c][0.45\textheight][t]{\textwidth}
+	\section{Das Team}
+	\begin{description}
+		\item[Projektleitung] Cailing Fu
+		\item[Teammitglieder] Christoph Behr, Nicole Grubert, Daniel Wolff
+	\end{description}
+
+	\section{Kontakt}
+	\begin{description}
+		\item[Kontaktperson] Cailing Fu 
+		\item[Adresse] Fraunhofer-Institut für Lasertechnik, Steinbachstraße 15, 52074 Aachen
+		\item[Telefon] +49 176 43404702
+		\item[E-Mail] cailing.fu@rwth-aachen.de
+	\end{description}
+\end{minipage}
+
+\textcolor{rwth-lblue}{\noindent\rule{\textwidth}{4pt}}
+
+\noindent
+\begin{minipage}[c][0.45\textheight][t]{\textwidth}
+	\begin{center}
+		\section{Sponsoren und Unterstützer}
+		\vspace{1cm}
+		\includegraphics[height= 1cm]{../Logos/ILT.png} \\ \vspace{0.3cm}
+		\includegraphics[height= 1.5cm]{../Logos/Wuerth.png} \\ \vspace{0.3cm}
+		\includegraphics[height= 1cm]{../Logos/aconity.png} \\ \vspace{0.3cm}
+		\includegraphics[height= 1.5cm]{../Logos/BMBF.jpg} \\ \vspace{0.3cm}
+		%\includegraphics[height= 0.5cm]{../Logos/Faulhaber.png} \\ \vspace{0.3cm}
+		%\includegraphics[height= 1.5cm]{../Logos/micronit.jpg} \\ \vspace{0.3cm}
+		\includegraphics[height= 1cm]{../Logos/electronica.png} \\ \vspace{0.3cm}
+		\includegraphics[height= 0.8cm]{../Logos/VDE.jpg}
+	\end{center}
+\end{minipage}
 
 \end{document}
