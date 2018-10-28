@@ -10,6 +10,7 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{tikz}
+\usepackage[utf8]{inputenc} 
 \usetikzlibrary{calc}
 
 \renewcommand*{\sectfont}{\scshape}
@@ -30,7 +31,7 @@
 
 
 
-\CutLine{6}
+%\CutLine{6}
 
 %%% Document start -------------------------------------------------------------------------
 \begin{document}
@@ -71,106 +72,70 @@ Der Gestikulaser
 \vfill
 
 \includegraphics[height=2cm]{../Logos/TOS.png}
+%\includegraphics[height= 1.5cm]{../Logos/ILT.png}
 
 \end{center}
 
 \newpage
 \raggedright
 
-\section{Secret Lab of Experimental Stuff}
+\section{Der Gestikulaser}
 
-The Secret Lab of Experimental Stuff is a top-secret laboratory
-whose existence is highly classified so don't tell anyone about it
-or we'll get really cross with you.
-
-The University of Somewhere denies all knowledge of the Secret Lab
-of Experimental Stuff, except on Open Days where members of the
-public may visit the facility and ask questions as long as they
-consent to a memory wipe when they leave. The memory wipe is
-harmless (well, we haven't really tested it properly, but no one's
-complained so far) and your memory of the visit will be replaced by
-a pleasant recollection of spending the day feeding the ducks in the
-nearby pond.
+Der Gestikulaser ist ein intelligentes System zur Gestenerkennung. Sie basiert auf Lichtreflextionen der Hand, wodurch benutzerdefinierte Gesten gelernt und erkannt werden sollen. 
 
 \begin{flushright}
 \includegraphics[scale=0.2]{../Logos/gestikulaser.png}
 \end{flushright}
 
-\section{Department of Stripy Confectioners}
-
-% lots of text omitted
-
 \newpage
-\section{Query Form}
 
-If you'd like to know more about the exciting collaboration between
-the Secret Lab of Experimental Stuff and the Department of Stripy
-Confectioners please fill in your details below and post this slip to:
+% Macht eine Doppelseite
+\makebox[\linewidth][l]{\begin{minipage}[c][\textheight][s]{2.2\linewidth}
+\section{Funktionsweise} 
+\textcolor{red}{Wie benutzt man den Gestikulaser? Was wird derzeit damit gesteuert?}
 
-\bigskip
 
-\begin{tabular}{@{}l}
-Miss Ingperson\\
-Secret Lab of Experimental Stuff\\
-University of Somewhere\\
-Some City\\
-AB3 4YZ
-\end{tabular} 
+\end{minipage}}
 
-%\bigskip
+% Eine leere Seite (nötig wegen der Doppelseite)
+\newpage
+\thispagestyle{empty}
+\quad 
+\newpage
 
-%\Square\␣I would like to receive quarterly newsletters.
-
-%\Square\␣I agree to having my memory wiped.
-
-%\Square\␣Yes, I'd really like to feed the ducks.
-
-%\bigskip
-
-\begin{tabular}{@{}lp{4cm}}
-Name: & \dotfill \\
-Address: & \dotfill\\
- & \dotfill \\
- & \dotfill \\
- & \dotfill \\
-Postcode: & \dotfill\\
-Country: & \dotfill\\
-Telephone: & \dotfill\\
-Mobile: & \dotfill\\
-Email: & \dotfill
-\end{tabular}
+\section{Unsere Zukunftsvision}
+\textcolor{red}{Was kann noch verbessert werden und was ist unsere Vorstellung?}
 
 \newpage
 
-\section{Research Team}
-
+\section{Das Team}
 \begin{description}
-\item[Administrator] Mr Big Head
-
-\item[Assistant Administrator] Dr Bor Ing
-
-\item[Project Co-ordinator] Mabel Canary
-
-\item[Senior Scientists] Dickie Duck, Polly Parrot
-
-\item[Research Assistants] Zöe Zebra, José Arara, Fred Canary
+\item[Projektleitung] Cailing Fu
+\item[Teammitglieder] Christoph Behr, Nicole Grubert, Daniel Wolff
 
 \end{description}
 
-\section{Acknowledgements}
-
-The Culinary Experimental Research team would like to thank the
-following:
-
+\section{Kontakt}
 \begin{description}
-
-\item[University of Somewhere] For something or other
-
-\item[College of Somewhere Else] For providing bread crumbs
-
-\item[The Ministry of Top Secret Stuff] For supporting the 
-project somehow.
-
+\item[Kontaktperson] Cailing Fu 
+\item[Adresse] Steinbachstraße 15, 52074 Aachen
+\item[Telefon] +49 176 43404702
+\item[E-Mail] cailing.fu@rwth-aachen.de
 \end{description}
+
+\textcolor{rwth-lblue}{\noindent\rule{\textwidth}{4pt}}
+
+\section{Sponsoren und Unterstützer}
+
+\begin{center}
+\includegraphics[height= 1cm]{../Logos/ILT.png} \\ \vspace{0.3cm}
+\includegraphics[height= 1.5cm]{../Logos/Wuerth.png} \\ \vspace{0.3cm}
+\includegraphics[height= 1cm]{../Logos/aconity.png} \\ \vspace{0.3cm}
+\includegraphics[height= 1.5cm]{../Logos/BMBF.jpg} \\ \vspace{0.3cm}
+%\includegraphics[height= 0.5cm]{../Logos/Faulhaber.png} \\ \vspace{0.3cm}
+%\includegraphics[height= 1.5cm]{../Logos/micronit.jpg} \\ \vspace{0.3cm}
+\includegraphics[height= 1cm]{../Logos/electronica.png} \\ \vspace{0.3cm}
+\includegraphics[height= 0.8cm]{../Logos/VDE.jpg}
+\end{center}
 
 \end{document}
