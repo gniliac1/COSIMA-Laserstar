@@ -15,7 +15,7 @@ Ein arduino Micro steuert den oktokommander mittels eines i2c Bus an. Dieser hat
 Der oktokommander erzeugt mittels eines i2c Expander s je 4 i2c Adressen die für die Zuordnung und Ansteuerung der einzelenen Verstärker benötigt werden.
 Der i2c multiplexer erhöht die Anzahl der verwendbaren i2c Expandermodulen, da diese intern nax. 4 unterschiedliche i2c Adressen erziehen können. Es können so bis zu 1024 Verstärker angesteuert werden
  (siehe auch \refsec{sec:Transimpedanzverstärker})  
-\textcolor{red}{Erklärung der Komponenten an Hand des Bildes}
+
 
 \begin{figure}[h]
 	\centering
@@ -56,21 +56,9 @@ Für unser System liegt die Bandbreite bei etwa $\unit[73]{kHz}$.
 \label{sec:Detektormodul}
 
 Das Detektormodul besteht lediglich aus vier Photodioden und einem USB-2A Eingang. Dadurch kann das Detektormodul an den Oktokommander angeschlossen werden. Zur Ansteuerung der Photodioden wurde auch hier ein i2c Expander verwendet. 
-\textcolor{red}{Erklärung der Komponenten der Bilder}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.7]{../figures/DetektormodulOffen.png}
-	\caption{\textcolor{red}{Erklärung!}}
-	\label{fig:DetektormodulOffen}
-\end{figure}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.5]{../figures/PrinzipskizzeDetektormodul.png}
-	\caption{\textcolor{red}{Erklärung!}}
-	\label{fig:PrinzipskizzeDetektormodul}
-\end{figure}
+
 
 % -------------------------------------------------------------------------------------- %
 
