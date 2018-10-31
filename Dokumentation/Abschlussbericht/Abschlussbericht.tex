@@ -1,18 +1,15 @@
-\documentclass[fontsize=12pt]{scrreprt}
+\documentclass[a4paper,titlepage,12pt]{scrreprt}
 
 \usepackage{ucs}
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
 \usepackage{datetime}
-\usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage[hidelinks]{hyperref}
-\usepackage{enumitem}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{color}
-\usepackage{mdframed}
 \usepackage{titling}
 \usepackage[figure]{hypcap}
 \usepackage{subcaption}
@@ -20,6 +17,32 @@
 \usepackage{eso-pic} % for aligning the title page figures
 \usepackage[official]{eurosym} % for €
 \usepackage{units} % for correct spacing when using units
+
+% Zeilenabstand ----------------------------------------------------------------
+\usepackage{setspace}
+\onehalfspacing  % 1,5 Zeilen (entspricht ang. dem doppelten Zelenabstand in Word)
+\frenchspacing   % Kein doppeltes Leerzeichen nach '.' etc.
+
+% Schusterjungen und Hurenkinder -----------------------------------------------
+% Hiermit werden Schusterjungen und Hurenkinder verhindert
+% Zur Info:
+% http://de.wikipedia.org/wiki/Hurenkind_und_Schusterjunge
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+
+% Seitenlayout --------------------------------------------------------------------
+\usepackage{geometry}
+\usepackage{vmargin}
+\setmarginsrb{35mm}{20mm}{25mm}{20mm} % 
+			 {7mm}{15mm}{4mm}{20mm}
+			 
+% Datum ------------------------------------------------------------------------
+%	Diese Definition wird benötigt um auf der Titelseite nur Monat und Jahr aus-
+%	zugeben.
+\usepackage{datetime}
+\newdateformat{titledate}{\monthname[\THEMONTH] \THEYEAR}
+			 
 \allowdisplaybreaks
 
 % ------------Definitionsbereich------------ %

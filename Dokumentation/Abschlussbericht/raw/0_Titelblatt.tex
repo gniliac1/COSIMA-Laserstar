@@ -2,8 +2,14 @@
 
 \begin{titlepage}
 
-    \AddToShipoutPictureBG*{\AtPageUpperLeft{\makebox[\paperwidth][l]{\raisebox{-\height}{\includegraphics[width=7.5cm]{../Logos/TOS.png}}}}}
-    \AddToShipoutPictureBG*{\AtPageUpperLeft{\makebox[\paperwidth][r]{\raisebox{-\height}{\includegraphics[width=7.5cm]{../Logos/Cosima18.png}}}}}  
+	\newgeometry{left=30mm,right=-25mm,top=32mm,bottom=25mm}  
+    
+    % Kopfzeile
+	\begin{table}[h!]
+		\begin{tabular}{rp{5cm}l}
+ 		\includegraphics[height=1.25cm]{../Logos/Cosima18.png} & & \includegraphics[height=1.25cm]{../Logos/TOS.png} \\
+		\end{tabular}
+	\end{table}
     
     \small
 	\parindent0pt
@@ -11,8 +17,10 @@
 	\begin{center}
 		\bfseries Projektmappe für den COSIMA-Wettbewerb 2018
 	\end{center}
+	
 	\vspace*{15mm}
 	\normalsize	
+	
 	\begin{center}
 		\huge
 		{\bfseries\sffamily Der Gestikulaser}
@@ -20,12 +28,17 @@
 		\large
 		Die neue Technologie der Gestenerkennung
 	\end{center}
+	
 	\vfill
+	
 	\begin{center}
 	\large \mydate{\today}
 	\end{center}
+	
+	\centering
 	\includegraphics[width=15cm,height=9cm]{../figures/GestikulaserLogo.png}
 	\vfill
+	
 	\begin{center}
 		Verfasst von \\[3ex]
 		Christoph Behr \\
@@ -33,4 +46,7 @@
 		Nicole Grubert \\
 		Daniel Wolff \\
 	\end{center}
+	
+	\restoregeometry
+	
 \end{titlepage}
