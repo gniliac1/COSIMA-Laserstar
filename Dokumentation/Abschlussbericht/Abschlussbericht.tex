@@ -18,6 +18,13 @@
 \usepackage[official]{eurosym} % for €
 \usepackage{units} % for correct spacing when using units
 
+% --------------Dokumenteinstellungen------------- %
+
+% Schriftart ----------------------------------------------------------------
+% - https://en.wikibooks.org/wiki/LaTeX/Fonts#Font_styles
+% - https://de.overleaf.com/learn/latex/Font_typefaces#Reference_guide
+\usepackage{tgadventor}
+
 % Zeilenabstand ----------------------------------------------------------------
 \usepackage{setspace}
 \onehalfspacing  % 1,5 Zeilen (entspricht ang. dem doppelten Zelenabstand in Word)
@@ -53,12 +60,8 @@
 \newcommand{\reffig}[1]{Abbildung~\ref{#1}}
 \newcommand{\reftab}[1]{Tabelle~\ref{#1}}
 
-% --------------Dokumenteinstellungen------------- %
-
-% Schriftart: 
-% - https://en.wikibooks.org/wiki/LaTeX/Fonts#Font_styles
-% - https://de.overleaf.com/learn/latex/Font_typefaces#Reference_guide
-\usepackage{tgadventor}
+% für Quellen bei Bildern etc.
+\newcommand{\source}[1]{{\scriptsize Quelle:~#1}}
 
 % --------------Dokumentanfang------------- %
 

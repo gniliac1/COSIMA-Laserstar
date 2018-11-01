@@ -1,6 +1,8 @@
-\chapter{Aufbau}
-\label{ch:Funktionsweise und Aufbau}
-Die Funktionsweise des Gestikulasers besteht aus der Detektion und Weiterverarbeitung von Lichtsignalen, welche mit einer Geste erzeugt werden. Dabei wird infrarotes Licht von einer LED Quelle durch die Hand reflektiert und mit Hilfe von mehreren Photodioden detektiert. Die durch die Photodioden erhaltenen Daten werden dann in einer Software weiterverarbeitet, welche mit Hilfe von Machine Learning die tatsächliche Handgeste erkennt. Von dort aus kann dann jedes beliebige Endgerät angesteuert werden.
+\chapter{Funktionsweise und Aufbau}
+\label{ch:Aufbau}
+Die Funktionsweise des Gestikulasers besteht aus der Detektion und Weiterverarbeitung von Lichtsignalen, welche mit einer Geste erzeugt werden. 
+
+Dabei wird infrarotes Licht von einer LED Quelle durch die Hand reflektiert und mit Hilfe von mehreren Photodioden detektiert. Die durch die Photodioden erhaltenen Daten werden dann in einer Software weiterverarbeitet, welche mit Hilfe von Machine Learning die tatsächliche Handgeste erkennt. Von dort aus kann dann jedes beliebige Endgerät angesteuert werden.
 
 Der Gestikulaser selbst besteht aus einer Platte, der Photoplatte, welche aus verschiedenen Steckmodulen zusammen gesteckt werden kann. Die Steckmodule bestehen aus einzelnen kleinen Boxen, in welche die Elektronik integriert ist. In der Mitte befindet sich der Oktokommander, welcher durch weitere Detektormodule erweitert werden kann. Auf jedes der Module befinden sich vier Photodioden um das reflektierte Licht zu messen. 
 
@@ -28,7 +30,7 @@ Um den Oktokommander mit den Detektormodulen erweitern zu können wurden USB-2A 
 \section{Transimpedanzverstärker}
 \label{sec:Transimpedanzverstärker}
 
-Die Verstärkerschaltung besteht aus zwei sogenannten Transimpedanz Verstärkern.Der Aufbau besteht aus einem Operationsverstärker vom Typ LM358 und je zwei Widerständen und Kondensatoren sowie zweier Infrarot Photodioden.  
+Die Verstärkerschaltung besteht aus zwei sogenannten Transimpedanz Verstärkern. Der Aufbau besteht aus einem Operationsverstärker vom Typ LM358 und je zwei Widerständen und Kondensatoren sowie zwei Infrarot Photodioden (siehe \reffig{fig:Transimpedanz}).  
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75]{../figures/Transimpedanz.png}
@@ -39,11 +41,11 @@ Die Photodiode fungiert in ihm als Konstantstromquelle, die einen kleinen Strom 
 \begin{align*}
 	C_1 = \sqrt{\frac{C_I}{R_1 \cdot GBP}}
 \end{align*}
-Hierbei steht $GBP$ für \textit{Gain Bandwidth Product}. Sie ist die Frequenz, bei der keine Verstärkung mehr stattfindet. Sie ist somit die Obergrenze für einen praktikablen Einsatz des Systems Für den Operationsverstärker LM358 ist das $GBP$ mit $\unit[1]{MHz}$ im Datenblatt angegeben. $C_I$ ist die Summe der beiden Sperrschichtkapazitäten der Photodiode und des Operationsverstärkers. Typische Anwendungsgrößen für $R_1$ liegen bei etwa $\unit[1]{M\Omega}$. Der Arbeitsbereich des Verstärkersystems beschränkt, durch aktive Bauelemente, sich auf einen bestimmten Frequenzbereich. Dieser lässt sich wie folgt berechnen:
+Hierbei steht $GBP$ für \textit{Gain Bandwidth Product}. Sie ist die Frequenz, bei der keine Verstärkung mehr stattfindet. Sie ist somit die Obergrenze für einen praktikablen Einsatz des Systems Für den Operationsverstärker LM358 ist das $GBP$ mit $\unit[1]{MHz}$ im Datenblatt angegeben. $C_I$ ist die Summe der beiden Sperrschichtkapazitäten der Photodiode und des Operationsverstärkers. Typische Anwendungsgrößen für $R_1$ liegen bei etwa $\unit[1]{M\Omega}$. Der Arbeitsbereich des Verstärkersystems beschränkt sich durch aktive Bauelemente auf einen bestimmten Frequenzbereich. Dieser lässt sich wie folgt berechnen:
 \begin{align*}
 	f_{\unit[3]{dB}} = \sqrt{\frac{GBP}{2\pi \cdot R_1 \cdot C_I}}
 \end{align*}
-Für unser System liegt die Bandbreite bei etwa $\unit[73]{kHz}$. Dies ist auch die Grenzfrequenz des Verstärkersystems. Die Grenzfrequenz ist die Frequenz bei derdie Verstärkung auf den $\frac{1}{\sqrt{2}}$ fachen Wert der maximalen Verstärkung gesunken ist und bei der die hälfte der maximal Leistung an einen, rein Ohm'schen, Verbraucher abgegeben wird.
+Für unser System liegt die Bandbreite bei etwa $\unit[73]{kHz}$. Dies ist auch die Grenzfrequenz des Verstärkersystems. Die Grenzfrequenz ist die Frequenz bei der die Verstärkung auf den $\frac{1}{\sqrt{2}}$ fachen Wert der maximalen Verstärkung gesunken ist und bei der die Hälfte der maximalen Leistung an einen, rein Ohm'schen, Verbraucher abgegeben wird.
 
 
 
