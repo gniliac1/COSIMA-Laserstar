@@ -10,16 +10,16 @@ Der Gestikulaser selbst besteht aus einer Platte, der Photoplatte, welche aus ve
 \section{Oktokommander}
 \label{sec:Oktokommander}
 
-Ein arduino Micro steuert den oktokommander mittels eines i2c Bus an. Dieser hat den Vorteil dass für mehrere Sensoren o.ä. je nur zwei Pins des arduinos genutzt werden müssen. SDA als Datenleitungen und SCL als die Takt Leitung.
-Der oktokommander erzeugt mittels eines i2c Expander s je 4 i2c Adressen die für die Zuordnung und Ansteuerung der einzelenen Verstärker benötigt werden.
-Der i2c multiplexer erhöht die Anzahl der verwendbaren i2c Expandermodulen, da diese intern nax. 4 unterschiedliche i2c Adressen erziehen können. Es können so bis zu 1024 Verstärker angesteuert werden.
+Ein Arduino Micro steuert den Oktokommander mittels eines I2C Bus an. Der I2C Bus benötgt lediglich 2 Pins auf dem Arduino, SDA für die eigentliche Datenverbindung und SCL für den vom Arduino vorgegebenen Takt. Jeder Sensor wird über eine, im System, einzigartige Hardware Adresse (I2C-Adressen) angesteuert.
+Der Oktokommander erzeugt mittels eines I2C Expanders je 4 I2C Adressen die für die Zuordnung und Ansteuerung der einzelenen Verstärker benötigt werden.
+Der I2C multiplexer erhöht die Anzahl der verwendbaren I2C Expandermodulen, da diese intern max. 4 unterschiedliche I2C Adressen erziehen können. Durch das multiplexen der vom Oktokommander erzeugten Adressen können so bis zu 1024 Sensoren angesteuert werden ohne das verschiedene Expandermodule verwendet werden müssen. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.5]{../figures/oktokommander.png}
 	\caption{Schematischer Aufbau des Oktokommanders bestehend aus einem Arduino einem I2C Multiplexer, einem I2C Expander und einem Detektormodul}
 	\label{fig:oktokommander}
 \end{figure}
-Um den Oktokommander mit den Detektormodulen erweitern zu können wurden USB-2A Schnittstellen verwendet. Durch diese Schnittstellen können bis zu 7 Detektormodule, jeweils eines pro Seite  eingekoppelt werden. Um eine größere Platte zu konstruieren können noch weitere Detektormodule an den bereits vorhandenen Detektormodule angeschlossen werden.
+Um den Oktokommander mit den Detektormodulen erweitern zu können wurden USB-2A Schnittstellen verwendet. Durch diese Schnittstellen können bis zu 7 Detektormodule, jeweils eines pro Seite angesteuert werden werden. Um eine größere Platte zu konstruieren können noch weitere Detektormodule an den bereits vorhandenen Detektormodule angeschlossen werden.
 \newpage
 
 
@@ -28,7 +28,7 @@ Um den Oktokommander mit den Detektormodulen erweitern zu können wurden USB-2A 
 \section{Transimpedanzverstärker}
 \label{sec:Transimpedanzverstärker}
 
-Die Verstärkerschaltung besteht aus zwei sogenannten Transimpedanz Verstärkern.Der Aufbau besteht aus einem Operationsverstärker vom Typ lm358 und je zwei Widerständen und Kondensatoren sowie zweier Infrarot Photodioden.  
+Die Verstärkerschaltung besteht aus zwei sogenannten Transimpedanz Verstärkern.Der Aufbau besteht aus einem Operationsverstärker vom Typ LM358 und je zwei Widerständen und Kondensatoren sowie zweier Infrarot Photodioden.  
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.75]{../figures/Transimpedanz.png}
@@ -39,11 +39,11 @@ Die Photodiode fungiert in ihm als Konstantstromquelle, die einen kleinen Strom 
 \begin{align*}
 	C_1 = \sqrt{\frac{C_I}{R_1 \cdot GBP}}
 \end{align*}
-Hierbei steht $GBP$ für \textit{Gain Bandwidth Product}. Für den Operationsverstärker LM358 ist das $GBP$ mit $\unit[1]{MHz}$ im Datenblatt angegeben. $C_I$ ist die Summe der beiden Sperrschichtkapazitäten der Photodiode und des Operationsverstärkers. Typische Anwendungsgrößen für $R_1$ liegen bei etwa $\unit[1]{M\Omega}$. Daraus lässt sich die Bandbreite des Systems berechnen:
+Hierbei steht $GBP$ für \textit{Gain Bandwidth Product}. Sie ist die Frequenz, bei der keine Verstärkung mehr stattfindet. Sie ist somit die Obergrenze für einen praktikablen Einsatz des Systems Für den Operationsverstärker LM358 ist das $GBP$ mit $\unit[1]{MHz}$ im Datenblatt angegeben. $C_I$ ist die Summe der beiden Sperrschichtkapazitäten der Photodiode und des Operationsverstärkers. Typische Anwendungsgrößen für $R_1$ liegen bei etwa $\unit[1]{M\Omega}$. Der Arbeitsbereich des Verstärkersystems beschränkt, durch aktive Bauelemente, sich auf einen bestimmten Frequenzbereich. Dieser lässt sich wie folgt berechnen:
 \begin{align*}
 	f_{\unit[3]{dB}} = \sqrt{\frac{GBP}{2\pi \cdot R_1 \cdot C_I}}
 \end{align*}
-Für unser System liegt die Bandbreite bei etwa $\unit[73]{kHz}$. 
+Für unser System liegt die Bandbreite bei etwa $\unit[73]{kHz}$. Dies ist auch die Grenzfrequenz des Verstärkersystems. Die Grenzfrequenz ist die Frequenz bei derdie Verstärkung auf den $\frac{1}{\sqrt{2}}$ fachen Wert der maximalen Verstärkung gesunken ist und bei der die hälfte der maximal Leistung an einen, rein Ohm'schen, Verbraucher abgegeben wird.
 
 
 
