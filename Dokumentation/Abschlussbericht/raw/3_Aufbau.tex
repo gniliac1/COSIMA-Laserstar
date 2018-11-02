@@ -12,17 +12,58 @@ Der Gestikulaser selbst besteht aus einer Platte, der Photoplatte, welche aus ve
 \section{Oktokommander}
 \label{sec:Oktokommander}
 
-Ein Arduino Micro steuert den Oktokommander mittels eines I2C Bus an. Der I2C Bus benötgt lediglich 2 Pins auf dem Arduino, SDA für die eigentliche Datenverbindung und SCL für den vom Arduino vorgegebenen Takt. Jeder Sensor wird über eine, im System, einzigartige Hardware Adresse (I2C-Adressen) angesteuert.
-Der Oktokommander erzeugt mittels eines I2C Expanders je 4 I2C Adressen die für die Zuordnung und Ansteuerung der einzelenen Verstärker benötigt werden.
-Der I2C multiplexer erhöht die Anzahl der verwendbaren I2C Expandermodulen, da diese intern max. 4 unterschiedliche I2C Adressen erziehen können. Durch das multiplexen der vom Oktokommander erzeugten Adressen können so bis zu 1024 Sensoren angesteuert werden ohne das verschiedene Expandermodule verwendet werden müssen. 
+Ein Arduino Micro steuert den Oktokommander mittels eines I2C Bus an. Der I2C Bus benötigt lediglich 2 Pins auf dem Arduino, SDA für die eigentliche Datenverbindung und SCL für den vom Arduino vorgegebenen Takt. Jeder Sensor wird über eine, im System einzigartige, Hardware Adresse (I2C-Adresse) angesteuert.
+Der Oktokommander erzeugt mittels eines I2C Expanders je 4 I2C Adressen die für die Zuordnung und Ansteuerung der einzelnen Verstärker benötigt werden.
+Der I2C Multiplexer erhöht die Anzahl der verwendbaren I2C Expandermodulen, da diese intern maximal 4 unterschiedliche I2C Adressen erziehen können. Durch das multiplexen der vom Oktokommander erzeugten Adressen können so bis zu 1024 Sensoren angesteuert werden ohne das verschiedene Expandermodule verwendet werden müssen. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.5]{../figures/oktokommander.png}
 	\caption{Schematischer Aufbau des Oktokommanders bestehend aus einem Arduino einem I2C Multiplexer, einem I2C Expander und einem Detektormodul}
 	\label{fig:oktokommander}
 \end{figure}
-Um den Oktokommander mit den Detektormodulen erweitern zu können wurden USB-2A Schnittstellen verwendet. Durch diese Schnittstellen können bis zu 7 Detektormodule, jeweils eines pro Seite angesteuert werden werden. Um eine größere Platte zu konstruieren können noch weitere Detektormodule an den bereits vorhandenen Detektormodule angeschlossen werden.
-\newpage
+Um den Oktokommander mit den Detektormodulen erweitern zu können wurden USB-2A Schnittstellen verwendet. Durch diese Schnittstellen können bis zu 7 Detektormodule, jeweils eines pro Seite, angesteuert werden werden. Um eine größere Platte zu konstruieren, können noch weitere Detektormodule an den bereits vorhandenen Detektormodulen angeschlossen werden.
+
+
+\subsubsection*{Konstruktion}
+Die Unterbringung der Elektronik im Oktokommander erfolgt über drei sogenannte \textit{Stages}. Die Stages werden im Oktokommander übereinander angeordnet. Stage 1 ist in \reffig{fig:OktoStage1} dargestellt.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=9cm]{../CAD_Bilder/OktagonElektronik_Stage1_raytraced.png}
+	\caption{Stage 1 des Oktokommanders.}
+	\label{fig:OktoStage1}
+\end{figure}
+
+Stage 1 ist eine Platine, auf der der Arduino Micro, die I2C-Expander, die Stromversorgung und die female USB-Buchsen zur Verbindung mit den Detektormodulen angeordnet sind. Stage 1 ist die unterste Elektronikeinheit im Oktokommander. Die LED-Einheit zur Lichterzeugung wird auf einer weiteren Plattform befestigt, die über der Stage 1 positioniert wird. Diese zweite Stage ist in \reffig{fig:OktoStage2} dargestellt.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=9cm]{../CAD_Bilder/OktagonElektronik_Stage2_raytraced.png}
+	\caption{Stage 2 des Oktokommanders.}
+	\label{fig:OktoStage2}
+\end{figure}
+
+Die LED-Einheit besteht aus den vier LEDs, die auf einen Kühlkörper mit den Parabolzylindern geklebt werden. Zudem befinden sich die LED-Treiber auf der Stage 2. Die Aufnahme der LED-Einheit besteht aus einer dünnen Aluminiumplatte für den Wärmeabtransport. Die Bohrungen in der Aluminiumplatte dienen lediglich zur Durchführung der Kabel zur unteren Stage 1. Die oberste Stage 3 trägt vier Photodioden. In \reffig{fig:OktoStage3} ist die Stage 3 dargestellt.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=9cm]{../CAD_Bilder/OktagonElektronik_Stage3_raytraced.png}
+	\caption{Stage 3 des Oktokommanders.}
+	\label{fig:OktoStage3}
+\end{figure}
+
+Die Stage 3 ist ein additiv gefertigtes Bauteil aus ABS-Kunststoff.
+
+Die drei Stages werden im Gehäuse des Oktokommanders aufgenommen. In \reffig{fig:OktoZusammenbau} ist das Gehäuse mit dem Deckel und der Elektronik des Oktokommanders dargestellt.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=9cm]{../CAD_Bilder/Oktokommander_raytraced.png}
+	\caption{Zusammenbau des Oktokommanders.}
+	\label{fig:OktoZusammenbau}
+\end{figure}
+
+Der Deckel und das Gehäuse des Oktokommanders werden additiv aus ABS-Kunststoff gefertigt.
 
 
 % -------------------------------------------------------------------------------------- %
@@ -57,6 +98,51 @@ Für unser System liegt die Bandbreite bei etwa $\unit[73]{kHz}$. Dies ist auch 
 Das Detektormodul besteht lediglich aus vier Photodioden und einem USB-2A Eingang. Dadurch kann das Detektormodul an den Oktokommander angeschlossen werden. Zur Ansteuerung der Photodioden wurde auch hier ein i2c Expander verwendet. 
 
 
+\subsubsection*{Konstruktion}
+Die wesentlichen Bestandteile des Detektormoduls sind eine Platine, die die Elektronik aufnimmt, und eine weitere Stage für weitere Photodioden zur Detektion des reflektierten Lichts. Auch hier werden, ähnlich wie beim Oktokommander, die Stages übereinander angeordnet. In \reffig{fig:DetektorStage1} ist die Stage 1 des Detektormoduls dargestellt.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=9cm]{../CAD_Bilder/DetektorElektronik_Stage1_raytraced.png}
+	\caption{Stage 1 des Detektormoduls.}
+	\label{fig:DetektorStage1}
+\end{figure}
+
+Die Stage 1 des Detektormoduls ist eine Platine mit dem male USB-Stecker und dem I2C-Expandern und sonstiger nötiger Elektronik. Darüber wird die Stage 2 mit den Fotodioden angeordnet. Stage 2 des Detektormoduls ist in \reffig{fig:DetektorStage2} dargestellt.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=9cm]{../CAD_Bilder/Detektormodul_Stage2_raytraced.png}
+	\caption{Stage 2 des Detektormoduls.}
+	\label{fig:DetektorStage2}
+\end{figure}
+
+Die Stage 2 des Detektormoduls wird ebenfalls additiv gefertigt und besteht aus ABS-Kunststoff. In der Stage 2 des Detektormoduls werden vier Photodioden angebracht, ähnlich wie bei Stage 3 des Oktokommanders. Das vollständige Detektormodul ist in \reffig{fig:DetektorZusammenbau} dargestellt.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=9cm]{../CAD_Bilder/Detektormodul_raytraced.png}
+	\caption{Zusammenbau des Detektormoduls}
+	\label{fig:DetektorZusammenbau}
+\end{figure}
+
+Das Gehäuse und der Deckel des Detektormoduls werden additiv aus ABS-Kunststoff gefertigt.
+Der Oktokommander bietet sieben Ports für die Verbindung der Detektormodule. Oktokommander und Detektormodule zusammen bilden einen Teil der Hardware des Gestikulasers. Der Zusammenbau der Detektormodule mit dem Oktokommander ist \reffig{fig:AufsichtGestikulaser} dargestellt.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=9cm]{../CAD_Bilder/Gestikulaser_raytraced_2.png}
+	\caption{Aufsicht auf den Gestikulaser.}
+	\label{fig:AufsichtGestikulaser}
+	\vfill
+	\includegraphics[width=9cm]{../CAD_Bilder/Gestikulaser_raytraced_4.png}
+	\caption{Die Detektormodule können über USB Steckverbindungen mit dem Oktokommander verbunden werden.}
+	\label{fig:Gestikulaser}
+	\vfill
+	\includegraphics[width=9cm]{../CAD_Bilder/Gestikulaser_raytraced.png}
+	\caption{Sind alle sieben Detektormodule angesteckt, ist der Gestikulaser einsatzbereit.}
+	\label{fig:Gestikulaser}
+\end{figure}
 
 
 % -------------------------------------------------------------------------------------- %
