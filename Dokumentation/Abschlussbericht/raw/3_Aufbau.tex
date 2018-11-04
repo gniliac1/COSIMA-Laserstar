@@ -2,17 +2,13 @@
 \label{ch:Aufbau}
 
 Der Gestikulaser gehört weder zu den gerätebasierten, noch zu den kamerabasierten Gestenerkennungssystemen. Seine Funktionsweise ist aber mit der von kamerabasierten Gestenerkennungssystemen vergleichbar. Statt jedoch den Nutzer bei seinen Bewegungen zu beobachten und davon Aufnahmen zu machen, die in einem nachfolgenden Schritt von einem Computer analysiert werden, detektiert der Gestikulaser mit Hilfe von Photodioden die infraroten Lichtsignale einer LED-Quelle, die von der Hand des Nutzers reflektiert werden, während er eine Geste macht. Die an den Photodioden gemessenen Photoströme werden dann an einen Computer weitergeleitet und dort in einer Software weiterverarbeitet, welche mit Hilfe eines zuvor antrainierten künstlichen neuronalen Netzes die tatsächliche Handgeste erkennt. Nach der Auswertung wird die erkannte Geste genutzt, um mit einem zuvor hinterlegten Befehl ein beliebiges Endgerät anzusteuern. Dieser Ablauf ist in \reffig{fig:AblaufGestikulaser} dargestellt.
-
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=9cm]{../figures/AblaufGestikulaser.png}
+	\includegraphics[width=15cm]{../figures/AblaufGestikulaser2.jpg}
 	\caption{Schmatische Darstellung der Gestenerkennung mit dem Gestikulaser.}
 	\label{fig:AblaufGestikulaser}
 \end{figure}
-
-
 Der Gestikulaser besteht aus mehreren Modulen, die über USB-Steckverbindungen mit einander verbunden werden können. Jedes Steckmodule besteht aus einer einzelnen kleinen Box, in welche die Elektronik integriert ist. Das Herzstück des Gastikulasers bildet der \textit{Oktokommander} (siehe auch \refsec{sec:Oktokommander}), der zugleich die Schnittstelle zu dem Computer bereitstellt, in dem die eigentliche Gestenerkennung erfolgt. An ihn können in der aktuellen ersten Version bis zu sieben \textit{Detektormodule} (siehe auch \refsec{sec:Detektormodul}) angesteckt werden. Auf jedem dieser Module befinden sich die Photodioden, um das reflektierte Licht zu messen. 
-
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=9cm]{../CAD_Bilder/Gestikulaser_raytraced_2.png}
@@ -25,42 +21,47 @@ Der Gestikulaser besteht aus mehreren Modulen, die über USB-Steckverbindungen m
 \section{Oktokommander}
 \label{sec:Oktokommander}
 
-Die zentrale Elektronik Einheit des Oktokommanders bildet ein Arduino Micro, der die übrigen Komponenten des elektrischen Schaltkreises über einen I2C Bus ansteuert. Für die Übertragung der Sensordaten ist er über ein Datenkabel mit einem Computer verbunden, wodurch zugleich die Stromversorgung des Schaltkreises sichergestellt wird. Die I2C Bus Verbindung benötigt lediglich 2 Pins auf dem Arduino, SDA für die eigentliche Datenverbindung und SCL für den vom Arduino vorgegebenen Takt. Die Ansteuerung jedes einzelnen Sensors erfolgt über eine, im System einzigartige, Hardware Adresse (I2C-Adresse). Mit den eingesetzten I2C Expandern lassen sich maximal 4 I2C Adressen erzeugen. Jeder I2C Expander verfügt dabei über 4 Pins, über die die verschiedenen Sensoren angesteuert und ausgelesen werden können. Auf diese Weise könnten maximal 16 Photodioden für die Detektion der von der Hand des Nutzers reflektierten Infrarot Strahlung der LEDs verwendet werden. Um ein Rahmenwerk zur Erkennung von möglichst vielen verschiedenen Gesten zu schaffen, ist eine große Anzahl von Photodioden nützlich. Aus diesem Grund wird ein zusätzlicher I2C Multiplexer in den Oktokommander eingebaut. Der Multiplexer erhöht die Anzahl der verwendbaren I2C Expandermodulen und damit letztendlich auch die Anzahl der verwendbaren Photodioden, indem er die erzeugten Adressen multiplext. Der verwendete Multiplexer kann 8 verschiedene Adressen erzeugen, die sich nicht mit den Adressen der I2C Expander überlagern und besitzt je 8 SDA und SCL Pins, an denen die I2C Expander angeschlossen werden. In der Theorie lassen sich damit bis zu 1024 Sensoren über einen Mikrocontroller ansteuern. Für den Gestikulaser beschränken wir uns auf die Verwendung eines einzelnen Multiplexers, wodurch wir bis zu 128 Photodioden zur Detektion der reflektierten Strahlung verwenden können.
-\begin{figure}[h]
+Die zentrale Elektronik Einheit des Oktokommanders bildet ein Arduino Micro, der die übrigen Komponenten des elektrischen Schaltkreises über einen I2C Bus ansteuert. Für die Übertragung der Sensordaten ist er über ein Datenkabel mit einem Computer verbunden, wodurch zugleich die Stromversorgung des Schaltkreises sichergestellt wird. Die I2C Bus Verbindung benötigt lediglich 2 Pins auf dem Arduino, SDA für die eigentliche Datenverbindung und SCL für den vom Arduino vorgegebenen Takt. Die Ansteuerung jedes einzelnen Sensors erfolgt über eine, im System einzigartige, Hardware Adresse (I2C-Adresse). Mit den eingesetzten I2C Expandern lassen sich maximal 4 I2C Adressen erzeugen. Jeder I2C Expander verfügt dabei über 4 Pins, über die die verschiedenen Sensoren angesteuert und ausgelesen werden können. Auf diese Weise könnten maximal 16 Photodioden für die Detektion der von der Hand des Nutzers reflektierten Infrarot Strahlung der LEDs verwendet werden. Um ein Rahmenwerk zur Erkennung von möglichst vielen verschiedenen Gesten zu schaffen, ist eine große Anzahl von Photodioden nützlich. Aus diesem Grund wird ein zusätzlicher I2C Multiplexer in den Oktokommander eingebaut. Der Multiplexer erhöht die Anzahl der verwendbaren I2C Expandermodulen und damit letztendlich auch die Anzahl der verwendbaren Photodioden, indem er die erzeugten Adressen multiplext. Der verwendete Multiplexer kann 8 verschiedene Adressen erzeugen, die sich nicht mit den Adressen der I2C Expander überlagern und besitzt je 8 SDA und SCL Pins, an denen die I2C Expander angeschlossen werden. In der Theorie lassen sich damit bis zu 1024 Sensoren über einen Mikrocontroller ansteuern. Für den Gestikulaser beschränken wir uns auf die Verwendung eines einzelnen Multiplexers, wodurch wir bis zu 128 Photodioden zur Detektion der reflektierten Strahlung verwenden können. 
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5]{../figures/oktokommander2.jpg}
-	\caption{Schematischer Aufbau des Oktokommanders bestehend aus einem Arduino einem I2C Multiplexer, einem I2C Expander und einem Detektormodul}
+	\caption{Schematischer Aufbau des Oktokommanders bestehend aus einem Arduino einem I2C Multiplexer, einem I2C Expander und einer Verstärkerschaltung.}
 	\label{fig:SchaltungOktokommander}
 \end{figure}
-%%% einen satz schreiben
+\noindent
+Eine schematische Übersicht über die Verschaltung der im Oktokommander untergebrachten Elektronik ist in \reffig{fig:SchaltungOktokommander} dargestellt. Im Folgenden wird der Aufbau des Oktokommanders näher erläutert.
 
 
 \subsubsection*{Konstruktion}
 Die Unterbringung der Elektronik im Oktokommander erfolgt über drei sogenannte \textit{Stages}. Die Stages werden im Oktokommander übereinander angeordnet. Stage 1 ist in \reffig{fig:OktoStage1} dargestellt. Es handelt sich dabei um eine Platine, auf der der Arduino Micro, der I2C Multiplexer, ein I2C-Expander, die Stromversorgung und sieben female USB-2A-Schnittstellen zur Verbindung mit den Detektormodulen angebracht sind. Zugleich bildet sie die unterste Elektronikeinheit des Oktokommanders.
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=9cm]{../CAD_Bilder/OktagonElektronik_Stage1_raytraced.png}
 	\caption{Stage 1 des Oktokommanders, auf der die wichtigsten Elektronik Bauteile untergebracht sind.}
 	\label{fig:OktoStage1}
 \end{figure}
-Die LED-Einheit zur Lichterzeugung wird auf einer weiteren Plattform befestigt, die über der ersten Stage positioniert wird. Diese zweite Stage ist in \reffig{fig:OktoStage2} dargestellt. Die LED-Einheit besteht aus vier LEDs, die zusammen mit Parabolzylindern, die das von den LEDs emittierte Licht etwas nach oben fokussieren sollen, auf einen Kühlkörper geklebt werden. Zudem befinden sich die LED-Treiber auf der dieser Stage, die eine externe Stromversorgung der LEDs durch ein Netzteil ermöglichen. Die Aufnahme der LED-Einheit besteht aus einer dünnen Aluminiumplatte für den Wärmeabtransport. Die Bohrungen in der Aluminiumplatte dienen lediglich zur Durchführung der Kabel zur unteren Stage 1. 
-\begin{figure}[h]
+\noindent
+Die LED-Einheit zur Lichterzeugung wird auf einer weiteren Plattform befestigt, die über der ersten Stage positioniert wird. Diese zweite Stage ist in \reffig{fig:OktoStage2} dargestellt. Die LED-Einheit besteht aus vier LEDs, die zusammen mit Parabolzylindern, die das von den LEDs emittierte Licht etwas nach oben fokussieren sollen, auf einen Kühlkörper geklebt werden. Zudem befinden sich die LED-Treiber auf dieser Stage, die eine externe Stromversorgung der LEDs durch ein Netzteil ermöglichen. Die Aufnahme der LED-Einheit besteht aus einer dünnen Aluminiumplatte für den Wärmeabtransport. Die Bohrungen in der Aluminiumplatte dienen lediglich zur Durchführung der Kabel zur unteren Stage 1. 
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=9cm]{../CAD_Bilder/OktagonElektronik_Stage2_raytraced.png}
 	\caption{Stage 2 des Oktokommanders mit den Infrarot-LEDs, die im Betrieb die Hand des Nutzers anstrahlen.}
 	\label{fig:OktoStage2}
 \end{figure}
+\newpage
+\noindent
 Die oberste Stage 3 trägt vier Photodioden. Das additiv aus ABS-Kunststoff gefertigte Bauteil ist in \reffig{fig:OktoStage3} dargestellt.
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=9cm]{../CAD_Bilder/OktagonElektronik_Stage3_raytraced.png}
 	\caption{Stage 3 des Oktokommanders, auf der vier Photodioden untergebracht sind, damit auch Reflektionen, die die Mitte des Gestikulasers treffen, detektiert werden können.}
 	\label{fig:OktoStage3}
 \end{figure}
+\noindent
 Die drei Stages werden im Gehäuse des Oktokommanders aufgenommen. In \reffig{fig:OktoZusammenbau} ist das Gehäuse mit dem Deckel und der Elektronik des Oktokommanders dargestellt. Der Deckel und das Gehäuse des Oktokommanders werden ebenfalls additiv aus ABS-Kunststoff gefertigt.
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=9cm]{../CAD_Bilder/Oktokommander_raytraced.png}
+	\includegraphics[width=12cm]{../CAD_Bilder/Oktokommander_raytraced.png}
 	\caption{Explosionsdarstellung des Oktokommanders.}
 	\label{fig:OktoZusammenbau}
 \end{figure}
@@ -77,12 +78,13 @@ Die Hauptaufgabe der Detektormodule ist es, die Elektronik bereitzustellen, die 
 
 \subsubsection*{Auslegung der Verstärkerschaltung}
 Die Verstärkerschaltung besteht aus zwei sogenannten Transimpedanzverstärkern. Diese setzen sich zusammen aus einem Operationsverstärker vom Typ LM358, je zwei Widerständen und Kondensatoren, sowie zwei Infrarot-Photodioden. Eine schematische Darstellung des Transimpedanzverstärkers ist in \reffig{fig:Transimpedanz} dargestellt.
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.75]{../figures/Transimpedanz.png}
 	\caption{Schematische Darstellung des Transimpedanzverstärkersystems im Detektormodul}
 	\label{fig:Transimpedanz}
 \end{figure}
+\noindent
 Die Photodiode fungiert darin als Konstantstromquelle, die einen kleinen Strom an das System abgibt. Mit Hilfe des Widerstandes $R_1$ und des Kondensators $C_1$ kann der Operationsverstärker (LM358) eine vom Mikrocontroller verarbeitbare hohe Spannung ausgeben. Wichtig ist hier die möglichst genaue Wahl der Kapazität $C_1$, ohne die das System anfangen würde zu Schwingen. Es gilt:
 \begin{align*}
 	C_1 = \sqrt{\frac{C_I}{R_1 \cdot GBP}}
@@ -91,34 +93,34 @@ Hierbei steht $GBP$ für \textit{Gain Bandwidth Product}. Das ist diejenige Freq
 \begin{align*}
 	f_{\unit[3]{dB}} = \sqrt{\frac{GBP}{2\pi \cdot R_1 \cdot C_I}}
 \end{align*}
-Für unser System liegt die Bandbreite bei etwa $\unit[73]{kHz}$. Dies ist auch die Grenzfrequenz des Verstärkersystems. Die Grenzfrequenz ist die Frequenz bei der die Verstärkung auf den $\frac{1}{\sqrt{2}}$ fachen Wert der maximalen Verstärkung gesunken ist und bei der die Hälfte der maximalen Leistung an einen rein Ohm'schen Verbraucher abgegeben wird.
+Für unser System liegt die Bandbreite bei etwa $\unit[73]{kHz}$. Das ist auch die Grenzfrequenz des Verstärkersystems. Die Grenzfrequenz ist diejenige Frequenz, bei der die Verstärkung auf den $\frac{1}{\sqrt{2}}$-fachen Wert der maximalen Verstärkung gesunken ist und bei der die Hälfte der maximalen Leistung an einen rein Ohm'schen Verbraucher abgegeben wird.
 
 
 \subsubsection*{Konstruktion}
 Die wesentlichen Bestandteile des Detektormoduls sind eine Platine, die die Elektronik aufnimmt, und eine weitere Stage für die Photodioden zur Detektion des reflektierten Lichts. Auch hier werden, ähnlich wie beim Oktokommander, die Stages übereinander angeordnet. In \reffig{fig:DetektorStage1} ist Stage 1 des Detektormoduls dargestellt. Dabei handelt es sich um eine Platine mit dem male USB-Stecker, dem I2C-Expander und der Verstärkerschaltung.
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=9cm]{../CAD_Bilder/DetektorElektronik_Stage1_raytraced.png}
 	\caption{Stage 1 des Detektormoduls, bestehend aus einem I2C Expander und einer Verstärkerschaltung.}
 	\label{fig:DetektorStage1}
 \end{figure}
+\noindent
 Darüber wird die zweite Stage angeordnet. Diese additiv aus ABS-Kunststoff gefertigte Stage erlaubt die Unterbringung der vier Photodioden und ist in \reffig{fig:DetektorStage2} dargestellt. Vom Aufbau her ist sie vergleichbar mit Stage 3 des Oktokommanders.
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=9cm]{../CAD_Bilder/Detektormodul_Stage2_raytraced.png}
 	\caption{Stage 2 des Detektormoduls zur Unterbringung der Photodioden.}
 	\label{fig:DetektorStage2}
 \end{figure}
+\noindent
 Das vollständige Detektormodul ist in \reffig{fig:DetektorZusammenbau} dargestellt. Auch das Gehäuse und der Deckel des Detektormoduls werden additiv aus ABS-Kunststoff gefertigt.
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=9cm]{../CAD_Bilder/Detektormodul_raytraced.png}
+	\includegraphics[width=11cm]{../CAD_Bilder/Detektormodul_raytraced.png}
 	\caption{Explosionsdarstellung des Detektormoduls.}
 	\label{fig:DetektorZusammenbau}
 \end{figure}
-
-
-
+\noindent
 Aktuell bietet der Oktokommander Ports für die Verbindung mit bis zu sieben Detektormodulen. Zusammen bilden der Oktokommander und die Detektormodule die Hardware des Gestikulasers. Der Zusammenbau der Detektormodule mit dem Oktokommander ist \reffig{fig:GestikulaserModular} und \reffig{fig:GestikulaserKombiniert} dargestellt.
 \begin{figure}[h]
 	\centering
