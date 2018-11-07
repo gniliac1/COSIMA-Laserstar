@@ -13,7 +13,6 @@
 \usepackage{titling}
 \usepackage[figure]{hypcap}
 \usepackage{subcaption}
-\usepackage{tabularx}
 \usepackage[official]{eurosym} % for €
 \usepackage{units} % for correct spacing when using units
 \usepackage{siunitx} % for tabular option S
@@ -47,6 +46,12 @@
 %          {headheight}{headsep}{footheight}{footskip}
 \setmarginsrb{35mm}{20mm}{25mm}{20mm} % 
 			 {0mm}{10mm}{0mm}{10mm}
+			 
+% Tabellen --------------------------------------------------------------------
+\usepackage{tabularx}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % linksbündig mit Breitenangabe
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % zentriert mit Breitenangabe
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % rechtsbündig mit Breitenangabe
 			 
 % Datum ------------------------------------------------------------------------
 %	Diese Definition wird benötigt um auf der Titelseite nur Monat und Jahr aus-
