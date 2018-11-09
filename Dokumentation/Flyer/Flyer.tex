@@ -29,16 +29,16 @@
 	}
 }
 
-\AddToBackground{3}{%  Background of a small page
-	\put(0,0){
-		\textcolor{rwth-llblue}{\rule{\paperwidth}{\paperheight}}
-	}
-}
-\AddToBackground{4}{%  Background of a small page
-	\put(0,0){
-		\textcolor{rwth-llblue}{\rule{\paperwidth}{\paperheight}}
-	}
-}
+%\AddToBackground{3}{%  Background of a small page
+%	\put(0,0){
+%		\textcolor{rwth-llblue}{\rule{\paperwidth}{\paperheight}}
+%	}
+%}
+%\AddToBackground{4}{%  Background of a small page
+%	\put(0,0){
+%		\textcolor{rwth-llblue}{\rule{\paperwidth}{\paperheight}}
+%	}
+%}
 
 %\CutLine{6}
 
@@ -52,8 +52,11 @@
 
 \includegraphics[height=1.25cm]{../Logos/Cosima18.png}
 
-\bfseries\Huge
-Der Gestikulaser
+\vfill
+
+%\bfseries\Huge
+%Der Gestikulaser
+\includegraphics[scale=0.25]{../Logos/GestikulaserSchriftzugOhneHut.png}
 
 \vfill
 
@@ -65,7 +68,7 @@ Der Gestikulaser
 \end{tabular}
 
 \vfill
-\includegraphics[scale=0.25]{../Logos/gestikulaser.png}
+\includegraphics[scale=0.25]{../Logos/GestikulaserLogoBuntOhneSchrift.png}
 \vfill
 
 \begin{tabular}{c}
@@ -73,13 +76,14 @@ Der Gestikulaser
 	Christoph Behr \\
 	Cailing Fu \\
 	Nicole Grubert \\
+	Anna Pryadun \\
 	Daniel Wolff
 \end{tabular}
 
+%\vspace{2.5cm}
 \vfill
 
-\includegraphics[height=1.25cm]{../Logos/TOS.png}
-%\includegraphics[height= 1.5cm]{../Logos/ILT.png}
+\includegraphics[height=1.25cm]{../Logos/TOS.eps}
 
 \end{center}
 
@@ -98,9 +102,10 @@ Der Gestikulaser
 	Der Gestikulaser ist ein intelligentes System zur Gestenerkennung. Sie basiert auf Lichtreflextionen der Hand, wodurch benutzerdefinierte Gesten gelernt und
 	erkannt werden sollen. 
 
-	\begin{flushright}
-		\includegraphics[scale=0.2]{../Logos/gestikulaser.png}
-	\end{flushright}
+	%\begin{flushright}
+		\centering
+		\includegraphics[scale=0.3]{../CAD_Bilder/Oktokommander_raytraced.png}
+	%\end{flushright}
 \end{minipage}
 
 \textcolor{rwth-lblue}{\noindent\rule{\textwidth}{4pt}}
@@ -116,7 +121,7 @@ Der Gestikulaser
 	\end{itemize}
 \end{minipage}
 
-\newpage
+\clearpage
 
 
 %%%%%%%%%%%%%%%%%%
@@ -124,12 +129,27 @@ Der Gestikulaser
 %%%%%%%%%%%%%%%%%%
 
 % Macht eine Doppelseite
-\makebox[\linewidth][l]{\begin{minipage}[c][\textheight][s]{2.2\linewidth}
+\makebox[\linewidth][l]{
+	\begin{minipage}{2.2\linewidth}
 
-\section{Funktionsweise} 
-\textcolor{red}{Wie benutzt man den Gestikulaser? Was wird derzeit damit gesteuert?}
+		\section{Funktionsweise} 
+		%\textcolor{red}{Wie benutzt man den Gestikulaser? Was wird derzeit damit gesteuert?}
+		
+		\begin{tikzpicture}
+		
+			\clip (0,0) rectangle (17,-18);
+			
+			\draw[help lines] (0,0) grid (17,-18);
+			
+			\node[inner sep=0pt] (one) at (3,-5) {\includegraphics[scale=0.25]{../CAD_Bilder/Flyer_Bilder/IMG_1344.png}};
+			\node[inner sep=0pt] (two) at (13,-6) {\includegraphics[scale=0.25]{../CAD_Bilder/Flyer_Bilder/IMG_1342.png}};
+			\node[inner sep=0pt] (three) at (13,-15) {\includegraphics[scale=0.25]{../CAD_Bilder/Flyer_Bilder/IMG_1340.png}};
+			\node[inner sep=0pt] (four) at (4,-14) {\includegraphics[scale=0.25]{../CAD_Bilder/Flyer_Bilder/IMG_1341.png}};
+		\end{tikzpicture}
+		%
 
-\end{minipage}}
+	\end{minipage}
+}
 
 % Eine leere Seite (nötig wegen der Doppelseite)
 \newpage
@@ -171,7 +191,7 @@ Der Gestikulaser
 	\section{Das Team}
 	\begin{description}
 		\item[Projektleitung] Cailing Fu
-		\item[Teammitglieder] Christoph Behr, Nicole Grubert, Daniel Wolff
+		\item[Teammitglieder] Christoph Behr, Nicole Grubert, Anna Pryadun, Daniel Wolff
 	\end{description}
 
 	\section{Kontakt}
@@ -189,15 +209,15 @@ Der Gestikulaser
 \begin{minipage}[c][0.45\textheight][t]{\textwidth}
 	\begin{center}
 		\section{Sponsoren und Unterstützer}
-		\vspace{1cm}
-		\includegraphics[height= 1cm]{../Logos/ILT.png} \\ \vspace{0.3cm}
-		\includegraphics[height= 1.5cm]{../Logos/Wuerth.png} \\ \vspace{0.3cm}
-		\includegraphics[height= 1cm]{../Logos/aconity.png} \\ \vspace{0.3cm}
-		\includegraphics[height= 1.5cm]{../Logos/BMBF.png} \\ \vspace{0.3cm}
-		%\includegraphics[height= 0.5cm]{../Logos/Faulhaber.png} \\ \vspace{0.3cm}
-		%\includegraphics[height= 1.5cm]{../Logos/micronit.jpg} \\ \vspace{0.3cm}
-		\includegraphics[height= 1cm]{../Logos/electronica.png} \\ \vspace{0.3cm}
-		\includegraphics[height= 0.8cm]{../Logos/VDE.png}
+		\vspace{0.7cm}
+		\includegraphics[height=1.25cm]{../Logos/Fraunhofer_ILT_klein.png} \\ \vspace{0.3cm}
+		\includegraphics[height=1.25cm]{../Logos/Wuerth.png} \\ \vspace{0.3cm}
+		\includegraphics[height=1.25cm]{../Logos/AC3D_Logo_Print-for-white.eps} \\ \vspace{0.3cm}
+		\includegraphics[height=1.25cm]{../Logos/BMBF.png} \\ \vspace{0.3cm}
+		%\includegraphics[height=0.5cm]{../Logos/Faulhaber.png} \\ \vspace{0.3cm}
+		%\includegraphics[height=1.5cm]{../Logos/micronit.jpg} \\ \vspace{0.3cm}
+		\includegraphics[height=1cm]{../Logos/electronica.png} \\ \vspace{0.3cm}
+		\includegraphics[height=0.8cm]{../Logos/VDE.png}
 	\end{center}
 \end{minipage}
 
