@@ -11,7 +11,10 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage[utf8]{inputenc} 
+
 \usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+\usetikzlibrary{positioning,arrows}
 
 \renewcommand*{\sectfont}{\scshape}
 \renewcommand*{\descfont}{\bfseries\scshape}
@@ -23,24 +26,18 @@
 \AddToBackground{1}{%
 	\put (0,0) {
 		\begin{tikzpicture}
-			%\path[fill=Thistle1,draw=Thistle4,double=Orchid1,line width=2pt] (0,0) rectangle ($(\paperwidth, \paperheight)-(4pt,4pt)$);
 			\shadedraw[inner color=white,outer color=gray!20!white,draw=rwth-blue] (0,0) rectangle ($(\paperwidth, \paperheight)-(4pt,0pt)$);
 		\end{tikzpicture}
 	}
 }
 
-%\AddToBackground{3}{%  Background of a small page
-%	\put(0,0){
-%		\textcolor{rwth-llblue}{\rule{\paperwidth}{\paperheight}}
-%	}
-%}
-%\AddToBackground{4}{%  Background of a small page
-%	\put(0,0){
-%		\textcolor{rwth-llblue}{\rule{\paperwidth}{\paperheight}}
-%	}
-%}
-
-%\CutLine{6}
+\AddToBackground{3}{%  Background of a small page
+	\put(0,0){
+		\begin{tikzpicture}
+			\draw[fill=rwth-llblue] (0,0) rectangle ($(2*\paperwidth, \paperheight)-(4pt,0pt)$);
+		\end{tikzpicture}
+	}
+}
 
 %%% Document start -------------------------------------------------------------------------
 \begin{document}
@@ -54,8 +51,7 @@
 
 \vfill
 
-%\bfseries\Huge
-%Der Gestikulaser
+% Schriftzug
 \includegraphics[scale=0.25]{../Logos/GestikulaserSchriftzugOhneHut.png}
 
 \vfill
@@ -63,8 +59,10 @@
 \normalsize
 
 \begin{tabular}{c}
-	Ein Projekt im Rahmen des \\
-	COSIMA-Wettbewerbs 2018
+	%Ein Projekt im Rahmen des \\
+	%COSIMA-Wettbewerbs 2018
+	Die neue Möglichkeit \\
+	der Gestenerkennung
 \end{tabular}
 
 \vfill
@@ -80,7 +78,6 @@
 	Daniel Wolff
 \end{tabular}
 
-%\vspace{2.5cm}
 \vfill
 
 \includegraphics[height=1.25cm]{../Logos/TOS.eps}
@@ -96,28 +93,35 @@
 %%%%%%%%%%%%%%%%%%%
 
 \noindent
-\begin{minipage}[c][0.45\textheight][t]{\textwidth}
+\begin{minipage}[c][0.58\textheight][t]{\textwidth}
+
 	\section{Der Gestikulaser}
 
-	Der Gestikulaser ist ein intelligentes System zur Gestenerkennung. Sie basiert auf Lichtreflextionen der Hand, wodurch benutzerdefinierte Gesten gelernt und
-	erkannt werden sollen. 
+	Der Gestikulaser stellt eine neue Art der Gestenerkennung dar. Dabei wird die Hand des Nutzers, während er eine Geste macht, von Infrarot-LEDs beleuchtet und 
+	das reflektierte IR-Licht mit Hilfe von Photodioden detektiert. Das entstandene Reflektionsmuster wird dann von einem neuronalen Netzmodell ausgewertet und 
+	einer Geste zugeordnet. 
+	
+	\vspace{0.5cm}
 
-	%\begin{flushright}
-		\centering
-		\includegraphics[scale=0.3]{../CAD_Bilder/Oktokommander_raytraced.png}
-	%\end{flushright}
+	\centering
+	\includegraphics[scale=0.3]{../CAD_Bilder/Oktokommander_raytraced.png}
+	
+	\vfill
+	
 \end{minipage}
 
 \textcolor{rwth-lblue}{\noindent\rule{\textwidth}{4pt}}
 
 \noindent
-\begin{minipage}[c][0.45\textheight][t]{\textwidth}
+\begin{minipage}[c][0.32\textheight][t]{\textwidth}
 	\begin{itemize}
-		\item Intelligenzes System zur Gestensteuerung
-		\item Tag und Nacht verwendbar
-		\item Individuell auf die Geste des Nutzers abgestimmt
-		\item Portabel durch innovatives Stecksystem
-		\item Schnittstelle für jedes Bluetooth Endgerät
+		\item Robust gegenüber Umgebungslicht durch Verwendung von IR-Licht 
+		\item Tag und Nacht einsatzbereit
+		\item Portabel durch modulares Stecksystem
+		\item Individuell auf die Geste des Nutzers anpassbar
+		\item geringer Energieverbrauch durch Verwendung von rudimentären elektronischen Bauteilen
+		\item plattformunabhängige Software
+		\item Steuerung von Bluetooth-fähigen Endgeräten
 	\end{itemize}
 \end{minipage}
 
@@ -133,20 +137,37 @@
 	\begin{minipage}{2.2\linewidth}
 
 		\section{Funktionsweise} 
-		%\textcolor{red}{Wie benutzt man den Gestikulaser? Was wird derzeit damit gesteuert?}
 		
-		\begin{tikzpicture}
+		\begin{tikzpicture}[fill=rwth-blue,ultra thick]
 		
-			\clip (0,0) rectangle (17,-18);
+			\tikzstyle{myarrows}=[line width=1mm,draw=rwth-blue,-triangle 45,postaction={draw, line width=3mm, shorten >=4mm, -}]
+		
+			\clip (0,0) rectangle (18,-18);
 			
-			\draw[help lines] (0,0) grid (17,-18);
+			%\draw[help lines] (0,0) grid (18,-18);
 			
-			\node[inner sep=0pt] (one) at (3,-5) {\includegraphics[scale=0.25]{../CAD_Bilder/Flyer_Bilder/IMG_1344.png}};
-			\node[inner sep=0pt] (two) at (13,-6) {\includegraphics[scale=0.25]{../CAD_Bilder/Flyer_Bilder/IMG_1342.png}};
-			\node[inner sep=0pt] (three) at (13,-15) {\includegraphics[scale=0.25]{../CAD_Bilder/Flyer_Bilder/IMG_1340.png}};
-			\node[inner sep=0pt] (four) at (4,-14) {\includegraphics[scale=0.25]{../CAD_Bilder/Flyer_Bilder/IMG_1341.png}};
+			\node[above,align=center] (Text1) at (3,-3) { 1) \textbf{Steckmodule} ermöglichen \\ einen leichten Transport \\ und Aufbau };
+			\node[below] (Bild1) at (3,-3) {\includegraphics[scale=0.25]{../CAD_Bilder/Flyer_Bilder/IMG_1344.png}};
+			
+			\node[above,align=center] (Text2) at (13,-2.5) { 2) \textbf{Erkennen} einer \\ Handgeste durch \\ Detektion von \\ Lichtreflektionen };
+			\node[below] (Bild2) at (13,-2.5) {\includegraphics[scale=0.25]{../CAD_Bilder/Flyer_Bilder/IMG_1342.png}};
+			
+			\node[above,align=center] (Text3) at (13.5,-12) { 3) Interpretation der \\ Reflexionsmuster \\ mit Hilfe eines \\ \textbf{Machine Learning} \\ Algorithmus };
+			\node[below] (Bild3) at (14,-12) {\includegraphics[scale=0.25]{../CAD_Bilder/Flyer_Bilder/IMG_1340.png}};
+			
+			\node[above,align=center] (Text4) at (4,-13) { 4) \textbf{Steuern} eines Endgeräts };
+			\node[below] (Bild4) at (4,-13) {\includegraphics[scale=0.25]{../CAD_Bilder/Flyer_Bilder/IMG_1341.png}};
+			
+			\path[myarrows]
+    			(Bild1) edge[bend left] node {} (Bild2);
+    			
+    		\path[myarrows]
+    			(Bild2) edge[bend left] node {} (Bild3);
+			
+			\path[myarrows]
+    			(Bild3) edge[bend left] node {} (Bild4);
+			
 		\end{tikzpicture}
-		%
 
 	\end{minipage}
 }
@@ -164,8 +185,13 @@
 
 \noindent
 \begin{minipage}[c][0.45\textheight][t]{\textwidth}
+	
 	\section{Unsere Zukunftsvision}
-	\textcolor{red}{Was kann noch verbessert werden und was ist unsere Vorstellung?}
+	
+	\centering
+	\includegraphics[scale=0.25]{../figures/AblaufGestikulaser3.jpg}
+	%\textcolor{red}{Was kann noch verbessert werden und was ist unsere Vorstellung?}
+	
 \end{minipage}
 
 \textcolor{rwth-lblue}{\noindent\rule{\textwidth}{4pt}}
@@ -173,9 +199,10 @@
 \noindent
 \begin{minipage}[c][0.45\textheight][t]{\textwidth}
 	\begin{itemize}
-		\item Automatisches Lernen dank eines Sensorhandschuhs
-		\item Auf beliebige Größe erweiterbar
-		\item Individuelles Muster dank beliebig kombinierbares Stecksystem
+		\item Verfeinerung der Gestenerkennung durch Verwendung eines Sensorhandschuhs in der Anlernphase
+		\item Erkennung dynamischer Gesten
+		\item Erzeugung eines individuellen Muster dank eines beliebig kombinierbaren Stecksystem
+		\item Betrieb aus größerer Entfernung durch Verwendung von Laserlicht oder Lichtpulsen mit höherer Intensität
 	\end{itemize}
 \end{minipage}
 
