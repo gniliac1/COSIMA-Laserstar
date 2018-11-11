@@ -65,5 +65,5 @@ void loop(void)
   Serial.print("Modul 2 Sensor 3 - "); Serial.println(adc13);
   Serial.println("");
   
-  delay(500);
+  delay(2000);
 }
