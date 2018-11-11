@@ -81,13 +81,13 @@ Mit dem Gestikulaser haben wir ein neues Gestenerkennungssystem entwickelt, um s
 \noindent
 \textbf{Software}
 \begin{itemize}
-	\item Auslesen der Sensordaten über den Mikrocontroller und Kommunikation mit dem externen Computer
+	\item Verarbeiten der Sensordaten im Mikrocontroller und Kommunikation mit dem externen Computer
 	\item Aufbau und Training eines neuronalen Netzmodells zur Erkennung der Gesten
 \end{itemize}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=1.3]{../figures/AblaufGestikulaser.png}
+	\includegraphics[scale=1.25]{../figures/tikz/GestikulaserAblauf.pdf}
 	\caption{Schematischer Darstellung der Funktionsweise des Gestikulasers.}
 	\label{fig:FunktionsweiseGestikulaser}
 \end{figure}
@@ -97,14 +97,14 @@ Mit dem Gestikulaser haben wir ein neues Gestenerkennungssystem entwickelt, um s
 \section{Die Beta-Version}
 
 \begin{itemize}
-	\item Anordnung der Photodioden in einem festgelegten Muster
+	\item Anordnung der Photodioden auf einer Pressspanplatte in einem festgelegten Muster
 	\item Arduino Uno zur Auswertung der Sensordaten
 	\item Maximal 16 Photodioden anschließbar
 \end{itemize}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.35]{../figures/PhotoplatteBeta.jpeg}
+	\includegraphics[scale=0.2]{../figures/PhotoplatteBeta.jpeg}
 	\caption{Die Beta-Version der Photoplatte: Die Elektronik ist auf einer Steckplatine untergebracht, die Photodioden sind fest in der Platte verbaut.}
 	\label{fig:PhotoplatteBeta}
 \end{figure} \\
@@ -136,14 +136,14 @@ Nachdem unsere Idee funktionierte, wollten wir nun unseren Gestikulaser modulare
 \section{Oktokommander}
 \noindent
 Der Oktokommander ist das Steuersystem der gesamten Photoplatte. Er enthält:
-\begin{itemize}
+\begin{enumerate}
 	\item Einen Arduino Micro
 	\item Einen I2C Multiplexer
 	\item Einen I2C AD-Wandler inklusive Verstärkerschaltung
 	\item Vier Photodioden
 	\item Vier infrarot LED Quellen
 	\item Sieben USB-Anschlüsse für die Detektormodule
-\end{itemize}
+\end{enumerate}
 
 \begin{figure}[h]
 	\centering
@@ -157,11 +157,11 @@ Der Oktokommander ist das Steuersystem der gesamten Photoplatte. Er enthält:
 \section{Detektormodul}
 \noindent
 Die Detektormodule sollen die Lichtreflexionen der Hand detektieren. Sie enthalten jeweils:
-\begin{itemize}
+\begin{enumerate}
 	\item Vier Photodioden 
 	\item Einen I2C AD-Wandler inklusive Verstärkerschaltung
 	\item Einen USB-Stecker zum Anschluss an den Oktokommander
-\end{itemize}
+\end{enumerate}
 
 \begin{figure}[h]
 	\centering
