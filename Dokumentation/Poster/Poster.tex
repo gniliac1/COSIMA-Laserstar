@@ -47,7 +47,7 @@
 
 % TOS Logo oben links
 \begin{textblock*}{60px}(0cm,0cm)
-	\includegraphics[height=4cm]{../Logos/TOS.eps}
+	\includegraphics[height=4cm]{../Logos/TOS-eps-converted-to.pdf}
 \end{textblock*}
 
 % COSIMA18 Logo oben rechts
@@ -126,7 +126,7 @@ Nachdem unsere Idee funktionierte, wollten wir nun unseren Gestikulaser modulare
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.8]{../CAD_Bilder/Gestikulaser/Gestikulaser_raytraced_2_beschriftet.png}
+	\includegraphics[scale=1.25]{../CAD_Bilder/Gestikulaser/Gestikulaser_beschriftet.png}
 	\caption{Die neue modulare Photoplatte setzt sich aus einem Oktokommander und bis zu sieben Detektormodulen zusammen.}
 	\label{fig:PhotoplatteAlpha}
 \end{figure}
@@ -135,19 +135,19 @@ Nachdem unsere Idee funktionierte, wollten wir nun unseren Gestikulaser modulare
 
 \section{Oktokommander}
 \noindent
-Der Oktokommander ist das Steuersystem der gesamten Photoplatte. Er enthält:
-\begin{enumerate}
-	\item Einen Arduino Micro
-	\item Einen I2C Multiplexer
-	\item Einen I2C AD-Wandler inklusive Verstärkerschaltung
-	\item Vier Photodioden
-	\item Vier infrarot LED Quellen
-	\item Sieben USB-Anschlüsse für die Detektormodule
-\end{enumerate}
+Der Oktokommander ist das Steuersystem der gesamten Photoplatte. %Er enthält:
+%\begin{enumerate}
+%	\item Einen Arduino Micro
+%	\item Einen I2C Multiplexer
+%	\item Einen I2C AD-Wandler inklusive Verstärkerschaltung
+%	\item Vier Photodioden
+%	\item Vier infrarot LED Quellen
+%	\item Sieben USB-Anschlüsse für die Detektormodule
+%\end{enumerate}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.5]{../CAD_Bilder/Oktokommander/Oktokommander_raytraced.png}
+	\includegraphics[scale=1.25]{../CAD_Bilder/Oktokommander/Oktokommander_beschriftet.png}
 	\caption{Explosionsdarstellung des Oktokommanders.}
 	\label{fig:Oktokommander}
 \end{figure}
@@ -156,16 +156,16 @@ Der Oktokommander ist das Steuersystem der gesamten Photoplatte. Er enthält:
 
 \section{Detektormodul}
 \noindent
-Die Detektormodule sollen die Lichtreflexionen der Hand detektieren. Sie enthalten jeweils:
-\begin{enumerate}
-	\item Vier Photodioden 
-	\item Einen I2C AD-Wandler inklusive Verstärkerschaltung
-	\item Einen USB-Stecker zum Anschluss an den Oktokommander
-\end{enumerate}
+Die Detektormodule sollen die Lichtreflexionen der Hand detektieren. %Sie enthalten jeweils:
+%\begin{enumerate}
+%	\item Vier Photodioden 
+%	\item Einen I2C AD-Wandler inklusive Verstärkerschaltung
+%	\item Einen USB-Stecker zum Anschluss an den Oktokommander
+%\end{enumerate}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.5]{../CAD_Bilder/Detektormodul/Detektormodul_raytraced.png}
+	\includegraphics[scale=1.25]{../CAD_Bilder/Detektormodul/Detektormodul_beschriftet.png}
 	\caption{Explosionsdarstellung eines Detektormoduls.}
 	\label{fig:Detektormodul}
 \end{figure}
@@ -182,12 +182,12 @@ Die Kommunikation zwischen dem Mikrocontroller und dem Computer erfolgt über \t
 %\begin{figure}
 	\centering
 \textbf{Trainingsphase}\\
-\includegraphics[scale=1]{../figures/AblaufTraining.pdf}
+\includegraphics[scale=0.7]{../figures/Anlernphase.png}
 %\end{figure}
 \noindent
 \textbf{Live-Betrieb}\\
 %\begin{figure}
-\includegraphics[scale=1]{../figures/AblaufSteuerung.pdf}
+\includegraphics[scale=0.7]{../figures/LiveBetrieb.png}
 %\end{figure}
 
 %\begin{tikzpicture}
