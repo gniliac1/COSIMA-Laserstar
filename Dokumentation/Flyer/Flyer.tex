@@ -9,9 +9,9 @@
 \usepackage{wasysym}
 \usepackage{xcolor}
 \usepackage{graphicx}
-\usepackage{tikz}
-\usepackage[utf8]{inputenc} 
+\usepackage[utf8]{inputenc}
 
+\usepackage{tikz}
 \usetikzlibrary{calc}
 \usetikzlibrary{shapes}
 \usetikzlibrary{positioning,arrows}
@@ -97,9 +97,9 @@
 
 	\section{Der Gestikulaser}
 
-	Der Gestikulaser stellt eine neue Art der Gestenerkennung dar. Dabei wird die Hand des Nutzers, während er eine Geste macht, von Infrarot-LEDs beleuchtet und 
-	das reflektierte IR-Licht mit Hilfe von Photodioden detektiert. Das entstandene Reflektionsmuster wird dann von einem neuronalen Netzmodell ausgewertet und 
-	einer Geste zugeordnet. 
+	Der Gestikulaser repräsentiert eine neue, innovative Art der Gestenerkennung. Hierbei wird die Hand des Nutzers, während er eine Geste durchführt, von 
+	Infrarot-LEDs beleuchtet und das reflektierte IR-Licht mit Hilfe von Photodioden detektiert. Das aufgenommene Reflektionsmuster wird dann von einem neuronalen 
+	Netzmodell ausgewertet und einer Geste zugeordnet. 
 	
 	\vspace{0.5cm}
 
@@ -117,11 +117,11 @@
 	\begin{itemize}
 		\item Robust gegenüber Umgebungslicht durch Verwendung von IR-Licht 
 		\item Tag und Nacht einsatzbereit
-		\item Portabel durch modulares Stecksystem
+		\item Portabel und erweiterbar durch modulares Stecksystem
 		\item Individuell auf die Geste des Nutzers anpassbar
-		\item geringer Energieverbrauch durch Verwendung von rudimentären elektronischen Bauteilen
-		\item plattformunabhängige Software
-		\item Steuerung von Bluetooth-fähigen Endgeräten
+		\item Geringer Energieverbrauch durch Verwendung von sparsamen integrierten Stromkreisen und passiven Bauelementen
+		\item Plattformunabhängige Software
+		\item Steuerung von verschiedenen Endgeräten über drahtlose Schnittstellen
 	\end{itemize}
 \end{minipage}
 
@@ -146,7 +146,7 @@
 			
 			%\draw[help lines] (0,0) grid (18,-18);
 			
-			\node[above,align=center] (Text1) at (3,-3) { 1) \textbf{Steckmodule} ermöglichen \\ einen leichten Transport \\ und Aufbau };
+			\node[above,align=center] (Text1) at (3,-3) { 1) \textbf{Steckmodule} ermöglichen \\ einen leichten Transport, \\ Aufbau und Modularität };
 			\node[below] (Bild1) at (3,-3) {\includegraphics[scale=0.25]{../CAD_Bilder/Flyer_Bilder/IMG_1344.png}};
 			
 			\node[above,align=center] (Text2) at (13,-2.5) { 2) \textbf{Erkennen} einer \\ Handgeste durch \\ Detektion von \\ Lichtreflektionen };
@@ -184,24 +184,28 @@
 %%%%%%%%%%%%%%%%%%
 
 \noindent
-\begin{minipage}[c][0.45\textheight][t]{\textwidth}
+\begin{minipage}[c][0.58\textheight][t]{\textwidth}
 	
 	\section{Unsere Zukunftsvision}
 	
-	\centering
+	\centering	
+	
+	\vspace{0.5cm}
 	\includegraphics[scale=0.3]{../figures/Anlernphase.png}
-	%\textcolor{red}{Was kann noch verbessert werden und was ist unsere Vorstellung?}
+	
+	\vspace{0.5cm}
+	\includegraphics[scale=0.3]{../figures/Sensorhandschuh.png}
 	
 \end{minipage}
 
 \textcolor{rwth-lblue}{\noindent\rule{\textwidth}{4pt}}
 
 \noindent
-\begin{minipage}[c][0.45\textheight][t]{\textwidth}
+\begin{minipage}[c][0.32\textheight][t]{\textwidth}
 	\begin{itemize}
 		\item Verfeinerung der Gestenerkennung durch Verwendung eines Sensorhandschuhs in der Anlernphase
 		\item Erkennung dynamischer Gesten
-		\item Erzeugung eines individuellen Muster dank eines beliebig kombinierbaren Stecksystem
+		\item Erzeugung einer individuellen Photodioden Anordnung dank eines beliebig kombinierbaren Stecksystem
 		\item Betrieb aus größerer Entfernung durch Verwendung von Laserlicht oder Lichtpulsen mit höherer Intensität
 	\end{itemize}
 \end{minipage}
@@ -224,9 +228,9 @@
 	\section{Kontakt}
 	\begin{description}
 		\item[Kontaktperson] Cailing Fu 
-		\item[Adresse] Fraunhofer-Institut für Lasertechnik, Steinbachstraße 15, 52074 Aachen
+		\item[Adresse] Lehrstuhl für Technologie optischer Systeme, Steinbachstraße 15, 52074 Aachen
 		\item[Telefon] +49 176 43404702
-		\item[E-Mail] cailing.fu@rwth-aachen.de
+		\item[E-Mail] cailing.fu@tos.rwth-aachen.de
 	\end{description}
 \end{minipage}
 
@@ -237,14 +241,14 @@
 	\begin{center}
 		\section{Sponsoren und Unterstützer}
 		\vspace{0.7cm}
-		\includegraphics[height=1cm]{../Logos/Fraunhofer_ILT_klein.png} \\ \vspace{0.2cm}
-		\includegraphics[height=1cm]{../Logos/Wuerth.png} \\ %\vspace{0.3cm}
-		\includegraphics[height=1cm]{../Logos/AC3D_Logo_Print-for-white.eps} \\ \vspace{0.2cm}
-		\includegraphics[height=1cm]{../Logos/BMBF.png} \\ \vspace{0.2cm}
+		\includegraphics[height=1.5cm]{../Logos/Fraunhofer_ILT_klein.png} \\ \vspace{0.5cm}
+		\includegraphics[height=1.5cm]{../Logos/Wuerth.png} \\ \vspace{0.5cm}
+		\includegraphics[height=1.5cm]{../Logos/AC3D_Logo_Print-for-white.eps} \\ \vspace{0.5cm}
+		%\includegraphics[height=1cm]{../Logos/BMBF.png} \\ \vspace{0.2cm}
 		%\includegraphics[height=0.5cm]{../Logos/Faulhaber.png} \\ \vspace{0.3cm}
 		%\includegraphics[height=1.5cm]{../Logos/micronit.jpg} \\ \vspace{0.3cm}
-		\includegraphics[height=1cm]{../Logos/electronica.png} \\ \vspace{0.2cm}
-		\includegraphics[height=1cm]{../Logos/VDE.png}
+		%\includegraphics[height=1cm]{../Logos/electronica.png} \\ \vspace{0.2cm}
+		%\includegraphics[height=1cm]{../Logos/VDE.png}
 	\end{center}
 \end{minipage}
 
